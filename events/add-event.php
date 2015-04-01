@@ -1,10 +1,22 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
     $event=Events::find_by_id(1);
+    session_start();
+  
+    if(isset($_POST['evnt']))
+    {
+      $evnts=new Events();
+      $evnts->e_name = $_POST['name'];
+      $evnts->e_description = $_POST['description'];
+      $evnts->e_venue = $_POST['venue'];
+      $evnts->e_time = $_POST['time'];
+      $evnts->e_date = $_POST['date'];
+      $evnts->e_duration = $_POST['duration'];
+      $evnts->e_photo = "hi";
+      $evnts->create();
+    }
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -77,47 +89,71 @@
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage.php">Home</a>
+                    <a title="Home" href="../homepage2.php">Home</a>
+                </li>
+                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
+                    <a title="Profile" href="#">Profile</a>
                 </li>
 
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
+                
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
+                        <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                            <a title="addforum" href="../forums/add-forum.php">Add Forum</a>
                         </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
+                        <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21">
+                                <a title="forum" href="../forums/forums2.php">View Forum </a>
+                        </li>
+                    </ul>
+                </li>
+            
+                 <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
+                            <a title="addblog" href="../blog/add-blog1.php">Add a blog</a>
+                        </li>
+                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+                                <a title="viewblog" href="../blog/blog2.php">View Blogs</a>
                         </li>
                     </ul>
                 </li>
                 
-                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="../forums/forums.php">Forums</a>
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22 dropdown"><a title="Polling" href="#" data-toggle="dropdown" class="dropdown-toggle">Polling <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
+                            <a title="Addpoll" href="../polling/add-polling.php">Add Polling</a>
+                        </li>
+                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24">
+                                <a title="Poll" href="../polling/polling2.php">View Poll</a>
+                        </li>
+                    </ul>
                 </li>
-
-                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
-                    <a title="Blogs" href="../blog/blog.php">Blogs</a>
-                </li>
-                
-                <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="../polling/polling.php">Polling</a>
-                </li>
-                
-                <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="#">Events</a>
-                </li>
-                
+            
+            
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-25 dropdown"><a title="events" href="#" data-toggle="dropdown" class="dropdown-toggle">Events <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26">
+                            <a title="Addevent" href="../events/add-event.php">Add Event</a>
+                        </li>
+                        <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27">
+                                <a title="Event" href="../events/events2.php">View Event</a>
+                        </li>
+                    </ul>
+                </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="../tabbing/tabbing.php">Tabbing</a>
+                    <a title="Tabbing" href="../tabbing/tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate.php">Senate</a>
+                    <a title="Senate" href="../senate/senate2.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -125,84 +161,154 @@
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club2.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/front-page.php">Members</a>
+                    <a title="Members" href="../members/front-page2.php">Members</a>
                 </li>
             </ul>
     </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <li class="profile-info dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                      <?php   
+                        echo $_SESSION['u_name'];
+                      ?>
+                  </a>
+
+        
+                <ul class="dropdown-menu">
+          
+                    <li>
+                      <a href="../change-profile/edit-profile2.php">
+                        <i class="entypo-user"></i>
+                        Edit Profile
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="../change-profile/edit-password2.php">
+                        <i class="entypo-lock"></i>
+                        Edit Password
+                      </a>
+                    </li>
+              
+                    <li>
+                      <a href="../change-profile/upload-pic2.php">
+                        <i class="entypo-user"></i>
+                        Edit Picture
+                      </a>
+                    </li>
+
+                    <li>
+                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                    </li>
+              
+              </ul>
+            </li>
+          </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 
-                    <header class="wrap-title">
-            <div class="container">
-                <h1 class="page-title">Timeline</h1>
 
-            </div>
-        </header>
+                <header class="wrap-title">
+                    <div class="container">
+                        <h1 class="page-title">Add an event</h1>
 
-
-        <div class="container">
-
-                    <section>
-    <h3 class="timeline-title"><span>2015</span></h3>
-    <div class="row timeline">
-    <?php 
-        $event_array=Events::find_all();
-        $empty_even=0;
-        $empty_odd=0;
-        foreach($event_array as $event_obj)
-        {
-            if(($event_obj->e_id)%2!=0)
-            {
-                $empty_odd++;
-?>      
-          <div class="col-sm-6 timeline-left">
-            <div class="timeline-event timeline-event-left animated bounceInLeft animation-delay-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Event : <?php echo $event_obj->e_name ;?>  Date : <?php echo $event_obj->e_date ;?></div>
-                    <img src="../wp-content/uploads/2014/05/w1.jpg" alt="w1" width="800" height="533" class="img-responsive size-full wp-image-120" />
-                    <div class="panel-body">
-                        <p>Description : <?php echo $event_obj->e_description ;?></p>
                     </div>
-                    <div class="panel-heading">Time : <?php echo $event_obj->e_time ;?> Duration : <?php echo $event_obj->e_duration ;?> Venue : <?php echo $event_obj->e_venue ;?></div>
-                </div>
-            </div>    
-        </div>
+                </header>
 
-<?php
-            }
-            if(($event_obj->e_id)%2==0)
-            {
-                $empty_even++;
-?>
-    <div class="col-sm-6 timeline-right">
-            <div class="timeline-event timeline-event-right animated bounceInRight animation-delay-5">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Event : <?php echo $event_obj->e_name ;?>  Date : <?php echo $event_obj->e_date ;?></div>
-                    <img src="../wp-content/uploads/2014/05/w1.jpg" alt="w1" width="800" height="533" class="img-responsive size-full wp-image-120" />
-                    <div class="panel-body">
-                        <p>Description : <?php echo $event_obj->e_description ;?></p>
-                    </div>
-                    <div class="panel-heading">Time : <?php echo $event_obj->e_time ;?> Duration : <?php echo $event_obj->e_duration ;?> Venue : <?php echo $event_obj->e_venue ;?></div>
-                </div>
-            </div>
-            
+
+  <div class="panel-heading">
+    <div class="panel-title">Enter Details</div>
+    <div class="panel-options">
+      <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+    </div>
+  </div>
+  
+  <div class="panel-body">
+  
+    <form role="form" id="form1" method="post">
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Name :</label>
+        <br />
+        <div class="col-sm-5">
+          <input type="text" class="form-control" name="name" />  
         </div>
-<?php
-        }
-    }
-if(($empty_even==0)||($empty_odd==0))
-{
-    echo "Sorry,No events are scheduled";
-}
-?>
+      </div>
+      <br /><br /><br />
+      
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Description :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="description"  />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+  
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Venue :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="venue"  />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Time :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="time"  />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Duration : </label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="duration" />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Date : </label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="date" />
+        </div>
+      </div>
+      <br /><br /><br />
+
+     <label for="field-1" class="control-label" name="photo">Upload Picture : </label>
+      <form action = "upload-pic1.php" enctype = "multipart/form-data" method = "POST">
+            <p><input type = "file" name="abcd" /></p>
+            <input type = "submit" name = "submit" value = "Upload" />
+      </form>
+      <div class="form-group">
+        <button type="submit" name="evnt" class="btn btn-success">Add Event</button>
+        <button type="button" class="btn" onClick="window.location.assign('../homepage2.php')">Cancel </button>
+      </div>
+    
+    </form>
+  
+  </div>
+
+  
 </div>
-</section>
-</div> <!-- container -->
+
 
     
     <div class="container">
@@ -215,11 +321,11 @@ if(($empty_even==0)||($empty_odd==0))
                 <div class="col-md-4">
                     <h3 class="footer-widget-title">Sitemap</h3>
                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-16">
-                            <a href="../contact/contact.php">Contact Us</a>
+                            <a href="../contact/contact2.php">Contact Us</a>
                         </li>
                         
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                            <a href="../faq/faq.php">Frequently Asked Questions</a>
+                            <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
                     <h3 class="footer-widget-title">Subscribe</h3>

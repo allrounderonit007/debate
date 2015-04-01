@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
+  session_start();
     require_once("../includes/initialize.php");
+    $message = "You already responded to the poll";
+    $p_arr=Poll::find_all();
     $polling= Pollings::find_by_id(1);
-    $message = "You need to sign up first";
 
-    if(isset($_POST['vote_up']))
-    {
-      echo "<script type='text/javascript'>alert('$message');</script>";
-    }
-    if(isset($_POST['vote_down']))
-    {
-      echo "<script type='text/javascript'>alert('$message');</script>";
-    }
+$p_users=array();
+$i=0;
 
-    ?>
+foreach($p_arr as $p_obj)
+{
+        if($p_obj->po_id == 1)
+        {
+          $p_users[] = $p_obj->po_u_ID;    
+        }
+
+        if($_SESSION['u_id']==$p_users[$i])
+        {
+          echo "<script type='text/javascript'>alert('$message');</script>";
+          break;
+        }
+        elseif($_SESSION['u_id']!=$p_users[$i])
+        {
+            if(isset($_POST['vote_up'])) 
+                {
+                    $p=Pollings::update_yes($polling->p_id,$_SESSION['y']);
+                    $_SESSION['y'] = $_SESSION['y'] + 1;
+                    $polling->p_y=$p->p_y;
+
+                    $polls = new Poll();
+                    $polls->po_id = $polling->p_id;
+                    $polls->po_u_ID = $_SESSION['u_id'];
+                    $polls->create();             
+                }
+
+                elseif(isset($_POST['vote_down']))
+                {
+                    $p1=Pollings::update_no($polling->p_id,$_SESSION['n']);
+                    $_SESSION['n'] = $_SESSION['n'] + 1;
+                    $polling->p_n=$p1->p_n;
+
+                    $polls1 = new Poll();
+                    $polls1->po_id = $polling->p_id;
+                    $polls1->po_u_ID = $_SESSION['u_id'];
+                    $polls1->create();
+                }    
+        }
+      $i++;
+    }
+?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -83,47 +119,71 @@
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage.php">Home</a>
+                    <a title="Home" href="../homepage2.php">Home</a>
+                </li>
+                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
+                    <a title="Profile" href="#">Profile</a>
                 </li>
 
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
+                
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
+                        <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                            <a title="addforum" href="../forums/add-forum.php">Add Forum</a>
                         </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
+                        <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21">
+                                <a title="forum" href="../forums/forums2.php">View Forum </a>
+                        </li>
+                    </ul>
+                </li>
+            
+                 <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
+                            <a title="addblog" href="../blog/add-blog1.php">Add a blog</a>
+                        </li>
+                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+                                <a title="viewblog" href="../blog/blog2.php">View Blogs</a>
                         </li>
                     </ul>
                 </li>
                 
-                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="../forums/forums.php">Forums</a>
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22 dropdown"><a title="Polling" href="#" data-toggle="dropdown" class="dropdown-toggle">Polling <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
+                            <a title="Addpoll" href="../polling/add-polling.php">Add Polling</a>
+                        </li>
+                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24">
+                                <a title="Poll" href="#">View Poll</a>
+                        </li>
+                    </ul>
                 </li>
-
-                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
-                    <a title="Blogs" href="../blog/blog.php">Blogs</a>
-                </li>
-                
-                <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="#">Polling</a>
-                </li>
-                
-                <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events.php">Events</a>
-                </li>
-                
+            
+            
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-25 dropdown"><a title="events" href="#" data-toggle="dropdown" class="dropdown-toggle">Events <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26">
+                            <a title="Addevent" href="../events/add-event.php">Add Event</a>
+                        </li>
+                        <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27">
+                                <a title="Event" href="../events/events2.php">View Event</a>
+                        </li>
+                    </ul>
+                </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="../tabbing/tabbing.php">Tabbing</a>
+                    <a title="Tabbing" href="../tabbing/tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate.php">Senate</a>
+                    <a title="Senate" href="../senate/senate2.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -131,18 +191,59 @@
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club2.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/members.php">Members</a>
+                    <a title="Members" href="../members/front-page2.php">Members</a>
                 </li>
             </ul>
     </ul>
             
+            <ul class="nav navbar-nav navbar-right">
+              <li class="profile-info dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                      <?php   
+                        echo $_SESSION['u_name'];
+                      ?>
+                  </a>
+
+        
+                <ul class="dropdown-menu">
+          
+                    <li>
+                      <a href="../change-profile/edit-profile2.php">
+                        <i class="entypo-user"></i>
+                        Edit Profile
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="../change-profile/edit-password2.php">
+                        <i class="entypo-lock"></i>
+                        Edit Password
+                      </a>
+                    </li>
+              
+                    <li>
+                      <a href="../change-profile/upload-pic2.php">
+                        <i class="entypo-user"></i>
+                        Edit Picture
+                      </a>
+                    </li>
+
+                    <li>
+                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                    </li>
+              
+              </ul>
+            </li>
+          </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
+
 <header class="wrap-title">
     <div class="container">
         <h1 class="page-title">Polling</h1>
@@ -156,9 +257,12 @@
 <div class="container">
     <ul class="portfolio-control">
         <li class="filter active" data-filter="all">Newest</li>
+        <!-- Commented this text-->
+        <!--li class="filter" data-filter="flowers">Flowers</li><li class="filter" data-filter="montain">Montain</li><li class="filter" data-filter="nature">Nature</li><li class="filter" data-filter="spring">Spring</li><li class="filter" data-filter="summer">Summer</li> -->
     </ul>
 
     <div class="row" id="Grid">
+
         <div class="img-caption">
             <img width="407" height="273" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                       
             <div class="caption">
@@ -177,46 +281,53 @@
                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                            <h4 class="modal-title" id="myModalLabel"><?php echo $polling->p_topic; ?></h4>
                        </div>
-
                        <div class="modal-body">
                             <img width="800" height="533" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                                      
-                              <div class="no-img">
-                                <p><a href="../wp-content/uploads/2014/05/2.jpg">
-                                  <img src="../wp-content/uploads/2014/05/2.jpg" alt="w2" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-121" />
-                                </a></p>
+                            <div class="no-img">
+                              <p><a href="../wp-content/uploads/2014/05/2.jpg">
+                                <img src="../wp-content/uploads/2014/05/2.jpg" alt="w2" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-121" />
+                              </a></p>
 
-                                <p> <h4> Vote your choice </h4></div>
+<p> <h4> Vote your choice </h4></div>
                               </div>
                               
                               <div class="modal-footer">
                                   <div align = "center">
-                                      <form method="post" action="polling.php">
-                                          <button type="submit" name="vote_up" class="btn btn-success" value = "1">Yes</button>
+                                      <form method="post" action="polling2.php">
+                                          <button type="submit" name="vote_up" class="btn btn-success" >Yes</button>
                                       </form>
                                       <br />
                                       
                            
-                                       <form method="post" action="polling.php"> 
-                                            <button type="submit" name="vote_down" class="btn btn-danger" value= "1" >No</button>
+                                       <form method="post" action="polling2.php"> 
+                                            <button type="submit" name="vote_down" class="btn btn-danger" >No</button>
                                        </form>
                                   </div>
                               </div>
-                       
+                                              
                            
-                              <h3 align = "center">Progress Bar</h3>
-                                  <div class="progress">
-                                   <?php
-                                          $variable = $polling->yes_percent();
-                                    ?>
-                                   <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $variable ?>" aria-valuemin="0" aria-valuemax="100">
-                               
-                                  </div>
-                                 </div>
+                       <h3 align = "center">Progress Bar</h3>
+                       <div class="progress">
+                           <?php
+                                  $variable = $polling->yes_percent();
+                            ?>
+                           <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $variable ?>" aria-valuemin="0" aria-valuemax="100">
+                                <!--<span class="sr-only">70% complete</span>-->
+                           </div>
+                           </div>
                            
                            
-                   </div>
-               </div>
-           </div>                                 
+                   </div><!-- modal-content -->
+               </div><!-- modal-dialog -->
+           </div><!-- modal -->
+                               <!--<div class="col-sm-6 col-lg-3 col-md-4 mix 
+
+            nature summer 
+           ">-->
+                                   
+                                   <!-- MY PART ENDS HERE-->
+                                   
+   
     </div> <!-- container -->
 
 <aside id="footer-widgets">
@@ -226,11 +337,11 @@
                 <div class="col-md-4">
                     <h3 class="footer-widget-title">Sitemap</h3>
                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-16">
-                            <a href="../contact/contact.php">Contact Us</a>
+                            <a href="../contact/contact2.php">Contact Us</a>
                         </li>
                         
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                            <a href="../faq/faq.php">Frequently Asked Questions</a>
+                            <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
                     <h3 class="footer-widget-title">Subscribe</h3>

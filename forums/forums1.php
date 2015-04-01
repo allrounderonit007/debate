@@ -5,17 +5,24 @@
 require_once('../includes/initialize.php');
 require_once('../includes/MySQLDatabase.php');
 
-$forum=Forums::find_by_id(1);
-$comment=comments::find_by_id(1);
-$message = "You need to sign up first";
-if(isset($_POST['for']))
-{
-     echo "<script type='text/javascript'>alert('$message');</script>";
-}
-if(isset($_POST['against']))
-{
-     echo "<script type='text/javascript'>alert('$message');</script>";  
-}
+$forum=forums::find_by_id(1);
+  if( isset( $_POST['submit'] ) )
+  {
+      $c = new comments();
+      //$c=  comment::find_by_id($_SESSION['user_id']);
+    $c->c_o_ID=2;
+    $c->c_authorID=2;
+    $c->c_text= $_POST["text"];
+    $c->c_type=0;
+    $c->c_time=date('Y-m-d H:i:s');
+    
+    $c->create();     
+  }
+
+     $sql = "SELECT * FROM comment ORDER BY c_id desc limit 1";
+     $result_set = $database->execute_query( $sql );
+     $row = $database->fetch_array( $result_set );
+     $c_id= array_shift( $row );
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -41,6 +48,28 @@ if(isset($_POST['against']))
 <script type='text/javascript' src='../wp-includes/js/jquery/jquery90f9.js?ver=1.11.1'></script>
 <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
 
+
+
+
+
+<!-- Script to add options dynamically... -->
+<script type="text/javascript">
+    function myFor()
+    {
+      $("#add_new_option").before
+      ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#00FF00;" data-validate="required" data-message-required="You must provide at least 2 options."></textarea><button type="submit" name="submit">Submit</button></div></div><br /><br /><br /><br /><br />')
+
+    } 
+</script>
+
+<script type="text/javascript">
+    function myAgainst()
+    {
+      $("#add_new_option").before
+      ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#FF0000;" data-validate="required" data-message-required="You must provide at least 2 options." /></textarea><button type="submit" name="submit">Submit</button></div></div><br /><br /><br /><br /><br />')
+
+    } 
+</script>
 
  
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
@@ -86,35 +115,36 @@ if(isset($_POST['against']))
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage.php">Home</a>
+                    <a title="Home" href="../homepage1.php">Home</a>
                 </li>
 
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
+                    <a title="Profile" href="#">Profile</a>
                 </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="#">Forums</a>
                 </li>
 
-                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
-                    <a title="Blogs" href="../blog/blog.php">Blogs</a>
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
+                            <a title="addblog" href="../blog/add-blog.php">Add a blog</a>
+                        </li>
+                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+                                <a title="viewblog" href="../blog/blog1.php">View Blogs</a>
+                        </li>
+                    </ul>
                 </li>
+            
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="../polling/polling.php">Polling</a>
+                    <a title="Polling" href="../polling/polling1.php">Polling</a>
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events.php">Events</a>
+                    <a title="Events" href="../events/events1.php">Events</a>
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
@@ -122,11 +152,11 @@ if(isset($_POST['against']))
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate.php">Senate</a>
+                    <a title="Senate" href="../senate/senate1.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -134,14 +164,54 @@ if(isset($_POST['against']))
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club1.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/front-page.php">Members</a>
+                    <a title="Members" href="../members/front-page1.php">Members</a>
                 </li>
             </ul>
     </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <li class="profile-info dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                      <?php   
+                        echo $_SESSION['u_name'];
+                      ?>
+                  </a>
+        
+                <ul class="dropdown-menu">
+          
+                    <li>
+                      <a href="../change-profile/edit-profile1.php">
+                        <i class="entypo-user"></i>
+                        Edit Profile
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="../change-profile/edit-password1.php">
+                        <i class="entypo-lock"></i>
+                        Edit Password
+                      </a>
+                    </li>
+              
+                    <li>
+                      <a href="../change-profile/upload-pic1.php">
+                        <i class="entypo-user"></i>
+                        Edit Picture
+                      </a>
+                    </li>
+
+                    <li>
+                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                    </li>
+              
+              </ul>
+            </li>
+          </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -156,36 +226,41 @@ if(isset($_POST['against']))
 <div class="container">
 
 
-<p><?php echo $forum->f_topic; ?></p>
+<p> <?php echo $forum->f_topic; ?> </p>
 <p><?php echo $forum->f_description; ?></p>
 <br>
-<p>Are you in favour of this topic? Click 'For' if you are in favour else Click 'Against'</p>
+<p>Are you in favour of this topic?</p>
 <br>
 
-<form action="forums.php" method="post">
+<form action="forums1.php" method="post">
 
+<div style="width:100%;height:100%;position:absolute;vertical-align:middle;text-align:center;">
+<button type="button" class="btn btn-success" align="center" onClick="myFor()">FOR</button>
+&nbsp;
+&nbsp;
+&nbsp;
+<button type="button" class="btn btn-danger" align="center" onClick="myAgainst()">AGAINST</button><br/>
+</div>​
+</br>
+</br>
 
-<button type="submit" class="btn btn-success"  name="for">For</button>
-<button type="submit" class="btn btn-danger"  name="against">Against</button><br/>
+<?php
+  $com=comments::find_all();
+  foreach($com as $com_obj){
+?>  
+<input name="text" rows="3" class="form-control" value="<?php echo $com_obj->c_text; ?>" style="background-color:#FFFFFF" data-validate="required" data-message-required="You must provide at least 2 options."></input>
+</br>
+</br>
+
+<?php
+}
+?>
 <br>
 <br>
 
 <div class="form-group" id="add_new_option">
-<!--<input type="button" value="Add Comment" class="add" onClick="myF()" /> 
-</div>
--->
-
 
 </form>
-
-<!--send this text to comment & f for processing-->
-
-
-
-
-
-
-
 
 </div> <!-- container -->
 

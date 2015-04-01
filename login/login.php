@@ -120,52 +120,15 @@
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/members.php">Members</a>
+                    <a title="Members" href="../members/front-page.php">Members</a>
                 </li>
             </ul>
     </ul>
             
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                    
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
+
 <header class="wrap-title">
     <div class="container">
         <h1 class="page-title">Login</h1>
@@ -179,31 +142,22 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Login Form</div>
                     <div class="panel-body">
-                        <form role="form" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
+                        <form role="form" action="check_login.php" method="post">
                             <div class="form-group">
                                 <div class="input-group login-input">
                                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
+                                    <input type="text" class="form-control" placeholder="UserID" name="uid" id="uid">
                                 </div>
                                 <br>
                                 <div class="input-group login-input">
                                     <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
+                                    <input type="password" class="form-control" placeholder="Password" name="upwd" id="upwd">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="rememberme" id="rememberme" value="forever"> Remember me
-                                    </label>
-                                </div>
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                <input type="hidden" name="testcookie" value="1" />
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                <a href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-2"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-3"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-4"><i class="fa fa-facebook"></i></a>
+                
+                                
                                 <hr>
-                                <a href="#" class="btn btn-success pull-right">Create Account</a>
-                                <a href="#" class="btn btn-warning">Password Recovery</a>
+                                <button type="submit" class="btn btn-primary pull-right" name="login" id="login">Login</button>
+                                <button type="submit" class="btn btn-primary" name="forget" id="forget">Forget Password</button>
                                 <div class="clearfix"></div>
                             </div>
                         </form>

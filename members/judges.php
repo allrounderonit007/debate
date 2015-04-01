@@ -128,14 +128,13 @@
             </ul>
     </ul>
             
-            
-        </div><!-- navbar-collapse -->
+                    </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 
              <header class="wrap-title">
             <div class="container">
-                <h1 class="page-title">Club Members</h1>
+                <h1 class="page-title">Judges</h1>
                 </ol>
             </div>
         </header>

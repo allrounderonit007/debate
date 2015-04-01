@@ -2,6 +2,31 @@
 
 <!DOCTYPE html>
 <html  lang="en-US">
+<?php
+    require_once('../includes/initialize.php');
+    session_start();
+    $user=Users::find_by_id($_SESSION['u_id']);
+?>
+<?php
+    if( isset( $_POST['submit'] ) )
+    {
+        $user=  new Users();
+        $user->u_emailID = $_SESSION['email'];
+        $user->update_email();
+        $user->u_name = $_POST['name'];
+        $user->update_name();
+        $user->u_aemailID = $_POST['aemail'];
+        $user->update_aemail();
+        $user->u_securityQ= $_POST['sq'];
+        $user->update_securityQ();
+        $user->u_securityA= $_POST['sa'];
+        $user->update_securityA();
+        
+        redirect_to("../homepage1.php");
+            
+    }
+?>
+
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -68,35 +93,36 @@
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage.php">Home</a>
+                    <a title="Home" href="../homepage1.php">Home</a>
                 </li>
 
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
+                    <a title="Profile" href="#">Profile</a>
                 </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="../forums/forums.php">Forums</a>
+                    <a title="Forums" href="../forums/forums1.php">Forums</a>
                 </li>
 
-                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
-                    <a title="Blogs" href="../blog/blog.php">Blogs</a>
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
+                            <a title="addblog" href="../blog/add-blog.php">Add a blog</a>
+                        </li>
+                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+                                <a title="viewblog" href="../blog/blog1.php">View Blogs</a>
+                        </li>
+                    </ul>
                 </li>
+            
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="../polling/polling.php">Polling</a>
+                    <a title="Polling" href="../polling/polling1.php">Polling</a>
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events.php">Events</a>
+                    <a title="Events" href="../events/events1.php">Events</a>
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
@@ -104,11 +130,11 @@
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate.php">Senate</a>
+                    <a title="Senate" href="../senate/senate1.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="#">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -116,69 +142,142 @@
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club1.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/front-page.php">Members</a>
+                    <a title="Members" href="../members/front-page1.php">Members</a>
                 </li>
             </ul>
     </ul>
             
-            
+            <ul class="nav navbar-nav navbar-right">
+              <li class="profile-info dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                      <?php   
+                        echo $_SESSION['u_name'];
+                      ?>
+                  </a>
+        
+                <ul class="dropdown-menu">
+          
+                    <li>
+                      <a href="#">
+                        <i class="entypo-user"></i>
+                        Edit Profile
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="edit-password1.php">
+                        <i class="entypo-lock"></i>
+                        Edit Password
+                      </a>
+                    </li>
+              
+                    <li>
+                      <a href="upload-pic1.php">
+                        <i class="entypo-user"></i>
+                        Edit Picture
+                      </a>
+                    </li>
+
+                    <li>
+                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                    </li>
+              
+              </ul>
+            </li>
+          </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 <header class="wrap-title">
     <div class="container">
-        <h1 class="page-title">Topic Search</h1>
+        <h1 class="page-title">Edit Profile</h1>
+
     </div>
 </header>
 
-<div id="cse" style="width: 100%;"></div> 
-<script type="text/javascript">
-  (function() {
-    var cx = '003324349072282357830:gvlelnistyc';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
 
 
-<div class="container">
+<div class="panel panel-primary">
 
-    <div class="row" id="Grid">
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-                        
+  <div class="panel-heading">
+    <div class="panel-title">Enter Details</div>
+    <div class="panel-options">
+      <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
     </div>
+  </div>
+  
+  <div class="panel-body">
+  
+    <form role="form" id="form1" method="post" class="validate">
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Name :</label>
+        <br />
+        <div class="col-sm-5">
+          <input type="text" class="form-control" value="<?php echo $user->u_name ;?>" name="name" data-validate="required" data-message-required="First Name is required for identification."/>  
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Email ID :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="email" value="<?php echo $user->u_emailID ;?>" data-validate="required,email" />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+  
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Alternate Email ID :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="aemail" value=" <?php echo $user->u_aemailID ;?>"data-validate="required" data-message-required="This field is required." />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Security Question :</label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="sq" value="<?php echo $user->u_securityQ ;?>"data-validate="required" data-message-required="Skype ID is required for inter-organization communication." />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Security Answer : </label>
+        <br />
+        <div class="col-sm-5">
+        <input type="text" class="form-control" name="sa" value="<?php echo $user->u_securityA ;?>" data-validate="required,url" data-message-required="Please enter a public URL of the intended user." />
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      
+      <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-success">Edit Profile</button>
+        <button type="button" class="btn" onClick="window.location.assign('../homepage1.php')">Cancel </button>
+      </div>
+    
+    </form>
+  
+  </div>
 
-   
-    </div> <!-- container -->
+  
+</div>
+
+
+
+
 
 <aside id="footer-widgets">
     <div class="container">
@@ -207,6 +306,7 @@
             </div> <!-- row -->
     </div> <!-- container -->
 </aside> <!-- footer-widgets -->
+
 
 </div> <!-- boxed -->
 

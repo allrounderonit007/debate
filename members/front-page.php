@@ -123,7 +123,7 @@
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="front-page.php">Members</a>
+                    <a title="Members" href="#">Members</a>
                 </li>
             </ul>
     </ul>
@@ -135,148 +135,52 @@
 
              <header class="wrap-title">
             <div class="container">
-                <h1 class="page-title">Club Members</h1>
+                <h1 class="page-title">Our Team</h1>
                 </ol>
             </div>
         </header>
 
-        <div class="container">
+<div class="container">
+    <div class="row">
+    <li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-56">
+        <a href="judges.php">Information About Judges</a>
+    </li>
+                        
+    <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
+        <a href="members.php">Information About Club Members</a>
+    </li>
+</div>
+</div>
 
-                    <div class="row">
-	<div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-8">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-<img src="../wp-content/uploads/2014/05/t1.jpg" alt="t1" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-11">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t2.jpg" alt="t2" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-14">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-17">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t4.jpg" alt="t4" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t5.jpg" alt="t5" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-</div>                    
-        </div> <!-- container -->
+<div class="container">
+
+    <div class="row" id="Grid">
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+       <p><br></p>
+                        
+    </div>
+
+   
+    </div> <!-- container -->
+
     
 <aside id="footer-widgets">
     <div class="container">

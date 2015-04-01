@@ -1,8 +1,27 @@
 
-
 <!DOCTYPE html>
 <html  lang="en-US">
+<?php 
+require_once("../includes/initialize.php");
+$message="Passwords don't match";
+$msg="Password changed successfully";
+if(isset($_POST['submit']))
+{
+    $u= new Users();
+    $user= Users::find_by_id($_POST['id']);
+    if($_POST['npwd']==$_POST['rnpwd'])
+    {
+        $user->u_password=$u->update_password($_POST['id'],$_POST['npwd']);
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+        header("location:login.php");
+    }
+    else
+    {
+        echo "<script type='text/javascript'>alert('$message');</script>";
+    }
+}
 
+?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -18,7 +37,7 @@
     <link href="../wp-content/themes/openmind/style.css" rel="stylesheet" media="screen">
     <link href="../wp-content/themes/openmind/css/color-niceblue.css" rel="stylesheet" media="screen" title="default">
     <link href="../wp-content/themes/openmind/css/width-full.css" rel="stylesheet" media="screen" title="default">
-    <link rel="alternate" type="application/rss+xml" title="Open Mind &raquo; Portfolio Comments Feed" href="feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Open Mind &raquo; Login Comments Feed" href="feed/index.html" />
 
 <link rel='stylesheet' id='bootstrap-fa-icon-css'  href='../wp-content/plugins/easy-bootstrap-shortcodes/styles/font-awesome.min0235.css?ver=4.1.1' type='text/css' media='all' />
 <link rel='stylesheet' id='ebs_dynamic_css-css'  href='../wp-content/plugins/easy-bootstrap-shortcodes/styles/ebs_dynamic_css0235.css?ver=4.1.1' type='text/css' media='all' />
@@ -29,12 +48,12 @@
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 4.1.1" />
 <link rel='canonical' href='index.html' />
-<link rel='shortlink' href='http://wp.me/P4Cc4d-7' />
+<link rel='shortlink' href='http://wp.me/P4Cc4d-9' />
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Portfolio" />
-<meta property="og:url" content="http://razonartificial.com/themes/openmind/wordpress/portfolio/" />
+<meta property="og:title" content="Login" />
+<meta property="og:url" content="http://razonartificial.com/themes/openmind/wordpress/login/" />
 <meta property="og:description" content="Visit the post for more." />
 <meta property="article:published_time" content="2014-05-18T02:57:26+00:00" />
 <meta property="article:modified_time" content="2014-05-18T02:57:26+00:00" />
@@ -46,6 +65,7 @@
 <meta name="twitter:description" content="Visit the post for more." />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 </head>
+
 
 <body>
 <div class="boxed">
@@ -75,7 +95,7 @@
                 <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
                         <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
+                            <a title="Login" href="#">Login</a>
                         </li>
                         <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
                                 <a title="Register" href="../register/register.php">Register</a>
@@ -108,7 +128,7 @@
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="#">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -125,33 +145,64 @@
             </ul>
     </ul>
             
-            
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
+
 <header class="wrap-title">
     <div class="container">
-        <h1 class="page-title">Topic Search</h1>
+        <h1 class="page-title">Change Password</h1>
     </div>
 </header>
 
-<div id="cse" style="width: 100%;"></div> 
-<script type="text/javascript">
-  (function() {
-    var cx = '003324349072282357830:gvlelnistyc';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:search></gcse:search>
+<div class="panel panel-primary">
 
+  <div class="panel-heading">
+    <div class="panel-title">Enter Details</div>
+    <div class="panel-options">
+      <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+    </div>
+  </div>
+  
+  <div class="panel-body">
+  
+    <form role="form" id="form1" method="post" class="validate">
+      
+      <div class="form-group" >
+        <label for="field-1" class="control-label">ID :</label>
+        <br />
+        <div class="col-sm-5">
+          <input type="text" class="form-control" value="" name="id" data-validate="required" data-message-required="First Name is required for identification."/>  
+        </div>
+      </div>
+      <br /><br /><br />
 
-<div class="container">
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Enter new password :</label>
+        <br />
+        <div class="col-sm-5">
+          <input type="text" class="form-control" value="" name="npwd" data-validate="required" data-message-required="First Name is required for identification."/>  
+        </div>
+      </div>
+      <br /><br /><br />
+
+      <div class="form-group" >
+        <label for="field-1" class="control-label">Re-enter new password:</label>
+        <br />
+        <div class="col-sm-5">
+          <input type="text" class="form-control" value="" name="rnpwd" data-validate="required" data-message-required="First Name is required for identification."/>  
+        </div>
+      </div>
+      <br /><br /><br />
+      
+      
+      <div class="form-group">
+        <button type="submit" name="submit" class="btn btn-success">Change Password</button>
+        <button type="button" class="btn" onClick="window.location.assign('../homepage.php')">Cancel </button>
+      </div>
+
+      
+      <div class="container">
 
     <div class="row" id="Grid">
        <p><br></p>
@@ -179,7 +230,13 @@
 
    
     </div> <!-- container -->
+    
+    </form>
+  
+  </div>
 
+  
+</div>
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">
@@ -253,8 +310,8 @@
 
 	<script src="../../../../../stats.wp.com/e-201512.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'7',tz:'0'});
-	var load_cmc = function(){linktracker_init(68208197,7,2);};
+	st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'9',tz:'0'});
+	var load_cmc = function(){linktracker_init(68208197,9,2);};
 	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
 	else load_cmc();
 	</script>
@@ -265,5 +322,5 @@
 </body>
 
 
-<!-- Mirrored from razonartificial.com/themes/openmind/wordpress/portfolio/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2015 20:12:17 GMT -->
+<!-- Mirrored from razonartificial.com/themes/openmind/wordpress/login/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2015 20:11:21 GMT -->
 </html>

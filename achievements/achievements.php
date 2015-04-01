@@ -131,44 +131,7 @@
             </ul>
     </ul>
             
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                    
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
+           
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->

@@ -119,49 +119,11 @@
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/members.php">Members</a>
+                    <a title="Members" href="../members/front-page.php">Members</a>
                 </li>
             </ul>
     </ul>
             
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                    
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -169,6 +131,170 @@
     <div class="container">
         <h1 class="page-title">Register</h1>
     </div>
+    <script language="javascript" type="text/javascript">
+    function id_validate() 
+    {
+        var x=document.getElementById("uid").value;
+        //alert("fsdsdf11");
+        if(document.getElementById("uid").value.length!=9)
+        {
+          //  alert("fsdsdf");
+                    document.getElementById("err_id").innerHTML="Not a Valid ID";
+        }
+        else if (isNaN(document.getElementById("uid").value)) 
+        {
+             document.getElementById("err_id").innerHTML="Not a Valid ID";
+            //put error message on error division
+        }
+        else
+        {
+         document.getElementById("err_id").innerHTML=""; 
+         p=document.getElementById("uid").value;
+         $.get('id_check.php?p='+p,function(data){
+         //console.log(data)
+         if(data=="1")
+            document.getElementById("err_id").innerHTML="!!  THIS College ID ALREADY Registered, PLEASE ENTER YOUR ORIGINAL ID :P !!";
+         if(data=="0")
+            document.getElementById("err_id").innerHTML=""})
+         if(document.getElementById("err_id").innerHTML=="")
+            document.getElementById("uemail").value=x + "@daiict.ac.in";
+        }
+    }
+    function uname_validate() 
+    {
+        //alert("fsdsdf11");
+        if(document.getElementById("uname").value.length==0)
+        {
+          //  alert("fsdsdf");
+                    document.getElementById("err_name").innerHTML="This Field Cannot be empty !!";
+        }
+        else if (!isNaN(document.getElementById("uname").value)) 
+        {
+             document.getElementById("err_name").innerHTML="Not a Valid Name";
+            //put error message on error division
+        }
+        else
+        {
+         document.getElementById("err_name").innerHTML="";   
+        }
+    }
+    function uaemail_validate()
+    {
+        if(document.getElementById('uaemail').value.length==0)
+        {
+            document.getElementById('err_aemail').innerHTML="!! PLEASE ENTER AN E-MAIL ID !!";
+        }
+        else 
+            {
+                var x=document.getElementById('uaemail').value;
+                var atpos=x.indexOf("@");
+                var dotpos=x.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
+                {
+                    document.getElementById('err_aemail').innerHTML="!! NOT A VALID E-MAIL ID !!";
+                }
+                else
+                {
+                    document.getElementById('err_aemail').innerHTML="";
+                }
+
+            }
+    }
+    function upwd_validate()
+    {
+        if(document.getElementById('upwd').value==0)
+        {
+            document.getElementById('err_pwd').innerHTML="Enter Password";
+        }
+        else
+        {
+            document.getElementById('err_pwd').innerHTML="";
+        }
+    }
+    function ucpwd_validate()
+    {
+        var x=document.getElementById('upwd').value;
+        if(document.getElementById('ucpwd').value==0)
+        {
+             document.getElementById('err_cpwd').innerHTML="Enter Confirm Password";
+        }
+        else if(document.getElementById('ucpwd').value!=x || document.getElementById('ucpwd').value==0)
+        {
+            document.getElementById('err_cpwd').innerHTML="Password donot Match";
+        }
+        else
+        {
+            document.getElementById('err_cpwd').innerHTML="";
+        }
+    }
+    function usq_validate()
+    {
+       if(document.getElementById('usq').value==0)
+        {
+            document.getElementById('err_sq').innerHTML="Field Enter Question Cannot Be Empty !!!";
+        }
+        else
+        {
+            document.getElementById('err_sq').innerHTML="";
+        } 
+    }
+    function usa_validate()
+    {
+       if(document.getElementById('usa').value==0)
+        {
+            document.getElementById('err_sa').innerHTML="Field Enter Answer Cannot Be Empty !!!";
+        }
+        else
+        {
+            document.getElementById('err_sa').innerHTML="";
+        } 
+    }
+    function final_check()
+    {
+        if(document.getElementById('err_id').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER CORRECT College ID, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_name').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER CORRECT Name, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_aemail').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER CORRECT Alternate Email ID, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_pwd').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Password, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_cpwd').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER CORRECT CONFIRM Password, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_sq').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Security Question, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else if(document.getElementById('err_sa').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Security Answer, PLEASE ENTER VALID DATA.");
+            return false
+        }
+        else
+        {
+            return true;
+        }
+
+
+    }
+
+        </script>
 </header>
 
 <div class="container">
@@ -181,90 +307,82 @@
                 <div class="panel panel-primary animated fadeInDown">
                     <div class="panel-heading">Register Form</div>
                     <div class="panel-body">
-                        <form role="form" method="post"  action="#">
+                        <form role="form" method="post"  action="insert.php" onSubmit="return final_check()">
                             <div class="form-group">
-                                                                <label for="InputUserName">User Name<sup>*</sup></label>
-                                <input type="text" class="form-control" id="InputUserName" name="InputUserName">
+                                <label for="uid">DA-IICT ID</label>
+                                <input type="text" class="form-control" id="uid" name="uid" onBlur="id_validate()" required>
+                            </div>
+                            <div id="err_id" style="color:0000ff">
                             </div>
                             <div class="form-group">
-                                <label for="InputFirstName">First Name</label>
-                                <input type="text" class="form-control" id="InputFirstName" name="InputFirstName">
+                                <label for="uname">Name</label>
+                                <input type="text" class="form-control" id="uname" name="uname" onBlur="uname_validate()" required>
+                            </div>
+                            <div id="err_name" style="color:0000ff">
                             </div>
                             <div class="form-group">
-                                <label for="InputLastName">Last Name</label>
-                                <input type="text" class="form-control" id="InputLastName" name="InputLastName">
+                                <label for="uemail">Webmail</label>
+                                <input type="email" class="form-control" id="uemail" name="uemail">
                             </div>
                             <div class="form-group">
-                                                                <label for="InputEmail">Email<sup>*</sup></label>
-                                <input type="email" class="form-control" id="InputEmail" name="InputEmail">
+                                <label for="uaemail">Alternate Email<sup>*</sup></label>
+                                <input type="email" class="form-control" id="uaemail" name="uaemail" onBlur="uaemail_validate()" required>
                             </div>
+                            <div id="err_aemail" style="color:0000ff">
+                            </div>
+
                                                         <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="InputPassword">Password<sup>*</sup></label>
-                                        <input type="password" class="form-control" id="InputPassword" name="InputPassword">
+                                        <label for="upwd">Password<sup>*</sup></label>
+                                        <input type="password" class="form-control" id="upwd" name="upwd" onBlur="upwd_validate()" required>
                                     </div>
                                 </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="InputConfirmPassword">Confirm Password<sup>*</sup></label>
-                                        <input type="password" class="form-control" id="InputConfirmPassword" name="InputConfirmPassword">
+                                        <label for="ucpwd">Confirm Password<sup>*</sup></label>
+                                        <input type="password" class="form-control" id="ucpwd" name="ucpwd" onBlur="ucpwd_validate()" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox1" value="option1"> I read <a href="#">Terms and Conditions</a>.
-                                    </label>
+                            <div id="err_pwd" style="color:0000ff">
                                 </div>
-                                <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary pull-right" name="registro">Register</button>
+                            <div id="err_cpwd" style="color:0000ff">
+                            </div>
+
+                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="usq">Security Question</label>
+                                    <input type="text" class="form-control" id="usq" name="usq" onBlur="usq_validate()" required>
+                                </div>
+                             </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <label for="usa">Security Answer</label>
+                                    <input type="text" class="form-control" id="usa" name="usa" onBlur="usa_validate()" required>
+                                    </div>       
                                 </div>
                             </div>
-                            <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
+                            <div id="err_sq" style="color:0000ff">
+                                </div>
+                            <div id="err_sa" style="color:0000ff">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <button type="submit" class="btn btn-primary pull-right" name="signup" header("Location: homepage.php")>Register</button>
+                                </div>
+                            </div>
+                            <input type="hidden" name="redirect_to" value="homepage.php" />
                             <input type="hidden" name="testcookie" value="1" />
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-1 col-md-5">
-                <h2 class="section-title">Are you registered?</h2>
-                <div class="panel panel-success animated fadeInDown animation-delay-2">
-                    <div class="panel-heading">Login Form</div>
-                    <div class="panel-body">
-                        <form role="form" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="rememberme" id="rememberme" value="forever"> Remember me
-                                    </label>
-                                </div>
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                <input type="hidden" name="testcookie" value="1" />
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                <a href="#" class="social-icon soc-twitter animated fadeInDown animation-delay-3"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="social-icon soc-google-plus animated fadeInDown animation-delay-4"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="social-icon soc-facebook animated fadeInDown animation-delay-5"><i class="fa fa-facebook"></i></a>
-                                <hr>
-                                <a href="#" class="btn btn-success pull-right">Create Account</a>
-                                <a href="#" class="btn btn-warning">Password Recovery</a>
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
+
+    </div>
 </div> <!-- container  -->
 
 <aside id="footer-widgets">

@@ -1,10 +1,7 @@
-
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
     $user=Users::find_by_id($_SESSION['u_id']);
 ?>
 <?php
@@ -22,8 +19,7 @@
         $user->u_securityA= $_POST['sa'];
         $user->update_securityA();
         
-        redirect_to("../homepage1.php");
-            
+        redirect_to("../homepage1.php");            
     }
 ?>
 
@@ -200,8 +196,6 @@
     </div>
 </header>
 
-
-
 <div class="panel panel-primary">
 
   <div class="panel-heading">
@@ -229,7 +223,7 @@
         <label for="field-1" class="control-label">Email ID :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="email" value="<?php echo $user->u_emailID ;?>" data-validate="required,email" />
+        <input type="text" class="form-control" name="email" value="<?php echo $user->u_emailID ;?>" data-validate="required,email" readonly/>
         </div>
       </div>
       <br /><br /><br />
@@ -276,9 +270,6 @@
 </div>
 
 
-
-
-
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">
@@ -293,15 +284,7 @@
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+              
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

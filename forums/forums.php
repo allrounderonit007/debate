@@ -153,33 +153,54 @@ if(isset($_POST['against']))
 </header>
 
 
-<div class="container">
+<div class="row">
+<?php
+$empty=0;
+$frm=forums::find_all();
+foreach($frm as $frm_obj)
+{
+$empty++;
+?>
+  <div class="col-sm-3">  
+    <div class="tile-progress tile-primary">
+      <div class="tile-header">
+        <h3><?php echo $frm_obj->f_topic; ?></h3>
+      </div>
+      <div class="tile-header">
+        <h3><?php echo $frm_obj->f_description; ?></h3>
+      </div>
+      
+      
+      <div class="tile-footer">
+        
+        <span>
+          <button 
+            type="button" 
+            class="btn btn-info" 
+            onClick="window.location.assign('f.php?id=<?php echo $frm_obj->f_id; ?>')" 
+          >
+            View Forums
+        </button>
+        </span>
+      </div>
+    </div>
+    <!-- End of div class="tile-progress tile-primary" -->  
+  </div>
+  <!-- End of div class="col-sm-3" -->
+  <!-- LOOP ENDS HERE... -->
+<?php 
+  } 
 
-
-<p><?php echo $forum->f_topic; ?></p>
-<p><?php echo $forum->f_description; ?></p>
-<br>
-<p>Are you in favour of this topic? Click 'For' if you are in favour else Click 'Against'</p>
-<br>
-
-<form action="forums.php" method="post">
-
-
-<button type="submit" class="btn btn-success"  name="for">For</button>
-<button type="submit" class="btn btn-danger"  name="against">Against</button><br/>
-<br>
-<br>
-
-<div class="form-group" id="add_new_option">
-<!--<input type="button" value="Add Comment" class="add" onClick="myF()" /> 
-</div>
--->
-
-
-</form>
-
-<!--send this text to comment & f for processing-->
-
+if($empty==0)
+{
+ ?>
+<h3> Sorry! You do not have a forum to view </h3>
+<?php
+ }
+?>
+  
+    
+</div> <!-- Endof row... -->
 
 
 
@@ -232,15 +253,7 @@ if(isset($_POST['against']))
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+                  
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

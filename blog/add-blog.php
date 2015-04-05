@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
-    require_once('../includes/initialize.php');
-    session_start();
+session_start();
 ?>
-
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -40,6 +38,63 @@
 <meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
 <meta name="twitter:site" content="@jetpack" />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
+<script language="javascript" type="text/javascript">
+    
+function btopic_validate()
+  {
+     if(document.getElementById("btopic").value.length==0)
+     {
+        
+        document.getElementById("err_btopic").innerHTML="!! PLEASE WRITE THE TOPIC !!";
+     }
+     else
+     {document.getElementById("err_btopic").innerHTML="";}
+  }
+  function bdescription_validate()
+  {
+     if(document.getElementById("bdescription").value.length==0)
+     {
+        
+        document.getElementById("err_bdescription").innerHTML="!! PLEASE WRITE THE Description !!";
+     }
+     else
+     {document.getElementById("err_bdescription").innerHTML="";}
+  }
+  function bcategory_validate()
+  {
+     if(document.getElementById("bcategory").value.length==0)
+     {
+        
+        document.getElementById("err_bcategory").innerHTML="!! PLEASE WRITE THE Category !!";
+     }
+     else
+     {document.getElementById("err_bcategory").innerHTML="";}
+  }
+  function final1_check()
+    {
+        if(document.getElementById('err_btopic').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Topic.");
+            return false
+        }
+        else if(document.getElementById('err_bdescription').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Description.");
+            return false
+        }
+        else if(document.getElementById('err_bcategory').innerHTML!="")
+        {
+            alert("OOPS! YOU DID NOT ENTER Category.");
+            return false
+        }
+        else
+        {
+            return true;
+        }
+
+
+    }
+  </script>
 </head>
 
 <body>
@@ -63,36 +118,35 @@
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage1.php">Home</a>
+                    <a title="Home" href="../homepage.php">Home</a>
                 </li>
 
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-                
-                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="../forums/forums1.php">Forums</a>
-                </li>
-
-                <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+            <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
-                            <a title="addblog" href="#">Add a blog</a>
+                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
                         </li>
-                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
-                                <a title="viewblog" href="../blog/blog1.php">View Blogs</a>
+                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
                         </li>
                     </ul>
                 </li>
-            
+                
+                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
+                    <a title="Forums" href="../forums/forums.php">Forums</a>
+                </li>
+
+                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
+                    <a title="Blogs" href="#">Blogs</a>
+                </li>
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="../polling/polling1.php">Polling</a>
+                    <a title="Polling" href="../polling/polling.php">Polling</a>
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events1.php">Events</a>
+                    <a title="Events" href="../events/events.php">Events</a>
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
@@ -100,11 +154,11 @@
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate1.php">Senate</a>
+                    <a title="Senate" href="../senate/senate.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -112,54 +166,53 @@
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club1.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="../members/front-page1.php">Members</a>
+                    <a title="Members" href="../members/members.php">Members</a>
                 </li>
             </ul>
     </ul>
             
             <ul class="nav navbar-nav navbar-right">
-              <li class="profile-info dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
-                      <?php   
-                        echo $_SESSION['u_name'];
-                      ?>
-                  </a>
-        
-                <ul class="dropdown-menu">
-          
-                    <li>
-                      <a href="../change-profile/edit-profile1.php">
-                        <i class="entypo-user"></i>
-                        Edit Profile
-                      </a>
-                    </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
                     
-                    <li>
-                      <a href="../change-profile/edit-password1.php">
-                        <i class="entypo-lock"></i>
-                        Edit Password
-                      </a>
-                    </li>
-              
-                    <li>
-                      <a href="../change-profile/upload-pic1.php">
-                        <i class="entypo-user"></i>
-                        Edit Picture
-                      </a>
-                    </li>
-
-                    <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
-                    </li>
-              
-              </ul>
-            </li>
-          </ul> <!-- nav nabvar-nav -->
+                    <div class="dropdown-menu dropdown-login animated fadeInUp">
+                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
+                            <h4 class="section-title">Login Form</h4>
+                    
+                            <div class="form-group">
+                                <div class="input-group login-input">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
+                                </div>
+                                <br>
+                                
+                                <div class="input-group login-input">
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
+                                </div>
+                                
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
+                                    </label>
+                                </div>
+                                
+                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
+                                
+                                <input type="hidden" name="testcookie" value="1" />
+                                
+                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>      
+                    </div>
+                </li> <!-- dropdown -->
+            </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -183,14 +236,15 @@
   
   <div class="panel-body">
   
-    <form role="form" id="form1" method="post" class="validate">
+    <form role="form" id="form1" method="post" class="validate" action="insertblog.php" onSubmit="return final1_check()">
       
       <div class="form-group" >
         <label for="field-1" class="control-label">Topic :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" value="" name="name" data-validate="required" data-message-required="First Name is required for identification."/>  
+          <input type="text" class="form-control"  name="btopic" id="btopic"  onBlur="btopic_validate()" required>  
         </div>
+        <div id="err_btopic" style="color:#F03"></div>
       </div>
       <br /><br /><br />
       
@@ -199,8 +253,10 @@
         <label for="field-1" class="control-label">Description :</label>
         <br />
         <div class="col-sm-15">
-        <textarea name="myTextArea"cols="150" rows="10"></textarea><br />
+        <textarea name="bdescription" cols="150" rows="10" id="bdescription" onBlur="bdescription_validate()" required></textarea><br />
         </div>
+         <div id="err_bdescription" style="color:#F03"></div>
+      </div>
       </div>
       <br /><br /><br />
       
@@ -209,15 +265,17 @@
         <label for="field-1" class="control-label">Category :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="position" value=" "data-validate="required" data-message-required="This field is required." />
+        <input type="text" class="form-control" name="bcategory" id="bcategory" onBlur="bcategory_validate()" required>
         </div>
+        <div id="err_bcategory" style="color:#F03"></div>
+      </div>
       </div>
       <br /><br /><br />
       
       
       <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success">Add a blog</button>
-        <button type="button" class="btn" onClick="window.location.assign('homepage1.php')">Cancel </button>
+        <button type="submit" name="addblog" class="btn btn-success">Add a blog</button>
+        <button type="button" class="btn" onClick="window.location.assign('../homepage1.php')">Cancel </button>
       </div>
 
       <div class="container">
@@ -257,22 +315,13 @@
                 <div class="col-md-4">
                     <h3 class="footer-widget-title">Sitemap</h3>
                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-16">
-                            <a href="../contact/contact1.php">Contact Us</a>
+                            <a href="../contact/contact.php">Contact Us</a>
                         </li>
                         
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                            <a href="../faq/faq1.php">Frequently Asked Questions</a>
+                            <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->
@@ -322,13 +371,13 @@
 
 <script type='text/javascript' src='../../../../../s0.wp.com/wp-content/js/devicepx-jetpack8aa1.js?ver=201512'></script>
 
-	<script src="../../../../../stats.wp.com/e-201512.js" type="text/javascript"></script>
-	<script type="text/javascript">
-	st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'4',tz:'0'});
-	var load_cmc = function(){linktracker_init(68208197,4,2);};
-	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
-	else load_cmc();
-	</script>
+  <script src="../../../../../stats.wp.com/e-201512.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'4',tz:'0'});
+  var load_cmc = function(){linktracker_init(68208197,4,2);};
+  if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+  else load_cmc();
+  </script>
 <script>
     window.location.refresh()
 </script>

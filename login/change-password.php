@@ -8,7 +8,7 @@ $msg="Password changed successfully";
 if(isset($_POST['submit']))
 {
     $u= new Users();
-    $user= Users::find_by_id($_POST['id']);
+    $user= Users::find_by_id($_POST['uid']);
     if($_POST['npwd']==$_POST['rnpwd'])
     {
         $user->u_password=$u->update_password($_POST['id'],$_POST['npwd']);
@@ -153,6 +153,38 @@ if(isset($_POST['submit']))
     <div class="container">
         <h1 class="page-title">Change Password</h1>
     </div>
+
+<script>
+function id_validate() 
+    {
+        var x=document.getElementById("uid").value;
+        //alert("fsdsdf11");
+        if(document.getElementById("uid").value.length!=9)
+        {
+          //  alert("fsdsdf");
+                    document.getElementById("err_id").innerHTML="Not a Valid ID";
+        }
+        else if (isNaN(document.getElementById("uid").value)) 
+        {
+             document.getElementById("err_id").innerHTML="Not a Valid ID";
+            //put error message on error division
+        }
+        else
+        {
+         document.getElementById("err_id").innerHTML=""; 
+         p=document.getElementById("uid").value;
+         $.get('id_check.php?p='+p,function(data){
+         //console.log(data)
+         if(data=="1")
+            document.getElementById("err_id").innerHTML="!!  THIS College ID ALREADY Registered, PLEASE ENTER YOUR ORIGINAL ID :P !!";
+         if(data=="0")
+            document.getElementById("err_id").innerHTML=""})
+         if(document.getElementById("err_id").innerHTML=="")
+            document.getElementById("uemail").value=x + "@daiict.ac.in";
+        }
+    }
+ 
+</script>
 </header>
 
 <div class="panel panel-primary">
@@ -172,8 +204,10 @@ if(isset($_POST['submit']))
         <label for="field-1" class="control-label">ID :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" value="" name="id" data-validate="required" data-message-required="First Name is required for identification."/>  
-        </div>
+          <input type="text" class="form-control" id="uid" name="uid" onBlur="id_validate()" required>
+                            </div>
+                            <div id="err_id" style="color:0000ff">
+                            </div>
       </div>
       <br /><br /><br />
 
@@ -251,15 +285,6 @@ if(isset($_POST['submit']))
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html  lang="en-US">
+<?php
 
+require_once('../includes/initialize.php');
+require_once('../includes/MySQLDatabase.php');
+?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -194,24 +198,28 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-14">
+            <?php
+            $blo=blogs::find_all();
+            foreach($blo as $blo_obj){
+            ?>  
                                                 <article class="post">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h3 class="post-title"><a href="../2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html" class="transicion">Know the best deals on getaway for the weekend</a></h3>
+                                <h3 class="post-title"><?php echo $blo_obj->b_topic; ?></h3>
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                                                                    <img width="760" height="405" src="../wp-content/uploads/2014/05/7.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="7" />                                                                            </div>
-                                    <div class="col-lg-6">
-                                        Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur...                                    </div>
+                                    <div class="col-lg-4">
+                                                                                    <img width="260" height="405" src="../wp-content/uploads/2014/05/7.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="7" />                                                                            </div>
+                                    <div class="col-lg-4">
+                                        <?php echo $blo_obj->b_description; ?>                                </div>
                                 </div>
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i> May 20, 2014 
-                                        <i class="fa fa-user"></i> <a href="#">adrigm</a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/nature/index.html" rel="category tag">Nature</a>.
+                                        <i class="fa fa-clock-o"></i> <?php echo $blo_obj->b_time; ?>  
+                                        <i class="fa fa-user"></i> <a href="#"><?php echo $blo_obj->b_authorID; ?> </a> 
+                                        <i class="fa fa-folder-open"></i> <a href="../category/nature/index.html" rel="category tag"><?php echo $blo_obj->b_category; ?> </a>.
                                     </div>
                                     <div class="col-lg-2 col-md-3 col-sm-4">
                                         <a href="../2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html" class="pull-right">Read more &raquo;</a>
@@ -220,116 +228,12 @@
                             </div>
                         </div>
                     </article> <!-- post -->
-                                    <article class="post">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h3 class="post-title"><a href="../2014/05/the-best-places-to-get-away-to-nature/index.html" class="transicion">The best places to get away to nature</a></h3>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                                                                    <img width="760" height="405" src="../wp-content/uploads/2014/05/6829124859_2ef9402e85_b-760x405.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="6829124859_2ef9402e85_b" />                                                                            </div>
-                                    <div class="col-lg-6">
-                                        Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. Etiam imperdiet imperdiet orci. Nunc nec neque. Phasellus leo dolor, tempus non, auctor et, hendrerit quis, nisi. Curabitur ligula sapien, tincidunt non, euismod vitae, posuere...                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i>  
-                                        <i class="fa fa-user"></i> <a href="#">adrigm</a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/nature/index.html" rel="category tag">Nature</a>.
-                                    </div>
-                                    <div class="col-lg-2 col-md-3 col-sm-4">
-                                        <a href="../2014/05/the-best-places-to-get-away-to-nature/index.html" class="pull-right">Read more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article> <!-- post -->
-                                    <article class="post">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h3 class="post-title"><a href="../2014/05/gran-canaria-has-the-best-climate-in-the-world-according-to-a-u-s-university/index.html" class="transicion">Gran Canaria has the best climate according to a U.S. university</a></h3>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                                                                    <img width="760" height="405" src="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b-760x405.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="2255332986_c00b655dd0_b" />                                                                            </div>
-                                    <div class="col-lg-6">
-                                        Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget...                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i>  
-                                        <i class="fa fa-user"></i> <a href="#">adrigm</a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/news/index.html" rel="category tag">News</a>, <a href="../category/travels/index.html" rel="category tag">Travels</a>.
-                                    </div>
-                                    <div class="col-lg-2 col-md-3 col-sm-4">
-                                        <a href="../2014/05/gran-canaria-has-the-best-climate-in-the-world-according-to-a-u-s-university/index.html" class="pull-right">Read more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article> <!-- post -->
-                                    <article class="post">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h3 class="post-title"><a href="../2014/05/san-francisco-the-city-to-close-big-business/index.html" class="transicion">San Francisco, the city to close big business</a></h3>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                                                                    <img width="760" height="405" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="2" />                                                                            </div>
-                                    <div class="col-lg-6">
-                                        Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet...                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i>  
-                                        <i class="fa fa-user"></i> <a href="#">adrigm</a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/news/index.html" rel="category tag">News</a>.
-                                    </div>
-                                    <div class="col-lg-2 col-md-3 col-sm-4">
-                                        <a href="../2014/05/san-francisco-the-city-to-close-big-business/index.html" class="pull-right">Read more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article> <!-- post -->
-                                    <article class="post">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <h3 class="post-title"><a href="../2014/05/sydney-opera-hosts-the-greatest-show-ever-created/index.html" class="transicion">Sydney opera hosts the greatest show ever created</a></h3>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                                                                    <img width="760" height="405" src="../wp-content/uploads/2014/05/5.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="5" />                                                                            </div>
-                                    <div class="col-lg-6">
-                                        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem...                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer">
-                                <div class="row">
-                                    <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i>  
-                                        <i class="fa fa-user"></i> <a href="#">adrigm</a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/news/index.html" rel="category tag">News</a>, <a href="../category/travels/index.html" rel="category tag">Travels</a>.
-                                    </div>
-                                    <div class="col-lg-2 col-md-3 col-sm-4">
-                                        <a href="../2014/05/sydney-opera-hosts-the-greatest-show-ever-created/index.html" class="pull-right">Read more &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article> <!-- post -->
+                    <?php
+                    }
+                    ?>  
+                                   
                             
-           <ul class='page-numbers'>
-	<li><span class='page-numbers current'>1</span></li>
-	<li><a class='page-numbers' href='page/2/index.html'>2</a></li>
-	<li><a class='page-numbers' href='page/3/index.html'>3</a></li>
-	<li><a class="next page-numbers" href="page/2/index.html">»</a></li>
-</ul>
-
-                    </div> <!-- col-md-8 -->
-
+          
         <div class="col-md-4">
             
 
@@ -360,30 +264,30 @@
                 <div class="tab-pane" id="archive">
                      <h3 class="post-title">Archives</h3>
                     <ul class="simple">
-                        	<li><a href='../2014/05/index.html'>May 2014</a></li>
-	<li><a href='../2014/04/index.html'>April 2014</a></li>
-	<li><a href='../2014/03/index.html'>March 2014</a></li>
-	<li><a href='../2013/11/index.html'>November 2013</a></li>
+                            <li><a href='../2014/05/index.html'>May 2014</a></li>
+    <li><a href='../2014/04/index.html'>April 2014</a></li>
+    <li><a href='../2014/03/index.html'>March 2014</a></li>
+    <li><a href='../2013/11/index.html'>November 2013</a></li>
                     </ul>
                 </div>
                 <div class="tab-pane" id="categories">
                     <h3 class="post-title">Categories</h3>
                     <ul class="simple">
-                        	<li class="cat-item cat-item-6"><a href="../category/nature/index.html" >Nature</a>
+                            <li class="cat-item cat-item-6"><a href="../category/nature/index.html" >Nature</a>
 </li>
-	<li class="cat-item cat-item-12"><a href="../category/news/index.html" >News</a>
+    <li class="cat-item cat-item-12"><a href="../category/news/index.html" >News</a>
 </li>
-	<li class="cat-item cat-item-18"><a href="../category/portfolio/index.html" >Portfolio</a>
+    <li class="cat-item cat-item-18"><a href="../category/portfolio/index.html" >Portfolio</a>
 </li>
-	<li class="cat-item cat-item-9"><a href="../category/sports/index.html" >Sports</a>
+    <li class="cat-item cat-item-9"><a href="../category/sports/index.html" >Sports</a>
 <ul class='children'>
-	<li class="cat-item cat-item-14"><a href="../category/sports/diving/index.html" >Diving</a>
+    <li class="cat-item cat-item-14"><a href="../category/sports/diving/index.html" >Diving</a>
 </li>
-	<li class="cat-item cat-item-13"><a href="../category/sports/tennis-sports/index.html" >Tennis</a>
+    <li class="cat-item cat-item-13"><a href="../category/sports/tennis-sports/index.html" >Tennis</a>
 </li>
 </ul>
 </li>
-	<li class="cat-item cat-item-24"><a href="../category/travels/index.html" >Travels</a>
+    <li class="cat-item cat-item-24"><a href="../category/travels/index.html" >Travels</a>
 </li>
                     </ul>
                 </div>
@@ -456,15 +360,7 @@
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+                  
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

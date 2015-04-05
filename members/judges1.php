@@ -2,7 +2,6 @@
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
 ?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -174,7 +173,7 @@
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
-             <header class="wrap-title">
+              <header class="wrap-title">
             <div class="container">
                 <h1 class="page-title">Judges</h1>
                 </ol>
@@ -184,138 +183,77 @@
         <div class="container">
 
                     <div class="row">
-	<div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-8">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-<img src="../wp-content/uploads/2014/05/t1.jpg" alt="t1" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-11">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t2.jpg" alt="t2" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-14">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-17">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t4.jpg" alt="t4" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t5.jpg" alt="t5" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
+    <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-8">
+                <div class="panel-body">
+                    <h3 class="section-title">Ranjan David <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+<img src="../Judges/t1.JPG" alt="t1" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Ranjan David is a fourth yearite who is currently working in Gurgaon. Ranjan David has been one of the best adjudicators DA-IICT has ever had. He has been a role model for a number of young adjudicators.
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-11">
+                <div class="panel-body">
+                    <h3 class="section-title">Chirag Changrani <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../Judges/t2.JPG" alt="t2" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Chirag Changrani is a third yearite and had been to a number of tournaments. He has been the third best adjudicator at Senate2015. He has also been to tournaments like ILNU and NLU, Lucknow. 
+                    
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-14">
+                <div class="panel-body">
+                    <h3 class="section-title">Visharad Bansal <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../Judges/t3.JPG" alt="t3" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top"> Visharad Bansal is a second yearite and has been to tournaments like St. Xaviers College, Mumbai and ILNU.
+                    
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-17">
+                <div class="panel-body">
+                    <h3 class="section-title">Akshar Varma <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../Judges/t4.png" alt="t6" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Akshar Varma is a second yearite and one of the most thoughtful people in the club. He debates as well.
+                    
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-18">
+                <div class="panel-body">
+                    <h3 class="section-title">Ashutosh Adhikari <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../Judges/t5.JPG" alt="t4" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Ashutosh Adhikar is a Ist yearite and as has shown tremendous progress in a very short span of time. He has a great potential.
+                    
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-18">
+                <div class="panel-body">
+                    <h3 class="section-title">Sneha Mandan <small class="pull-right"></small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../Judges/t6.JPG" alt="t5" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Sneha is a first yearite and has been consistent in this club. She has participated in a lot of tournaments like ILNU and Senate2015.
+                    
+            </div>
+        </section>
+    </div>
 </div>                    
         </div> <!-- container -->
     
@@ -333,15 +271,7 @@
                             <a href="../faq/faq1.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+                  
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

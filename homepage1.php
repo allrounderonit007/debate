@@ -2,6 +2,7 @@
 <html  lang="en-US">
 <?php
     require_once('includes/initialize.php');
+    $user=Users::find_by_id($_SESSION['u_id']);
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
@@ -541,15 +542,6 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                             <a href="faq/faq1.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

@@ -1,6 +1,5 @@
 <?php
-	//require_once('initialize.php');		Already included...
-	require_once(LIB_PATH.DS.'MySQLDatabase.php');
+	require_once('MySQLDatabase.php');
 	
 	class DatabaseObject
 	{

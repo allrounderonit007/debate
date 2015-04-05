@@ -4,26 +4,8 @@
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
 ?>
-<?php
-$message="";
-    if(isset($_POST['submit']))
-    {
-        $user = Users::find_by_id($_SESSION['u_id']);
-        $user->attach_file($_FILES['abcd']);
-         
-        if($user->save())
-        {
-            $message = "File uploaded successfully";
-        }
-        else
-        {
-            $message = join("<br />" , $user->errors);
-        }
-        
-    }
-?>
+
 
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -152,7 +134,7 @@ $message="";
             <ul class="nav navbar-nav navbar-right">
               <li class="profile-info dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "profile_pic/<?php echo $user->u_photo;?>" alt="" class="img-circle" width="44" />
+                  <img src = "../profile_pic/<?php echo $user->u_photo;?>" alt="" class="img-circle" width="44" />
                       <?php   
                         echo $_SESSION['u_name'];
                       ?>
@@ -198,9 +180,8 @@ $message="";
     </div>
 </header>
 
-
-<?php echo $message; ?>
-  <form action = "upload-pic1.php" enctype = "multipart/form-data" method = "POST">
+Select a file to upload: <br />
+  <form action = "upload.php" enctype = "multipart/form-data" method = "POST">
     <p><input type = "file" name="abcd" /></p>
     <input type = "submit" name = "submit" value = "Upload" />
   </form>
@@ -234,11 +215,6 @@ $message="";
    
     </div> <!-- container -->
 
-
-
-
-
-
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">
@@ -253,15 +229,7 @@ $message="";
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
                     
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

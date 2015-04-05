@@ -5,13 +5,6 @@
 <?php
     require_once('../includes/initialize.php');
     session_start();
-    if(isset($_POST['submit']))
-    {
-      $forum=new Forums();
-      $forum->f_topic = $_POST['topic'];
-      $forum->f_description = $_POST['description'];
-      $forum->create();
-    }
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -223,13 +216,13 @@
   
   <div class="panel-body">
   
-    <form role="form" id="form1" method="post" class="validate">
+    <form role="form" id="form1" method="post" class="validate" action="insertforum.php">
       
       <div class="form-group" >
         <label for="field-1" class="control-label">Topic :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" value="" name="topic" data-validate="required" data-message-required="First Name is required for identification."/>  
+          <input type="text" class="form-control" name="topic" />  
         </div>
       </div>
       <br /><br /><br />
@@ -239,7 +232,7 @@
         <label for="field-1" class="control-label">Description :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="description" value="" data-validate="required,email" />
+        <input type="text" class="form-control" name="description"  />
         </div>
       </div>
       <br /><br /><br />
@@ -308,15 +301,7 @@
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+  
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

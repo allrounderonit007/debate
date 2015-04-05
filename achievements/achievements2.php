@@ -2,7 +2,6 @@
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -204,7 +203,7 @@
 
              <header class="wrap-title">
             <div class="container">
-                <h1 class="page-title">Our Team</h1>
+                <h1 class="page-title">Achievements </h1>
                 </ol>
             </div>
         </header>
@@ -212,138 +211,71 @@
         <div class="container">
 
                     <div class="row">
-	<div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-8">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-<img src="../wp-content/uploads/2014/05/t1.jpg" alt="t1" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-11">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t2.jpg" alt="t2" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-14">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-17">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t4.jpg" alt="t4" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t5.jpg" alt="t5" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
+    <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-8">
+                <div class="panel-body">
+                    <h3 class="section-title">BITS-GOA <small class="pull-mid"><BR>BRITISH PARLIAMENTARY DEBATING TOURNAMENT-2012</small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+<img src="BITS2012.jpg" alt="t1" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">The team of Sandeep Mertia and Akshay Ratan reached the finals of British Parliamentary Debating tournament of BITS-GOA. This was the first achievement of any kind for the Debate Club, DA-IICT.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-11">
+                <div class="panel-body">
+                    <h3 class="section-title">DA-IICT <small class="pull-mid"><BR>SENATE-2013</small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="SENATE2013.jpg" alt="t2" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Two teams from DA-IICT reached the semi-finals. One team comprised of Sandeep Mertia, Tarunima Prabhakar and Devika Dwivedi and the second team had Malveeka Bhandari, Dhruvi Shah and Aditi Bhatnagar.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-14">
+                <div class="panel-body">
+                    <h3 class="section-title">ILNU <small class="pull-mid"><BR>ILNU PARLIAMENTARY DEBATE-2014</small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">The team of Akshay Ratan, Yognik Baghel and NiyamSan Chhaya broke into the top 6 of the ILNU Parliamentary Debate 2014 wherein teams from Hindu, Narsee Monjee participated.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-17">
+                <div class="panel-body">
+                    <h3 class="section-title">NLU LUCKNOW <small class="pull-mid"><BR>PARLIAMENTARY DEBATE COMPETITION-2014</small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">The team of Ankit Muchhala, Chaitanya Prasad and Baruni Goel broke into the quarter finals of the Parliamentary Debate competition.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+     <div class="col-md-6">
+        <section>
+            <div class="panel panel-default  animated fadeInDown animation-delay-17">
+                <div class="panel-body">
+                    <h3 class="section-title">DA-IICT <small class="pull-mid"><BR>SENATE-2015</small><div class="clearfix"></div></h3>
+                    <div class="clearfix"></div>
+                    <img src="SENATE2015.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
+                    <p class="no-margin-top">Chirag Changrani and Chaitanya Prasad stood third and fourth in the best adjudicator category.</p>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>                    
         </div> <!-- container -->
     <aside id="footer-widgets">
@@ -360,15 +292,7 @@
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
                     
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

@@ -5,15 +5,13 @@
 require_once('../includes/initialize.php');
 require_once('../includes/MySQLDatabase.php');
 
-$forum=forums::find_by_id(1);
   if( isset( $_POST['submit'] ) )
   {
-      $c = new comments();
-      //$c=  comment::find_by_id($_SESSION['user_id']);
-    $c->c_o_ID=2;
-    $c->c_authorID=2;
+    $c = new comments();
+    $c->c_o_ID = "";
+    $c->c_authorID=$_SESSION['u_id'];
     $c->c_text= $_POST["text"];
-    $c->c_type=0;
+    $c->c_type=3;
     $c->c_time=date('Y-m-d H:i:s');
     
     $c->create();     
@@ -223,46 +221,54 @@ $forum=forums::find_by_id(1);
 </header>
 
 
-<div class="container">
-
-
-<p> <?php echo $forum->f_topic; ?> </p>
-<p><?php echo $forum->f_description; ?></p>
-<br>
-<p>Are you in favour of this topic?</p>
-<br>
-
-<form action="forums1.php" method="post">
-
-<div style="width:100%;height:100%;position:absolute;vertical-align:middle;text-align:center;">
-<button type="button" class="btn btn-success" align="center" onClick="myFor()">FOR</button>
-&nbsp;
-&nbsp;
-&nbsp;
-<button type="button" class="btn btn-danger" align="center" onClick="myAgainst()">AGAINST</button><br/>
-</div>​
-</br>
-</br>
-
+<div class="row">
 <?php
-  $com=comments::find_all();
-  foreach($com as $com_obj){
-?>  
-<input name="text" rows="3" class="form-control" value="<?php echo $com_obj->c_text; ?>" style="background-color:#FFFFFF" data-validate="required" data-message-required="You must provide at least 2 options."></input>
-</br>
-</br>
-
-<?php
-}
+$empty=0;
+$frm=forums::find_all();
+foreach($frm as $frm_obj)
+{
+$empty++;
 ?>
-<br>
-<br>
+  <div class="col-sm-3">  
+    <div class="tile-progress tile-primary">
+      <div class="tile-header">
+        <h3><?php echo $frm_obj->f_topic; ?></h3>
+      </div>
+      <div class="tile-header">
+        <h3><?php echo $frm_obj->f_description; ?></h3>
+      </div>
+      
+      
+      <div class="tile-footer">
+        
+        <span>
+          <button 
+            type="button" 
+            class="btn btn-info" 
+            onClick="window.location.assign('f1.php?id=<?php echo $frm_obj->f_id; ?>')" 
+          >
+            View Forums
+        </button>
+        </span>
+      </div>
+    </div>
+    <!-- End of div class="tile-progress tile-primary" -->  
+  </div>
+  <!-- End of div class="col-sm-3" -->
+  <!-- LOOP ENDS HERE... -->
+<?php 
+  } 
 
-<div class="form-group" id="add_new_option">
-
-</form>
-
-</div> <!-- container -->
+if($empty==0)
+{
+ ?>
+<h3> Sorry! You do not have a forum to view </h3>
+<?php
+ }
+?>
+  
+    
+</div> <!-- Endof row... -->
 
 <div class="container">
 
@@ -307,15 +313,7 @@ $forum=forums::find_by_id(1);
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+                   
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

@@ -3,7 +3,6 @@
 <?php
     require_once('../includes/initialize.php');
     require_once('../includes/MySQLDatabase.php');
-    session_start();
     $user=new Users();
     $message="You have entered wrong password";
 
@@ -11,16 +10,17 @@
     {
     if($_SESSION['u_password'] == $_POST['current_password'])
     {
-    $_SESSION['u_password']= $_POST['upwd'];
-    $user->update_password($_SESSION['u_id'],$_POST['upwd']);
-    redirect_to("../homepage1.php");
+      if($_POST['upwd'] == $_POST['ucpwd'])
+      {
+        $_SESSION['u_password']= $_POST['upwd'];
+        $user->update_password($_SESSION['u_id'],$_POST['upwd']);
+        redirect_to("../homepage1.php");
+      }
     }
     else
     { 
       echo "<script> type='text/javascript'>alert('$message'); </script>";
-    }
-  
-        
+    }        
   }
 ?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -194,7 +194,8 @@
 
     </div>
  <script language="javascript" type="text/javascript">
-        function upwd_validate()
+    
+    function upwd_validate()
     {
         if(document.getElementById('upwd').value==0)
         {
@@ -205,6 +206,7 @@
             document.getElementById('err_pwd').innerHTML="";
         }
     }
+    
     function ucpwd_validate()
     {
         var x=document.getElementById('upwd').value;
@@ -254,6 +256,8 @@
         <div class="col-sm-5">
         <input type="password" class="form-control" id="upwd" name="upwd" onBlur="upwd_validate()" required> 
         </div>
+        <div id="err_pwd" style="color:0000ff">
+                            </div>
       </div>
       <br /><br /><br />
 
@@ -263,6 +267,8 @@
         <div class="col-sm-5">
         <input type="password" class="form-control" id="ucpwd" name="ucpwd" onBlur="ucpwd_validate()" required> 
         </div>
+        <div id="err_cpwd" style="color:0000ff">
+                            </div>
       </div>
       <br /><br /><br />
       
@@ -308,10 +314,6 @@
   
 </div>
 
-
-
-
-
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">
@@ -326,15 +328,7 @@
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+                  
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

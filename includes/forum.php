@@ -16,7 +16,14 @@
 		public $f_description;
 		public $f_time;
 		
-		
+		public function update_photo($photo,$u_id)
+{
+     global $database;
+        $result_array = static::find_by_sql('update user set u_photo ="' .$photo . '" where u_id = '. $u_id);
+        
+        return !empty($result_array) ? array_shift($result_array) : false;
+}
+
 		//Overrided because of diffrent column name...
 		public static function find_by_id( $f_id = 0 )
 		{

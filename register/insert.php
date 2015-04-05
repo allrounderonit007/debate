@@ -1,8 +1,8 @@
 <?php
-//echo $_POST['signup'];
+
 if(isset($_POST['signup']))
 {
-//echo "kunal";	
+	
 	$id= $_POST['uid'];
 	$name = $_POST['uname'];
 	$email= $_POST['uemail'];

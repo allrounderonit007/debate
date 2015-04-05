@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
+    
     require_once('../includes/initialize.php');
-    require_once('../includes/MySQLDatabase.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
+
+    $usr=Users::find_by_id($_SESSION['u_id']);
     $user=new Users();
     $message="You have entered wrong password";
 
@@ -172,7 +180,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="profile-info dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                  <img src = "../profile_pic/<?php echo $usr->u_photo ;?>" alt="" class="img-circle" width="44" />
                       <?php   
                         echo $_SESSION['u_name'];
                       ?>
@@ -203,7 +211,7 @@
                     </li>
 
                     <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
               
               </ul>

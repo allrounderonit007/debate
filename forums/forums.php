@@ -153,7 +153,7 @@ if(isset($_POST['against']))
 </header>
 
 
-<div class="row">
+<div class="container">
 <?php
 $empty=0;
 $frm=forums::find_all();
@@ -201,14 +201,6 @@ if($empty==0)
   
     
 </div> <!-- Endof row... -->
-
-
-
-
-
-
-
-</div> <!-- container -->
 
 <div class="container">
 

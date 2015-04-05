@@ -1,4 +1,5 @@
 <?php
+require_once("../includes/initialize.php");
 if(isset($_POST['login']))
 {
 
@@ -53,6 +54,13 @@ $connect = mysql_connect('localhost','root','');
 	}
 		
 }
+
+if( (!empty( $_GET['action'] )) && $_GET['action']=='logout' )
+	{		
+		$session->logout();
+		session_destroy();
+		redirect_to('../homepage.php');
+	}
 
  if(isset($_POST['forget']))
     {

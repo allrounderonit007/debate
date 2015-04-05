@@ -2,7 +2,7 @@
 	class Session
 	{
 		private $logged_in = false;
-		public $user_id;
+		public $u_id;
 		
 		function __construct()
 		{
@@ -28,29 +28,29 @@
 		{
 			if( $user )
 			{
-				$_SESSION['user_id'] = (string)$user->id;
-				$this->user_id =  $_SESSION['user_id'];
+				$_SESSION['u_id'] = (string)$user->id;
+				$this->user_id =  $_SESSION['u_id'];
 				$this->logged_in = true;
 			}
 		}
 		
 		public function logout()
 		{
-			unset ( $_SESSION['user_id'] );
-			unset ( $this->user_id );
+			unset ( $_SESSION['u_id'] );
+			unset ( $this->u_id );
 			$this->logged_in = false;
 		}
 		
 		private function check_login()
 		{
-			if( isset( $_SESSION['user_id'] ) )
+			if( isset( $_SESSION['u_id'] ) )
 			{
-				$this->user_id = $_SESSION['user_id'];
+				$this->u_id = $_SESSION['u_id'];
 				$this->logged_in = true;
 			}
 			else
 			{
-				unset( $this->user_id );
+				unset( $this->u_id );
 				$this->logged_in = false;
 			}
 		}

@@ -2,7 +2,15 @@
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    require_once('../includes/MySQLDatabase.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
+
+    $usr=Users::find_by_id($_SESSION['u_id']);
+
     $user=new Users();
     $message="You have entered wrong password";
 
@@ -121,7 +129,7 @@
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="../tabbing/tabbing.php">Tabbing</a>
+                    <a title="Tabbing" href="../tabbing/tabbing1.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
@@ -149,7 +157,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="profile-info dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                  <img src = "../profile_pic/<?php echo $usr->u_photo ;?>" alt="" class="img-circle" width="44" />
                       <?php   
                         echo $_SESSION['u_name'];
                       ?>
@@ -179,7 +187,7 @@
                     </li>
 
                     <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
               
               </ul>
@@ -321,11 +329,11 @@
                 <div class="col-md-4">
                     <h3 class="footer-widget-title">Sitemap</h3>
                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-16">
-                            <a href="../contact/contact.php">Contact Us</a>
+                            <a href="../contact/contact1.php">Contact Us</a>
                         </li>
                         
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                            <a href="../faq/faq.php">Frequently Asked Questions</a>
+                            <a href="../faq/faq1.php">Frequently Asked Questions</a>
                         </li>
 
                   

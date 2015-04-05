@@ -1,6 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html  lang="en-US">
+<?php
+    require_once('../includes/initialize.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
 
+    $user=Users::find_by_id($_SESSION['u_id']);
+?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -150,7 +160,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="profile-info dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                  <img src = "../profile_pic/<?php echo $user->u_photo ;?>" alt="" class="img-circle" width="44" />
                       <?php   
                         echo $_SESSION['u_name'];
                       ?>
@@ -181,7 +191,7 @@
                     </li>
 
                     <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
               
               </ul>
@@ -230,15 +240,7 @@
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
+               
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

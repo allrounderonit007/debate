@@ -1,8 +1,35 @@
-
-
 <!DOCTYPE html>
 <html  lang="en-US">
+<?php
 
+$variable=array();
+$inc=0;
+$sum=0;
+
+$a = $_SESSION['myarray'];
+
+$a1=array();
+$a1[0]=1;
+$a1[1]=2;
+$a1[2]=3;
+$a1[3]=4;
+$a1[4]=5;
+$a1[5]=6;
+
+for($i=0;$i<5;$i++){
+for($j=$i+1;$j<=5;$j++){
+if($a[$i]<$a[$j]){
+$temp=$a[$i];
+$a[$i]=$a[$j];
+$a[$j]=$temp;
+
+$temp=$a1[$i];
+$a1[$i]=$a1[$j];
+$a1[$j]=$temp;
+}
+}
+}
+?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -125,506 +152,29 @@
             </ul>
     </ul>
             
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                    
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
+        
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 
 <header class="wrap-title">
     <div class="container">
-        <h1 class="page-title">Tabbing</h1>
+        <h1 class="page-title">Tabbing Results</h1>
     </div>
 </header>
-
-
-
-
 <div class="container">
-    <ul class="portfolio-control">
-        <li class="filter active" data-filter="all">All Items</li><li class="filter" data-filter="flowers">Flowers</li><li class="filter" data-filter="montain">Montain</li><li class="filter" data-filter="nature">Nature</li><li class="filter" data-filter="spring">Spring</li><li class="filter" data-filter="summer">Summer</li> 
-    </ul>
+<?php
+for($i=0;$i<=5;$i=$i+2){
+$j=$i+1;
+echo "Team $a1[$i] vs Team $a1[$j] <br/>";
+}
+?>
 
-    <div class="row" id="Grid">
+</br>
+</br>
+</br>
 
-        
-                       <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            flowers nature spring 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal0"><i class="fa fa-search"></i>More info</a>
-                           <h4>Pretty spring</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Pretty spring</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w2.jpg"><img src="../wp-content/uploads/2014/05/w2.jpg" alt="w2" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-121" /></a></p>
-
-<p>Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi.</p>
-
-<p>Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.</p>
-
-<p>Sed augue ipsum, egestas&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/pretty-spring/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            nature summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w1.jpg" class="attachment-, img-responsive wp-post-image" alt="w1" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search"></i>More info</a>
-                           <h4>In the Sea</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">In the Sea</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w1.jpg" class="attachment-, img-responsive wp-post-image" alt="w1" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w1.jpg"><img src="../wp-content/uploads/2014/05/w1.jpg" alt="w1" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-120" /></a></p>
-
-<p>Morbi mollis tellus ac sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus. Cras risus ipsum, faucibus ut, ullamcorper id, varius ac, leo.</p>
-
-<p>Suspendisse feugiat. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Praesent nec nisl a purus blandit viverra. Praesent ac massa at ligula laoreet iaculis. Nulla neque dolor, sagittis eget, iaculis quis, molestie non, velit. Mauris turpis nunc, blandit et, volutpat molestie, porta&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/in-the-sea/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            montain nature spring 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w6.jpg" class="attachment-, img-responsive wp-post-image" alt="w6" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal2"><i class="fa fa-search"></i>More info</a>
-                           <h4>Relaxing on the mountain</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Relaxing on the mountain</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w6.jpg" class="attachment-, img-responsive wp-post-image" alt="w6" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w6.jpg"><img src="../wp-content/uploads/2014/05/w6.jpg" alt="w6" width="800" height="533" class="aligncenter imagoborder img-responsive size-full wp-image-125" /></a></p>
-
-<p>Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla.</p>
-
-<p>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem. Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus.</p>
-
-<p>Quisque libero metus, condimentum nec, tempor&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/relaxing-on-the-mountain/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            mont nature 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w5.jpg" class="attachment-, img-responsive wp-post-image" alt="w5" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal3"><i class="fa fa-search"></i>More info</a>
-                           <h4>Africa Wild</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Africa Wild</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w5.jpg" class="attachment-, img-responsive wp-post-image" alt="w5" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w5.jpg"><img src="../wp-content/uploads/2014/05/w5.jpg" alt="w5" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-124" /></a></p>
-
-<p>Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.</p>
-
-<p>Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Mauris sollicitudin fermentum libero. Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/africa-wild/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            beach summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b-800x533.jpg" class="attachment-, img-responsive wp-post-image" alt="2255332986_c00b655dd0_b" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal4"><i class="fa fa-search"></i>More info</a>
-                           <h4>Maspalomas</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Maspalomas</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b-800x533.jpg" class="attachment-, img-responsive wp-post-image" alt="2255332986_c00b655dd0_b" />                                                      <div class="no-img"><a href="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b.jpg"><img src="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b.jpg" alt="2255332986_c00b655dd0_b" width="1024" height="683" class="aligncenter size-full wp-image-107" /></a>
-
-<p>Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod ligula urna in dolor. Mauris sollicitudin fermentum libero. Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi.</p>
-
-<p>Morbi mollis tellus ac sapien. Phasellus volutpat, metus eget egestas mollis, lacus lacus blandit dui, id egestas quam mauris ut lacus. Fusce vel dui. Sed in libero ut nibh placerat accumsan. Proin faucibus arcu quis ante. In consectetuer turpis ut velit. Nulla sit amet est. Praesent metus tellus, elementum eu, semper a, adipiscing nec,&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/maspalomas/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            montain spring 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w3.jpg" class="attachment-, img-responsive wp-post-image" alt="w3" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal5"><i class="fa fa-search"></i>More info</a>
-                           <h4>summery camp</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">summery camp</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w3.jpg" class="attachment-, img-responsive wp-post-image" alt="w3" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w3.jpg"><img src="../wp-content/uploads/2014/05/w3.jpg" alt="w3" width="800" height="533" class="aligncenter size-full wp-image-122" /></a></p>
-
-<p>Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Vestibulum ullamcorper mauris at ligula. Fusce fermentum. Nullam cursus lacinia erat. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi.</p>
-
-<p>Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.</p>
-
-<p>Sed augue ipsum, egestas nec, vestibulum&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/summery-camp/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            nature summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w7.jpg" class="attachment-, img-responsive wp-post-image" alt="w7" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal6"><i class="fa fa-search"></i>More info</a>
-                           <h4>Meadow in summer</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Meadow in summer</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w7.jpg" class="attachment-, img-responsive wp-post-image" alt="w7" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w7.jpg"><img src="../wp-content/uploads/2014/05/w7.jpg" alt="w7" width="800" height="533" class="aligncenter size-full wp-image-126" /></a></p>
-
-<p>Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed hendrerit. Morbi ac felis. Nunc egestas, augue at pellentesque laoreet, felis eros vehicula leo, at malesuada velit leo quis pede. Donec interdum, metus et hendrerit aliquet, dolor diam sagittis ligula, eget egestas libero turpis vel mi. Nunc nulla.</p>
-
-<p>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Donec venenatis vulputate lorem. Morbi nec metus. Phasellus blandit leo ut odio. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus.</p>
-
-<p>Quisque libero metus, condimentum nec, tempor a, commodo&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/meadow-in-summer/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            flowers summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w9.jpg" class="attachment-, img-responsive wp-post-image" alt="w9" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal7"><i class="fa fa-search"></i>More info</a>
-                           <h4>Flowers for Summer</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Flowers for Summer</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w9.jpg" class="attachment-, img-responsive wp-post-image" alt="w9" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w9.jpg"><img src="../wp-content/uploads/2014/05/w9.jpg" alt="w9" width="800" height="533" class="aligncenter img-responsive imageborder size-full wp-image-128" /></a></p>
-
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui magna, posuere eget, vestibulum et, tempor auctor, justo. In ac felis quis tortor malesuada pretium. Pellentesque auctor neque nec urna. Proin sapien ipsum, porta a, auctor quis, euismod ut, mi. Aenean viverra rhoncus pede.</p>
-
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non enim eleifend felis pretium feugiat. Vivamus quis mi. Phasellus a est. Phasellus magna. In hac habitasse platea dictumst. Curabitur at lacus ac velit ornare lobortis. Curabitur a felis in nunc fringilla tristique. Morbi mattis ullamcorper velit. Phasellus gravida semper nisi.</p>
-
-<p>Nullam vel sem. Pellentesque libero tortor,&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/flowers-for-summer/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            nature spring 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w10.jpg" class="attachment-, img-responsive wp-post-image" alt="w10" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal8"><i class="fa fa-search"></i>More info</a>
-                           <h4>Spring Wild</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Spring Wild</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w10.jpg" class="attachment-, img-responsive wp-post-image" alt="w10" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w10.jpg"><img src="../wp-content/uploads/2014/05/w10.jpg" alt="w10" width="800" height="533" class="aligncenter img-responsive imageborder size-full wp-image-129" /></a></p>
-
-<p>Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc. Vestibulum fringilla pede sit amet augue. In turpis. Pellentesque posuere. Praesent turpis. Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Nullam sagittis.</p>
-
-<p>Suspendisse pulvinar, augue ac venenatis condimentum, sem libero volutpat nibh, nec pellentesque velit pede quis nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Ut varius tincidunt libero. Phasellus dolor. Maecenas vestibulum mollis diam. Pellentesque ut neque.</p>
-
-<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In dui&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/spring-wild/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            montain nature summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w4.jpg" class="attachment-, img-responsive wp-post-image" alt="w4" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal9"><i class="fa fa-search"></i>More info</a>
-                           <h4>Tranquility at the foot of the mountain</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Tranquility at the foot of the mountain</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w4.jpg" class="attachment-, img-responsive wp-post-image" alt="w4" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w4.jpg"><img src="../wp-content/uploads/2014/05/w4.jpg" alt="w4" width="800" height="533" class="aligncenter img-responsive imageborder size-full wp-image-123" /></a></p>
-
-<p>Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu.</p>
-
-<p>Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum.</p>
-
-<p>Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/tranquility-foot-mountain/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            flowers nature summer 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w8.jpg" class="attachment-, img-responsive wp-post-image" alt="w8" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal10"><i class="fa fa-search"></i>More info</a>
-                           <h4>Summer is coming</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Summer is coming</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w8.jpg" class="attachment-, img-responsive wp-post-image" alt="w8" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w8.jpg"><img src="../wp-content/uploads/2014/05/w8.jpg" alt="w8" width="800" height="533" class="aligncenter img-responsive imageborder size-full wp-image-127" /></a></p>
-
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-
-<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
-
-<p>Quisque rutrum&#8230;.</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/summer-is-coming/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                               <div class="col-sm-6 col-lg-3 col-md-4 mix 
-
-            flowers nature 
-           ">
-               <div class="img-caption">
-                                           <img width="800" height="533" src="../wp-content/uploads/2014/05/w12.jpg" class="attachment-, img-responsive wp-post-image" alt="w12" />                                       <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal11"><i class="fa fa-search"></i>More info</a>
-                           <h4>Spring flowers</h4>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel">Spring flowers</h4>
-                       </div>
-                       <div class="modal-body">
-                                                          <img width="800" height="533" src="../wp-content/uploads/2014/05/w12.jpg" class="attachment-, img-responsive wp-post-image" alt="w12" />                                                      <div class="no-img"><p><a href="../wp-content/uploads/2014/05/w12.jpg"><img src="../wp-content/uploads/2014/05/w12.jpg" alt="w12" width="800" height="533" class="aligncenter img-responsive imageborder size-full wp-image-119" /></a></p>
-
-<p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
-
-<p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed,&#8230;</div>
-                       </div>
-                       <div class="modal-footer">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <a href="../2014/05/spring-flowers/index.html" class="btn btn-primary" role="button">View more</a>
-                       </div>
-                   </div><!-- modal-content -->
-               </div><!-- modal-dialog -->
-           </div><!-- modal -->
-                        
-    </div>
-
-   
-    </div> <!-- container -->
+</div> <!-- container -->
 
 <aside id="footer-widgets">
     <div class="container">
@@ -640,15 +190,6 @@
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

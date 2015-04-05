@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html  lang="en-US">
-<?php
 
-require_once('../includes/initialize.php');
-require_once('../includes/MySQLDatabase.php');
-?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -120,44 +116,7 @@ require_once('../includes/MySQLDatabase.php');
             </ul>
     </ul>
             
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                    
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
+          
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -176,13 +135,13 @@ require_once('../includes/MySQLDatabase.php');
             $blo=blogs::find_all();
             foreach($blo as $blo_obj){
             ?>  
-                                                <article class="post">
+                    <article class="post">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <h3 class="post-title"><?php echo $blo_obj->b_topic; ?></h3>
                                 <div class="row">
                                     <div class="col-lg-4">
-                                                                                    <img width="260" height="405" src="../wp-content/uploads/2014/05/7.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="7" />                                                                            </div>
+                                        <img width="260" height="405" src="../wp-content/uploads/2014/05/7.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="7" />                                                                            </div>
                                     <div class="col-lg-4">
                                         <?php echo $blo_obj->b_description; ?>                                </div>
                                 </div>
@@ -192,11 +151,9 @@ require_once('../includes/MySQLDatabase.php');
                                     <div class="col-lg-10 col-md-9 col-sm-8">
                                         <i class="fa fa-clock-o"></i> <?php echo $blo_obj->b_time; ?>  
                                         <i class="fa fa-user"></i> <a href="#"><?php echo $blo_obj->b_authorID; ?> </a> 
-                                        <i class="fa fa-folder-open"></i> <a href="../category/nature/index.html" rel="category tag"><?php echo $blo_obj->b_category; ?> </a>.
+                                        <i class="fa fa-folder-open"></i> <a rel="category tag"><?php echo $blo_obj->b_category; ?> </a>
                                     </div>
-                                    <div class="col-lg-2 col-md-3 col-sm-4">
-                                        <a href="../2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html" class="pull-right">Read more &raquo;</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -209,111 +166,6 @@ require_once('../includes/MySQLDatabase.php');
           
         <div class="col-md-4">
             
-
-        <div class="block">
-
-        <form method="get" class="form-inline" id="searchform" action="http://razonartificial.com/themes/openmind/wordpress/">
-    <div class="input-group">
-      <input type="text" placeholder="Search..." class="field form-control" name="s" id="s">
-      <span class="input-group-btn">
-        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-      </span>
-    </div><!-- /input-group -->
-</form>
-        </div>
-
-        
-         <div class="block">
-            <ul class="nav nav-tabs" id="myTab2">
-                <li class="active"><a href="#fav" data-toggle="tab"><i class="fa fa-star"></i></a></li>
-                <li><a href="#categories" data-toggle="tab"><i class="fa fa-folder-open"></i></a></li>
-                <li><a href="#archive" data-toggle="tab"><i class="fa fa-clock-o"></i></a></li>
-                <li><a href="#tags" data-toggle="tab"><i class="fa fa-tags"></i></a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="fav">
-                    <h3 class="post-title">Favorite Post</h3>
-                    <ul class="media-list"><li class="media"><a href="../2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html" title="Know the best deals on getaway for the weekend" class="pull-left media-object"><img width="80" height="80" src="../wp-content/uploads/2014/05/7-80x80.jpg" class="attachment-post_list wp-post-image" alt="7" /></a><div class="media-body"><p class="media-heading"><a href="../2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html" title="Know the best deals on getaway for the weekend">Know the best deals on getaway for the weekend</a></p><small>May 20, 2014</small></div><li class="media"><a href="../2014/05/gran-canaria-has-the-best-climate-in-the-world-according-to-a-u-s-university/index.html" title="Gran Canaria has the best climate according to a U.S. university" class="pull-left media-object"><img width="80" height="80" src="../wp-content/uploads/2014/05/2255332986_c00b655dd0_b-80x80.jpg" class="attachment-post_list wp-post-image" alt="2255332986_c00b655dd0_b" /></a><div class="media-body"><p class="media-heading"><a href="../2014/05/gran-canaria-has-the-best-climate-in-the-world-according-to-a-u-s-university/index.html" title="Gran Canaria has the best climate according to a U.S. university">Gran Canaria has the best climate according to a U.S. university</a></p><small>May 20, 2014</small></div><li class="media"><a href="../2014/05/the-best-places-to-get-away-to-nature/index.html" title="The best places to get away to nature" class="pull-left media-object"><img width="80" height="80" src="../wp-content/uploads/2014/05/6829124859_2ef9402e85_b-80x80.jpg" class="attachment-post_list wp-post-image" alt="6829124859_2ef9402e85_b" /></a><div class="media-body"><p class="media-heading"><a href="../2014/05/the-best-places-to-get-away-to-nature/index.html" title="The best places to get away to nature">The best places to get away to nature</a></p><small>May 20, 2014</small></div></ul>                </div>
-                <div class="tab-pane" id="archive">
-                     <h3 class="post-title">Archives</h3>
-                    <ul class="simple">
-                            <li><a href='../2014/05/index.html'>May 2014</a></li>
-    <li><a href='../2014/04/index.html'>April 2014</a></li>
-    <li><a href='../2014/03/index.html'>March 2014</a></li>
-    <li><a href='../2013/11/index.html'>November 2013</a></li>
-                    </ul>
-                </div>
-                <div class="tab-pane" id="categories">
-                    <h3 class="post-title">Categories</h3>
-                    <ul class="simple">
-                            <li class="cat-item cat-item-6"><a href="../category/nature/index.html" >Nature</a>
-</li>
-    <li class="cat-item cat-item-12"><a href="../category/news/index.html" >News</a>
-</li>
-    <li class="cat-item cat-item-18"><a href="../category/portfolio/index.html" >Portfolio</a>
-</li>
-    <li class="cat-item cat-item-9"><a href="../category/sports/index.html" >Sports</a>
-<ul class='children'>
-    <li class="cat-item cat-item-14"><a href="../category/sports/diving/index.html" >Diving</a>
-</li>
-    <li class="cat-item cat-item-13"><a href="../category/sports/tennis-sports/index.html" >Tennis</a>
-</li>
-</ul>
-</li>
-    <li class="cat-item cat-item-24"><a href="../category/travels/index.html" >Travels</a>
-</li>
-                    </ul>
-                </div>
-
-                <div class="tab-pane" id="tags">
-                    <h3 class="post-title">Tags</h3>
-                    <div class="tags-cloud">
-                        <a href='../tag/beach/index.html' class='tag-link-39' title='1 topic' style='font-size: 1em;'>Beach</a><a href='../tag/bussiness/index.html' class='tag-link-31' title='1 topic' style='font-size: 1em;'>bussiness</a><a href='../tag/camp/index.html' class='tag-link-8' title='1 topic' style='font-size: 1em;'>Camp</a><a href='../tag/camping/index.html' class='tag-link-20' title='1 topic' style='font-size: 1em;'>Camping</a><a href='../tag/canary/index.html' class='tag-link-17' title='2 topics' style='font-size: 1em;'>Canary</a><a href='../tag/cities/index.html' class='tag-link-29' title='1 topic' style='font-size: 1em;'>Cities</a><a href='../tag/city/index.html' class='tag-link-23' title='3 topics' style='font-size: 1em;'>city</a><a href='../tag/diving-2/index.html' class='tag-link-15' title='1 topic' style='font-size: 1em;'>Diving</a><a href='../tag/flowers/index.html' class='tag-link-36' title='4 topics' style='font-size: 1em;'>Flowers</a><a href='../tag/football/index.html' class='tag-link-30' title='1 topic' style='font-size: 1em;'>Football</a><a href='../tag/forest/index.html' class='tag-link-19' title='1 topic' style='font-size: 1em;'>Forest</a><a href='../tag/green/index.html' class='tag-link-7' title='1 topic' style='font-size: 1em;'>Green</a><a href='../tag/holiday/index.html' class='tag-link-21' title='3 topics' style='font-size: 1em;'>Holiday</a><a href='../tag/landscape/index.html' class='tag-link-33' title='2 topics' style='font-size: 1em;'>Landscape</a><a href='../tag/mont/index.html' class='tag-link-40' title='1 topic' style='font-size: 1em;'>Mont</a><a href='../tag/montain/index.html' class='tag-link-37' title='3 topics' style='font-size: 1em;'>Montain</a><a href='../tag/nature/index.html' class='tag-link-6' title='13 topics' style='font-size: 1em;'>Nature</a><a href='../tag/news/index.html' class='tag-link-12' title='6 topics' style='font-size: 1em;'>News</a><a href='../tag/opera/index.html' class='tag-link-28' title='1 topic' style='font-size: 1em;'>Opera</a><a href='../tag/places/index.html' class='tag-link-32' title='1 topic' style='font-size: 1em;'>Places</a><a href='../tag/sea/index.html' class='tag-link-16' title='2 topics' style='font-size: 1em;'>Sea</a><a href='../tag/shows/index.html' class='tag-link-27' title='1 topic' style='font-size: 1em;'>Shows</a><a href='../tag/sport/index.html' class='tag-link-11' title='1 topic' style='font-size: 1em;'>Sport</a><a href='../tag/sports/index.html' class='tag-link-9' title='3 topics' style='font-size: 1em;'>Sports</a><a href='../tag/spring/index.html' class='tag-link-38' title='4 topics' style='font-size: 1em;'>Spring</a><a href='../tag/summer/index.html' class='tag-link-25' title='7 topics' style='font-size: 1em;'>Summer</a><a href='../tag/telecommunications/index.html' class='tag-link-22' title='1 topic' style='font-size: 1em;'>telecommunications</a><a href='../tag/tennis/index.html' class='tag-link-10' title='1 topic' style='font-size: 1em;'>Tennis</a><a href='../tag/travels/index.html' class='tag-link-24' title='6 topics' style='font-size: 1em;'>Travels</a><a href='../tag/water/index.html' class='tag-link-34' title='1 topic' style='font-size: 1em;'>Water</a><a href='../tag/weekend/index.html' class='tag-link-35' title='1 topic' style='font-size: 1em;'>Weekend</a>                    </div>
-                </div>
-            </div> <!-- tab-content -->
-        </div>
-
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading"><i class="fa fa-play-circle"></i>Featured video</div class="panel-heading">
-            <div class="video">
-                <iframe src="http://player.vimeo.com/video/21081887?title=0&amp;byline=0&amp;portrait=0"></iframe>
-            </div>
-        </div>
-
-
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading"><i class="fa fa-comments"></i> Recent Comments</div>
-            <div class="panel-body">
-                <ul class="comments-sidebar">
-
-                    
-                    
-                                                    <li>
-                                <img alt='' src='http://1.gravatar.com/avatar/faddf6e58db96aad83e58a554fb06234?s=75&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D75&amp;r=G' class='imageborder alignleft img-responsive avatar-75 photo' height='75' width='75' />                                <h4><a href="#">adrigm</a> in <a href="#">Know the best deals on getaway for the weekend </a></h4>
-                                                                <p>Interdum lacus sit amet orci. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque a...</p>
-                            </li>
-                                                    <li>
-                                <img alt='' src='http://1.gravatar.com/avatar/faddf6e58db96aad83e58a554fb06234?s=75&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D75&amp;r=G' class='imageborder alignleft img-responsive avatar-75 photo' height='75' width='75' />                                <h4><a href="#">adrigm</a> in <a href="#">Know the best deals on getaway for the weekend </a></h4>
-                                                                <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi....</p>
-                            </li>
-                                                    <li>
-                                <img alt='' src='http://1.gravatar.com/avatar/faddf6e58db96aad83e58a554fb06234?s=75&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D75&amp;r=G' class='imageborder alignleft img-responsive avatar-75 photo' height='75' width='75' />                                <h4><a href="#">adrigm</a> in <a href="#">Know the best deals on getaway for the weekend </a></h4>
-                                                                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vi...</p>
-                            </li>
-                                                    <li>
-                                <img alt='' src='http://1.gravatar.com/avatar/191d812724e34a42b927c5e27acec69f?s=75&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D75&amp;r=G' class='imageborder alignleft img-responsive avatar-75 photo' height='75' width='75' />                                <h4><a href="#">Angela Merkel</a> in <a href="#">The best places to get away to nature </a></h4>
-                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat...</p>
-                            </li>
-                                                    <li>
-                                <img alt='' src='http://1.gravatar.com/avatar/191d812724e34a42b927c5e27acec69f?s=75&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D75&amp;r=G' class='imageborder alignleft img-responsive avatar-75 photo' height='75' width='75' />                                <h4><a href="#">Angela Merkel</a> in <a href="#">Know the best deals on getaway for the weekend </a></h4>
-                                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis nat...</p>
-                            </li>
-                                        </ul>
-            </div>
-        </div>
-
 
                 </div>
     </div> <!-- row -->

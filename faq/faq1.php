@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
-    require_once('../includes/initialize.php'); 
+        require_once('../includes/initialize.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
+
+    $user=Users::find_by_id($_SESSION['u_id']);
+
 ?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -97,7 +106,7 @@
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events1">Events</a>
+                    <a title="Events" href="../events/events1.php">Events</a>
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
@@ -159,7 +168,7 @@
                     </li>
 
                     <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
               
               </ul>

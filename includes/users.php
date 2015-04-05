@@ -1,6 +1,7 @@
 <?php
 require_once('initialize.php');
 require_once('DatabaseObject.php');
+
 class Users extends DatabaseObject
 {
     protected static $class_name = 'users';

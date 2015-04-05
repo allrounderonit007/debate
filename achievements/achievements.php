@@ -175,7 +175,7 @@
 				<div class="panel-body">
 					<h3 class="section-title">ILNU <small class="pull-mid"><BR>ILNU PARLIAMENTARY DEBATE-2014</small><div class="clearfix"></div></h3>
 					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
+					<img src="ILNU2014.JPG" alt="t3" width="180" height="220" class="alignleft imageborder" />
 					<p class="no-margin-top">The team of Akshay Ratan, Yognik Baghel and NiyamSan Chhaya broke into the top 6 of the ILNU Parliamentary Debate 2014 wherein teams from Hindu, Narsee Monjee participated.</p>
 					<div class="clearfix"></div>
 				</div>
@@ -188,7 +188,7 @@
 				<div class="panel-body">
 					<h3 class="section-title">NLU LUCKNOW <small class="pull-mid"><BR>PARLIAMENTARY DEBATE COMPETITION-2014</small><div class="clearfix"></div></h3>
 					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
+					<img src="NLU2014.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
 					<p class="no-margin-top">The team of Ankit Muchhala, Chaitanya Prasad and Baruni Goel broke into the quarter finals of the Parliamentary Debate competition.</p>
 					<div class="clearfix"></div>
 				</div>
@@ -201,7 +201,7 @@
                 <div class="panel-body">
                     <h3 class="section-title">DA-IICT <small class="pull-mid"><BR>SENATE-2015</small><div class="clearfix"></div></h3>
                     <div class="clearfix"></div>
-                    <img src="SENATE2015.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
+                    <img src="SENATE2015.JPG" alt="t6" width="180" height="220" class="alignleft imageborder" />
                     <p class="no-margin-top">Chirag Changrani and Chaitanya Prasad stood third and fourth in the best adjudicator category.</p>
                     <div class="clearfix"></div>
                 </div>

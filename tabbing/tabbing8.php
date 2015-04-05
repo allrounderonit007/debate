@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
@@ -10,7 +11,39 @@
         redirect_to('../homepage.php');
 
     $user=Users::find_by_id($_SESSION['u_id']);
+
+$variable=array();
+$inc=0;
+$sum=0;
+
+
+$a = $_SESSION['myarray'];
+
+$a1=array();
+$a1[0]=1;
+$a1[1]=2;
+$a1[2]=3;
+$a1[3]=4;
+$a1[4]=5;
+$a1[5]=6;
+
+for($i=0;$i<5;$i++){
+for($j=$i+1;$j<=5;$j++){
+if($a[$i]<$a[$j]){
+$temp=$a[$i];
+$a[$i]=$a[$j];
+$a[$j]=$temp;
+
+$temp=$a1[$i];
+$a1[$i]=$a1[$j];
+$a1[$j]=$temp;
+}
+}
+}
+
 ?>
+
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -26,37 +59,34 @@
     <link href="../wp-content/themes/openmind/style.css" rel="stylesheet" media="screen">
     <link href="../wp-content/themes/openmind/css/color-niceblue.css" rel="stylesheet" media="screen" title="default">
     <link href="../wp-content/themes/openmind/css/width-full.css" rel="stylesheet" media="screen" title="default">
-    <link rel="alternate" type="application/rss+xml" title="Open Mind &raquo; Our Team Comments Feed" href="feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="Open Mind &raquo; Portfolio Comments Feed" href="feed/index.html" />
 
 <link rel='stylesheet' id='bootstrap-fa-icon-css'  href='../wp-content/plugins/easy-bootstrap-shortcodes/styles/font-awesome.min0235.css?ver=4.1.1' type='text/css' media='all' />
 <link rel='stylesheet' id='ebs_dynamic_css-css'  href='../wp-content/plugins/easy-bootstrap-shortcodes/styles/ebs_dynamic_css0235.css?ver=4.1.1' type='text/css' media='all' />
 <link rel='stylesheet' id='jetpack_css-css'  href='../wp-content/plugins/jetpack/css/jetpack6de8.css?ver=3.3' type='text/css' media='all' />
 <script type='text/javascript' src='../wp-includes/js/jquery/jquery90f9.js?ver=1.11.1'></script>
 <script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+
+ 
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 4.1.1" />
 <link rel='canonical' href='index.html' />
-<link rel='shortlink' href='http://wp.me/P4Cc4d-2V' />
+<link rel='shortlink' href='http://wp.me/P4Cc4d-7' />
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Our Team" />
-<meta property="og:url" content="http://razonartificial.com/themes/openmind/wordpress/our-team/" />
-<meta property="og:description" content="Sheldon Cooper Programmer Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus volupt..." />
-<meta property="article:published_time" content="2014-05-20T19:52:02+00:00" />
-<meta property="article:modified_time" content="2014-05-20T19:52:02+00:00" />
+<meta property="og:title" content="Portfolio" />
+<meta property="og:url" content="http://razonartificial.com/themes/openmind/wordpress/portfolio/" />
+<meta property="og:description" content="Visit the post for more." />
+<meta property="article:published_time" content="2014-05-18T02:57:26+00:00" />
+<meta property="article:modified_time" content="2014-05-18T02:57:26+00:00" />
 <meta property="article:author" content="http://razonartificial.com/themes/openmind/wordpress/author/adrigm/" />
 <meta property="og:site_name" content="Open Mind" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t1.jpg" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t2.jpg" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t3.jpg" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t6.jpg" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t4.jpg" />
-<meta property="og:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t5.jpg" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
 <meta name="twitter:site" content="@jetpack" />
-<meta name="twitter:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/t1.jpg?w=240" />
 <meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Visit the post for more." />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
 </head>
 
@@ -137,7 +167,7 @@
                     </ul>
                 </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="../tabbing/tabbing2.php">Tabbing</a>
+                    <a title="Tabbing" href="#">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
@@ -157,7 +187,7 @@
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="#">Members</a>
+                    <a title="Members" href="../members/front-page2.php">Members</a>
                 </li>
             </ul>
     </ul>
@@ -170,26 +200,25 @@
                         echo $_SESSION['u_name'];
                       ?>
                   </a>
-
         
                 <ul class="dropdown-menu">
           
                     <li>
-                      <a href="../change-profile/edit-profile2.php">
+                      <a href="../change-profile/edit-profile1.php">
                         <i class="entypo-user"></i>
                         Edit Profile
                       </a>
                     </li>
                     
                     <li>
-                      <a href="../change-profile/edit-password2.php">
+                      <a href="../change-profile/edit-password1.php">
                         <i class="entypo-lock"></i>
                         Edit Password
                       </a>
                     </li>
               
                     <li>
-                      <a href="../change-profile/upload-pic2.php">
+                      <a href="../change-profile/upload-pic1.php">
                         <i class="entypo-user"></i>
                         Edit Picture
                       </a>
@@ -198,7 +227,7 @@
                     <li>
                         <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
-              
+             
               </ul>
             </li>
           </ul> <!-- nav nabvar-nav -->
@@ -207,24 +236,27 @@
 </nav> <!-- navbar navbar-default -->
 
 
-             <header class="wrap-title">
-            <div class="container">
-                <h1 class="page-title">Our Team</h1>
-                </ol>
-            </div>
-        </header>
+<header class="wrap-title">
+    <div class="container">
+        <h1 class="page-title">Tabbing Results</h1>
+    </div>
+</header>
+
 
 <div class="container">
-    <div class="row">
-    <li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-56">
-        <a href="judges2.php">Information About Judges</a>
-    </li>
-                        
-    <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
-        <a href="members2.php">Information About Club Members</a>
-    </li>
-</div>
-</div>
+<?php
+for($i=0;$i<=5;$i=$i+2){
+$j=$i+1;
+echo "Team $a1[$i] vs Team $a1[$j] <br/>";
+}
+?>
+
+</br>
+</br>
+</br>
+
+</div> <!-- container -->
+
 
 <div class="container">
 
@@ -255,7 +287,6 @@
    
     </div> <!-- container -->
 
-    
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">
@@ -270,11 +301,12 @@
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
 
-                    
+              
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->
 </aside> <!-- footer-widgets -->
+
 
 </div> <!-- boxed -->
 
@@ -321,8 +353,8 @@
 
 	<script src="../../../../../stats.wp.com/e-201512.js" type="text/javascript"></script>
 	<script type="text/javascript">
-	st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'181',tz:'0'});
-	var load_cmc = function(){linktracker_init(68208197,181,2);};
+	st_go({v:'ext',j:'1:3.3',blog:'68208197',post:'7',tz:'0'});
+	var load_cmc = function(){linktracker_init(68208197,7,2);};
 	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
 	else load_cmc();
 	</script>
@@ -333,5 +365,5 @@
 </body>
 
 
-<!-- Mirrored from razonartificial.com/themes/openmind/wordpress/our-team/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2015 20:11:07 GMT -->
+<!-- Mirrored from razonartificial.com/themes/openmind/wordpress/portfolio/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2015 20:12:17 GMT -->
 </html>

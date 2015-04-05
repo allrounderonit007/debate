@@ -179,8 +179,9 @@ if(isset($_POST['against']))
 <!--<input type="button" value="Add Comment" class="add" onClick="myF()" /> 
 </div>
 -->
-
-
+</div>
+</div>
+</div>
 </form>
 
 </div> <!-- container -->

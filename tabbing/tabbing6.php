@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
@@ -138,10 +137,6 @@ redirect_to("tabbing7.php");
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
                 
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -192,7 +187,7 @@ redirect_to("tabbing7.php");
                     </ul>
                 </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="#">Tabbing</a>
+                    <a title="Tabbing" href="tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
@@ -202,6 +197,11 @@ redirect_to("tabbing7.php");
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -268,13 +268,13 @@ redirect_to("tabbing7.php");
 </header>
 
 
-<div class="container">
+<div class="container" align="center">
 
 
 <form action="tabbing6.php" method="post">
 
 
-<p>TEAM 5</p>
+<h2>TEAM 5</h2>
 
 <?php
 $get=mysql_query("SELECT u_name FROM user");
@@ -285,25 +285,26 @@ $option .= '<option value = "'.$row['u_name'].'">'.$row['u_name'].'</option>';
 }
 
 ?>
-<select name="cars">
+<select name="cars" style="height:40px;width:100px">
 <?php echo $option; ?>
 </select>
 
 </br>
 
-<select name="cars1">
+<select name="cars1" style="height:40px;width:100px">
 <?php echo $option; ?>
 </select>
 
 </br>
 
-<select name="cars2">
+<select name="cars2" style="height:40px;width:100px">
 <?php echo $option; ?>
 </select>
 
 </br>
 </br>
 </br>
+
 
 
 

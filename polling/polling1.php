@@ -1,55 +1,16 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
-  session_start();
-    require_once("../includes/initialize.php");
-    $message = "You already responded to the poll";
-    $p_arr=Poll::find_all();
-    $polling= Pollings::find_by_id(1);
+    require_once('../includes/initialize.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
 
-$p_users=array();
-$i=0;
+    $user=Users::find_by_id($_SESSION['u_id']);
 
-foreach($p_arr as $p_obj)
-{
-        if($p_obj->po_id == 1)
-        {
-          $p_users[] = $p_obj->po_u_ID;    
-        }
-
-        if($_SESSION['u_id']==$p_users[$i])
-        {
-          echo "<script type='text/javascript'>alert('$message');</script>";
-          break;
-        }
-        elseif($_SESSION['u_id']!=$p_users[$i])
-        {
-            if(isset($_POST['vote_up'])) 
-                {
-                    $p=Pollings::update_yes($polling->p_id,$_SESSION['y']);
-                    $_SESSION['y'] = $_SESSION['y'] + 1;
-                    $polling->p_y=$p->p_y;
-
-                    $polls = new Poll();
-                    $polls->po_id = $polling->p_id;
-                    $polls->po_u_ID = $_SESSION['u_id'];
-                    $polls->create();             
-                }
-
-                elseif(isset($_POST['vote_down']))
-                {
-                    $p1=Pollings::update_no($polling->p_id,$_SESSION['n']);
-                    $_SESSION['n'] = $_SESSION['n'] + 1;
-                    $polling->p_n=$p1->p_n;
-
-                    $polls1 = new Poll();
-                    $polls1->po_id = $polling->p_id;
-                    $polls1->po_u_ID = $_SESSION['u_id'];
-                    $polls1->create();
-                }    
-        }
-      $i++;
-    }
 ?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -93,6 +54,53 @@ foreach($p_arr as $p_obj)
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Visit the post for more." />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
+<script language="javascript" type="text/javascript">
+var p=null;
+function incy_do(choice)
+{
+  var p=choice;
+  $.get('verify_poll.php?p='+p,function(data)
+  {
+         var p=choice;
+         if(data=="1")
+            {
+                $.get('ify.php?p='+p,function(data1)
+                  {
+                      
+                  });
+                alert("Your Response Submitted");
+
+            }
+         if(data=="0")
+            {
+                alert("You already responded to this poll !!!!");
+            }
+  });
+    
+}
+function incn_do(choice)
+{
+    var p=choice;
+  $.get('verify_poll.php?p='+p,function(data)
+  {
+         var p=choice;
+         if(data=="1")
+            {
+                $.get('ifn.php?p='+p,function(data1)
+                  {
+                      
+                  });
+                alert("Your response Submitted");
+
+            }
+         if(data=="0")
+            {
+                alert("You already responded to this poll !!!!");
+            }
+  });
+
+}
+</script>
 </head>
 
 <body>
@@ -122,10 +130,6 @@ foreach($p_arr as $p_obj)
                     <a title="Home" href="../homepage1.php">Home</a>
                 </li>
 
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-                
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums1.php">Forums</a>
                 </li>
@@ -144,7 +148,7 @@ foreach($p_arr as $p_obj)
             
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="#">Polling</a>
+                    <a title="Polling" href="polling1.php">Polling</a>
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
@@ -161,6 +165,10 @@ foreach($p_arr as $p_obj)
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board1.php">Leader-Board</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -180,7 +188,7 @@ foreach($p_arr as $p_obj)
             <ul class="nav navbar-nav navbar-right">
               <li class="profile-info dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src = "<?php echo $_SESSION['u_photo'];?>" alt="" class="img-circle" width="44" />
+                  <img src = "../profile_pic/<?php echo $user->u_photo ;?>" alt="" class="img-circle" width="44" />
                       <?php   
                         echo $_SESSION['u_name'];
                       ?>
@@ -189,28 +197,28 @@ foreach($p_arr as $p_obj)
                 <ul class="dropdown-menu">
           
                     <li>
-                      <a href="./change-profile/edit-profile1.php">
+                      <a href="../change-profile/edit-profile1.php">
                         <i class="entypo-user"></i>
                         Edit Profile
                       </a>
                     </li>
                     
                     <li>
-                      <a href="./change-profile/edit-password1.php">
+                      <a href="../change-profile/edit-password1.php">
                         <i class="entypo-lock"></i>
                         Edit Password
                       </a>
                     </li>
               
                     <li>
-                      <a href="./change-profile/upload-pic1.php">
+                      <a href="../change-profile/upload-pic1.php">
                         <i class="entypo-user"></i>
                         Edit Picture
                       </a>
                     </li>
 
                     <li>
-                        <a href="../homepage.php">Log Out </a> <i class="entypo-logout right"></i>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
                     </li>
               
               </ul>
@@ -230,71 +238,133 @@ foreach($p_arr as $p_obj)
 
 
 <div class="container">
-    <ul class="portfolio-control">
-        <li class="filter active" data-filter="all">Newest</li>
-    </ul>
 
-    <div class="row" id="Grid">
-        <div class="img-caption">
-            <img width="407" height="273" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                       
-            <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal0"><i class="fa fa-search"></i>More info</a>
-                           <h4><?php echo $polling->p_topic; ?></h4>
-                       </div>
-                   </div>
-               </div>
+    <div class="container" id="Grid">
+
+<?php
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$rec_limit = 2;
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$dbfound = mysql_select_db('debate',$conn);
+
+if($dbfound){
+/* Get total number of records */
+$sql = "SELECT count(p_id) FROM polling ";
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+$row = mysql_fetch_array($retval, MYSQL_NUM );
+$rec_count = $row[0];
+
+$total_pages = $rec_count/2;
+
+if( isset($_GET{'page'} ) )
+{
+   $page = $_GET{'page'} + 1;
+   $offset = $rec_limit * $page ;
+}
+else
+{
+   $page = 0;
+   $offset = 0;
+}
+$left_rec = $rec_count - ($page * $rec_limit);
+
+$sql = "SELECT * ".
+       "FROM polling ".
+       "LIMIT $offset, $rec_limit";
+
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+{
+    ?> 
+
+              <article class="post">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                                <h3 class="post-title"><?php echo $row['p_topic'] ?></h3>
+                                <?php 
+                                    $user = Users::find_by_id($row['p_authorID']); 
+                                ?>
+                                <p>Posted by : <?php echo $user->u_name; ?></p>
+                            </div>
+                          </div>
+                <form action="polling1.php" method="post">
+                    <button class="btn btn-primary" type="submit" name="vote_up" >Yes</button>
+                    <button class="btn btn-primary" type="submit" name="vote_down">No</button>
+                </form>
+              </article> <!-- post -->
+                <div class="container">
+<div class="container">
+  <h4>YES</h4>
+ <progress value="<?php echo $row['p_y']; ?>" max="100">
+</progress>
+</div>
+<div class="container">
+  <h4>NO</h4>
+ <progress value="<?php echo $row['p_n']; ?>" max="100">
+</progress>
+</div>
+&nbsp;
+&nbsp;
+      
+<?php
+}
+
+$PHP_SELF = &$_SERVER['_PHP_SELF'];
+
+if( $page > 0)
+{
+   $last = $page - 2;
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+   if ($page<$total_pages-1) {
+
+     echo "     ||    <a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+   }
+   
+}
+else if( $page == 0)
+{
+   echo "<a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+}
+else if( $page==$total_pages)
+{
+   $last = $page - 2;
+   echo "No more entries to show";
+   ?>
+   <br></br>
+   <?php
+
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+}
+mysql_close($conn);
+  
+}
+else{
+  print"Database not found";
+  mysql_close($conn);
+}
+?>
+
            </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel"><?php echo $polling->p_topic; ?></h4>
-                       </div>
-
-                       <div class="modal-body">
-                            <img width="800" height="533" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                                      
-                              <div class="no-img">
-                                <p><a href="../wp-content/uploads/2014/05/2.jpg">
-                                  <img src="../wp-content/uploads/2014/05/2.jpg" alt="w2" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-121" />
-                                </a></p>
-
-                                <p> <h4> Vote your choice </h4></div>
-                              </div>
-                              
-                              <div class="modal-footer">
-                                  <div align = "center">
-                                      <form method="post" action="polling1.php">
-                                          <button type="submit" name="vote_up" class="btn btn-success" >Yes</button>
-                                      </form>
-                                      <br />
-                                      
-                           
-                                       <form method="post" action="polling1.php"> 
-                                            <button type="submit" name="vote_down" class="btn btn-danger" >No</button>
-                                       </form>
-                                  </div>
-                              </div>
-                       
-                           
-                              <h3 align = "center">Progress Bar</h3>
-                                  <div class="progress">
-                                   <?php
-                                          $variable = $polling->yes_percent();
-                                    ?>
-                                   <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $variable ?>" aria-valuemin="0" aria-valuemax="100">
-                               
-                                  </div>
-                                 </div>
-                           
-                           
-                   </div>
-               </div>
-           </div>                                 
+   
     </div> <!-- container -->
-
 <aside id="footer-widgets">
     <div class="container">
         <div class="row">

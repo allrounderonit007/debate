@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 
@@ -70,18 +69,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="#">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums.php">Forums</a>
@@ -110,6 +97,10 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -124,6 +115,17 @@
                 </li>
             </ul>
     </ul>
+
+    
+    <ul class="nav navbar-nav navbar-right">
+             <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
+            </li>
+            
+            <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
+            </li>        
+        </ul>
             
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
@@ -157,7 +159,7 @@
                                 
                                 <hr>
                                 <button type="submit" class="btn btn-primary pull-right" name="login" id="login">Login</button>
-                                <button type="submit" class="btn btn-primary" name="forget" id="forget">Forget Password</button>
+                                <button type = "submit" class="btn btn-primary" name="forget" id="forget">Forget Password</button>
                                 <div class="clearfix"></div>
                             </div>
                         </form>

@@ -2,12 +2,11 @@
 <html  lang="en-US">
 <?php
        require_once('includes/initialize.php');
-    //Load Session details...
     if (! $session->is_logged_in() )
         session_start();
     
     if( ! isset($_SESSION['u_id']) )
-        redirect_to('../homepage.php');
+        redirect_to('homepage.php');
 
     $user=Users::find_by_id($_SESSION['u_id']);
 ?>
@@ -84,14 +83,10 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="#">Home</a>
-                </li>
-
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
+                    <a title="Home" href="homepage1.php">Home</a>
                 </li>
                 
-                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
+            <!--    <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="forums/forums1.php">Forums</a>
                 </li>
 
@@ -110,7 +105,7 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
                     <a title="Polling" href="polling/polling1.php">Polling</a>
-                </li>
+                </li> -->
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
                     <a title="Events" href="events/events1.php">Events</a>
@@ -126,6 +121,10 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="topic/topic1.php">Debate Topic</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="leader-board/leader-board1.php">Leader-Board</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -267,6 +266,7 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                                <h3>Blogs</h3>
                                <p>Discussion or informational site consisting of discrete entries displayed in reverse chronlogical order.Some are personal entries while others may be related to informational stuff.</p>
                                <a href="blog/blog1.php" class="btn btn-success pull-right">View Blogs</a>
+                               <a href="blog/add-blog.php" class="btn btn-success pull-left">Add Blogs</a>
                            </div>
                        </article> <!-- mind-features-item -->
                    </div>
@@ -395,38 +395,35 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
 
 
     
-    <section id="home-blog">
+<section id="home-blog">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <h2 class="section-title">Latest post</h2>
                 </div>
-             
-                <div class="col-md-7">
+                  <div class="col-md-7">
                     <section class="home-post">
-
-                        <a href="https://www.blogger.com/blogger.g?blogID=4217456278277800867" class="thumbnail">
+                        <a class="thumbnail">
                             <img width="727" height="360" src="wp-content/uploads/2014/05/7-727x360.jpg" class="attachment-, img-responsive wp-post-image" alt="7" />                                                    </a>
-                                <h2 class="home-post-title"><a href="2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html">Know the best deals on getaway for the weekend</a></h2>
+                                <h2 class="home-post-title"><a href="2014/05/know-the-best-deals-on-getaway-for-the-weekend/index.html">Beards of a bird flock together</a></h2>
                                 <div class="no-img"><p><img src="wp-content/uploads/2014/05/7.jpg" alt="7" width="760" height="405" class="aligncenter img-responsive imageborder size-full wp-image-89" /></p>
                                 
-                                <p>Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus. Vestibulum dapibus nunc ac augue. Curabitur vestibulum aliquam leo. Praesent egestas neque eu enim. In hac habitasse platea dictumst. Fusce a quam. Etiam ut purus mattis mauris sodales aliquam. Curabitur nisi. Quisque malesuada placerat nisl. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.</p>
-                                <p>Sed augue ipsum, egestas nec, vestibulum et, malesuada adipiscing, dui. Vestibulum facilisis, purus nec pulvinar iaculis,&#8230;</div>
+                                <p>‘You’re a matured person, you know what’s your aim in life?’ asked Harsh.</p>
+                                <p>‘Yes,’ I replied.</p>
+                                <p>‘Good.’</p>
+                                <p>I waited, as we walked. I knew the interrogation wasn’t over.</p>
+                                <p>‘On a similar note, what’s the aim of your beard?’ he asked finally, his voice firm as he stared accusingly hard in my eyes struggling to find my guilt hidden somewhere within. His face was solemn.</p>
+                                
+                                </div>
 
                         <div class="row home-post-footer">
-                            <div class="col-md-8">
-                                <div class="home-post-meta">
-                                    <i class="fa fa-clock-o"></i> May 20, 2014 
-                                    <i class="fa fa-folder-open"></i> <a href="category/nature/index.html" rel="category tag">Nature</a>                                    <i class="fa fa-tags"></i><a href="tag/landscape/index.html" rel="tag">Landscape</a>, <a href="tag/nature/index.html" rel="tag">Nature</a>, <a href="tag/weekend/index.html" rel="tag">Weekend</a>                                </div>
-                            </div>
-                            
                             <div class="col-md-4">
-                                <a href="#" class="btn btn-primary btn-block">Read more</a>
+                                <a href="latestblog1.php" class="btn btn-primary btn-block">Read more</a>
                             </div>
                         </div>
                     </section>
-                </div>
-    
+              </div>
+
 
 <div class="col-md-5">
     <!-- Nav tabs -->
@@ -442,7 +439,7 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
 
                 var feedcontainer=document.getElementById("feedtopnews")
                 var feedurl="http://news.feedzilla.com/en_us/headlines/top-news.rss"
-                var feedlimit=13
+                var feedlimit=15
                 var rssoutput="<b>Top News:</b><br /><ul>"
 
                 function rssfeedsetup(){

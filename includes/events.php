@@ -7,13 +7,12 @@
 		protected static $class_name = 'events';
 		protected static $table_name = 'event';
 
-		protected static $db_fields = array( 'e_id' , 'e_name' , 'e_description' , 'e_photo' , 'e_venue' , 'e_time' , 'e_date' , 
+		protected static $db_fields = array( 'e_id' , 'e_name' , 'e_description' , 'e_venue' , 'e_time' , 'e_date' , 
 			'e_duration' );
 
 		public $e_id; 
 		public $e_name;
 		public $e_description;
-		public $e_photo;
 		public $e_venue;
 		public $e_time;
 		public $e_date;
@@ -26,6 +25,7 @@
 												
 			return !empty($result_array) ? array_shift($result_array) : false;
 		}
-				
+
+	 			
 	}
 ?>

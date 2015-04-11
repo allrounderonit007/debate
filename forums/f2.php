@@ -12,27 +12,46 @@
 
     $user=Users::find_by_id($_SESSION['u_id']);
 
-if( isset($_GET['id'] ) )
+
+  if( isset($_GET['id'] ) )
   {
     $frm = forums::find_by_id($_GET['id']);    
   }
 
-  if( isset( $_POST['submit'] ) )
+  if(isset( $_POST['against'] ) && isset($_POST['submit']) && isset($_POST['for']))
+  {
+    echo "You can't be in both the motions simultaneously";
+  }
+  
+  elseif( isset( $_POST['for'] ) && isset($_POST['submit']) && !isset($_POST['against']))
   {
     $c = new comments();
     $c->c_o_ID = $_GET['id'];
     $c->c_authorID=$_SESSION['u_id'];
-    $c->c_text= $_POST["text"];
-    $c->c_type=3;
+    $c->c_text= $_POST['text'];
+    $c->c_type= 0;
     $c->c_time=date('Y-m-d H:i:s');
-    $c->create();     
+    $c->create(); 
   }
+
+  elseif( isset( $_POST['against'] ) && isset($_POST['submit']) && !isset($_POST['for']))
+  {
+    $c = new comments();
+    $c->c_o_ID = $_GET['id'];
+    $c->c_authorID=$_SESSION['u_id'];
+    $c->c_text= $_POST['text'];
+    $c->c_type= 1;
+    $c->c_time=date('Y-m-d H:i:s');
+    $c->create();  
+  }
+
 
      $sql = "SELECT * FROM comment ORDER BY c_id desc limit 1";
      $result_set = $database->execute_query( $sql );
      $row = $database->fetch_array( $result_set );
      $c_id= array_shift( $row );
 ?>
+
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -63,21 +82,14 @@ if( isset($_GET['id'] ) )
 
 <!-- Script to add options dynamically... -->
 <script type="text/javascript">
-    function myFor()
+    function myText()
     {
+
       $("#add_new_option").before
-      ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#00FF00;" data-validate="required" data-message-required="You must provide at least 2 options."></textarea><button type="submit" name="submit">Submit</button></div></div><br /><br /><br /><br /><br />')
-
+      ('<div class="form-group" ><br /><div class="row-sm-10"><div class="col-sm-10"><input type="checkbox" name="for" value="for">For<br><input type="checkbox" name="against" value="for">Against<br><textarea id = "for" name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#FFFFFF;" data-validate="required" data-message-required="You must provide at least 2 options."></textarea><button type="submit" name="submit">Submit</button><br></div></div></div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />')
+      document.getElementById("comment").style.display="none";
     } 
-</script>
 
-<script type="text/javascript">
-    function myAgainst()
-    {
-      $("#add_new_option").before
-      ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#FF0000;" data-validate="required" data-message-required="You must provide at least 2 options." /></textarea><button type="submit" name="submit">Submit</button></div></div><br /><br /><br /><br /><br />')
-
-    } 
 </script>
  
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc0db0.php?rsd" />
@@ -125,11 +137,6 @@ if( isset($_GET['id'] ) )
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
-                
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
@@ -137,7 +144,7 @@ if( isset($_GET['id'] ) )
                             <a title="addforum" href="../forums/add-forum.php">Add Forum</a>
                         </li>
                         <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21">
-                                <a title="forum" href="#">View Forum </a>
+                                <a title="forum" href="forums2.php">View Forum </a>
                         </li>
                     </ul>
                 </li>
@@ -189,6 +196,15 @@ if( isset($_GET['id'] ) )
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -256,29 +272,22 @@ if( isset($_GET['id'] ) )
 </header>
 
 <div class="container">
-<?php
-if( ! isset( $_POST['submit'] ) )
-  {
-    ?>
+
     <form method="post" action="f2.php?id=<?php echo $_GET['id']; ?>">
-      <div class="row">
-        <div class="col-sm-5">
-          <div class="tile-block tile-red" id="todo_tasks" >
+      <div class="row" >
+        <div class="col-sm-14">
+          <div class="tile-block tile-red" id="todo_tasks" align="center">
 
 
-<p> <?php echo $frm->f_topic; ?> </p>
-<p><?php echo $frm->f_description; ?></p>
+<h2> <?php echo $frm->f_topic; ?> </h2>
+<h3><?php echo $frm->f_description; ?></h3>
 <br>
-<p>Are you in favour of this topic?</p>
+<h4>Are you in favour of this topic?</h4>
 <br>
 
-<form action="f2.php" method="post">
+<form action="f1.php" method="post">
 <div style="width:100%;height:100%;position:absolute;vertical-align:middle;text-align:center;">
-<button type="button" class="btn btn-success" align="center" onClick="myFor()">FOR</button>
-&nbsp;
-&nbsp;
-&nbsp;
-<button type="button" class="btn btn-danger" align="center" onClick="myAgainst()">AGAINST</button><br/>
+<button type="button" id="comment" align="center" onClick="myText()">Comment</button>
 </div>​
 </br>
 </br>
@@ -287,10 +296,22 @@ if( ! isset( $_POST['submit'] ) )
 $c = comments::find_all();
   foreach($c as $c_obj)
   {
-    if(($c_obj->c_o_ID == $_GET['id']) && ($c_obj->c_type==3))
+    if(($c_obj->c_o_ID == $_GET['id']))
     {
+      if($c_obj->c_type == 0)
+      {
 ?>  
-<input name="text" rows="3" class="form-control" value="<?php echo $c_obj->c_text; ?>" style="background-color:#FFFFFF" data-validate="required" data-message-required="You must provide at least 2 options."></input>
+<input name="txt" rows="3" class="form-control" value="<?php echo $c_obj->c_text; ?>" style="background-color:green" data-validate="required" data-message-required="You must provide at least 2 options."></input>
+</br>
+</br>
+<br>
+<br>
+<?php
+  }
+  else
+  {
+?>
+<input name="txt" rows="3" class="form-control" value="<?php echo $c_obj->c_text; ?>" style="background-color:red" data-validate="required" data-message-required="You must provide at least 2 options."></input>
 </br>
 </br>
 <br>
@@ -307,6 +328,7 @@ $c = comments::find_all();
 ?>
 
 </div> <!-- container -->
+
 
 <div class="container">
 

@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php 
 require_once("../includes/initialize.php");
 $message="You have entered wrong question or answer,try again";
+$_SESSION['id'] = $_POST['uid'];
 
 if(isset($_POST['submit']))
-{
-    $user= Users::find_by_id($_POST['uid']);
-    
+{   
+  $user = Users::find_by_id($_POST['uid']);
+
     if(($user->u_securityQ==$_POST['usq'])&&($user->u_securityA==$_POST['usa']))
     {
         header("location:change-password.php");
@@ -88,18 +88,6 @@ if(isset($_POST['submit']))
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="#">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums.php">Forums</a>
@@ -128,6 +116,10 @@ if(isset($_POST['submit']))
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -141,8 +133,19 @@ if(isset($_POST['submit']))
                     <a title="Members" href="../members/front-page.php">Members</a>
                 </li>
             </ul>
-    </ul>
+        </ul>
             
+
+    <ul class="nav navbar-nav navbar-right">
+             <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
+            </li>
+            
+            <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
+            </li>        
+        </ul>
+
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -230,15 +233,14 @@ function usq_validate()
         </div>
         <div id="err_id" style="color:0000ff">
                             </div>
-                            
+
       </div>
       <br /><br /><br />
-
       <div class="form-group" >
         <label for="field-1" class="control-label">Security Question :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="usq" name="usq" onBlur="usq_validate()" required>
+          <input type="text" value="" class="form-control" id="usq" name="usq" onBlur="usq_validate()" required>
         </div>
       </div>
       <br /><br /><br />
@@ -247,14 +249,14 @@ function usq_validate()
         <label for="field-1" class="control-label">Security Answer :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" id="usa" name="usa" onBlur="usa_validate()" required>  
+          <input type="password" class="form-control" id="usa" name="usa" onBlur="usa_validate()" required>  
         </div>
       </div>
       <br /><br /><br />
       
       
       <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success">Submit</button>
+        <button type="submit" name="submit" id="forget" class="btn btn-success">Submit</button>
         <button type="button" class="btn" onClick="window.location.assign('../homepage.php')">Cancel </button>
       </div>
 

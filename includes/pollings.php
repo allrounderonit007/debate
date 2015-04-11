@@ -1,9 +1,9 @@
 <?php
-return "Hello world";
 
 require_once('initialize.php');
 require_once('MySQLDatabase.php');
-class Pollings extends DatabaseObject
+
+class pollings extends DatabaseObject
 {
     protected static $class_name = 'pollings';
     protected static $table_name = 'polling';

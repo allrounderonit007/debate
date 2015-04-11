@@ -5,18 +5,23 @@
 require_once('../includes/initialize.php');
 require_once('../includes/MySQLDatabase.php');
 
-$forum=Forums::find_by_id(1);
-$comment=comments::find_by_id(1);
 $message = "You need to sign up first";
 $frm = forums::find_by_id($_GET['id']);
 if(isset($_POST['for']))
 {
      echo "<script type='text/javascript'>alert('$message');</script>";
+     redirect_to("forums.php");
 }
 if(isset($_POST['against']))
 {
      echo "<script type='text/javascript'>alert('$message');</script>";  
+     redirect_to("forums.php");
 }
+
+     $sql = "SELECT * FROM comment ORDER BY c_id desc limit 1";
+     $result_set = $database->execute_query( $sql );
+     $row = $database->fetch_array( $result_set );
+     $c_id= array_shift( $row );
 ?>
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
@@ -89,21 +94,9 @@ if(isset($_POST['against']))
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="#">Forums</a>
+                    <a title="Forums" href="forums.php">Forums</a>
                 </li>
 
                 <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
@@ -129,6 +122,10 @@ if(isset($_POST['against']))
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -143,6 +140,18 @@ if(isset($_POST['against']))
                 </li>
             </ul>
     </ul>
+
+    
+    <ul class="nav navbar-nav navbar-right">
+             <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
+            </li>
+            
+            <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
+            </li>        
+        </ul>
+    
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -157,15 +166,15 @@ if(isset($_POST['against']))
 <div class="container">
 
     <form method="post" action="f.php?id=<?php echo $_GET['id']; ?>">
-      <div class="row">
-        <div class="col-sm-5">
-          <div class="tile-block tile-red" id="todo_tasks" >
+      <div class="row" >
+        <div class="col-sm-14">
+          <div class="tile-block tile-red" id="todo_tasks" align="center">
 
 
-<p> <?php echo $frm->f_topic; ?> </p>
-<p><?php echo $frm->f_description; ?></p>
+<h2> <?php echo $frm->f_topic; ?> </h2>
+<h3><?php echo $frm->f_description; ?></h3>
 <br>
-<p>Are you in favour of this topic?</p>
+<h4>Are you in favour of this topic?</h4>
 <br>
 
 <form action="f.php" method="post">
@@ -175,10 +184,40 @@ if(isset($_POST['against']))
 <br>
 <br>
 
-<div class="form-group" id="add_new_option">
-<!--<input type="button" value="Add Comment" class="add" onClick="myF()" /> 
-</div>
--->
+<?php
+$c = comments::find_all();
+  foreach($c as $c_obj)
+  {
+    if(($c_obj->c_o_ID == $_GET['id']))
+    {
+      if($c_obj->c_type == 0)
+      {
+?>  
+<input name="txt" rows="3" class="form-control" value="<?php echo $c_obj->c_text; ?>" style="background-color:green" data-validate="required" data-message-required="You must provide at least 2 options."></input>
+</br>
+</br>
+<br>
+<br>
+<?php
+  }
+  else
+  {
+?>
+<input name="txt" rows="3" class="form-control" value="<?php echo $c_obj->c_text; ?>" style="background-color:red" data-validate="required" data-message-required="You must provide at least 2 options."></input>
+</br>
+</br>
+<br>
+<br>
+<?php
+  }
+}
+?>
+
+</form>
+<?php
+}
+?>
+
 </div>
 </div>
 </div>

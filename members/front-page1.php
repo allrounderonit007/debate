@@ -84,10 +84,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage1.php">Home</a>
                 </li>
-
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums1.php">Forums</a>
@@ -125,6 +121,10 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board1.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -135,7 +135,7 @@
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="#">Members</a>
+                    <a title="Members" href="front-page1.php">Members</a>
                 </li>
             </ul>
     </ul>
@@ -183,22 +183,20 @@
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 
-             <header class="wrap-title">
+<header class="wrap-title">
             <div class="container">
                 <h1 class="page-title">Our Team</h1>
-                </ol>
             </div>
         </header>
 
-<div class="container">
+<div class="container" align="center">
     <div class="row">
-    <li id="menu-item-56" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-56">
-        <a href="judges1.php">Information About Judges</a>
-    </li>
-                        
-    <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
-        <a href="members1.php">Information About Club Members</a>
-    </li>
+    
+        <a href="judges1.php"><h2>Information About Judges</h2></a>
+&nbsp;
+&nbsp;  
+        <a href="members1.php"><h2>Information About Club Members</h2></a>
+    
 </div>
 </div>
 

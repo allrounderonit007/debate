@@ -14,14 +14,18 @@ require_once('../includes/initialize.php');
 $variable=array();
 $inc=0;
 $sum=0;
-
+$sum1=0;
+$sum2=0;
+$sum3=0;
+$sum4=0;
+$sum5=0;
 ?>
 
 <?php
 if( isset( $_POST['submit'] ) )
 {
 
-$variable[$inc] = $_POST['cars'];
+$variable[$inc] = $_POST['o1'];
 $a=array(); 
 $get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
 $option1 = '';
@@ -33,7 +37,7 @@ $sum=$option1;
 $inc++;
 
 
-$variable[$inc] = $_POST['cars1'];
+$variable[$inc] = $_POST['o2'];
 $get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
 $option1 = '';
 while($row = mysql_fetch_assoc($get1))
@@ -44,7 +48,7 @@ $sum=$sum+$option1;
 $inc++;
 
 
-$variable[$inc] = $_POST['cars2'];
+$variable[$inc] = $_POST['o3'];
 $get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
 $option1 = '';
 while($row = mysql_fetch_assoc($get1))
@@ -52,13 +56,180 @@ while($row = mysql_fetch_assoc($get1))
   $option1=$row['u_rating'];
 } 
 $sum=$sum+$option1;
+$inc++;
+
+$variable[$inc] = $_POST['o4'];
+$a=array(); 
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum1=$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o5'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum1=$sum1+$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o6'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum1=$sum1 + $option1;
 $inc++;
   
-array_push($a,$sum);
+$variable[$inc] = $_POST['o7'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum2=$option1;
+$inc++;
 
+
+$variable[$inc] = $_POST['o8'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum2=$sum2+$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o9'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum2=$sum2+$option1;
+$inc++;
+
+$variable[$inc] = $_POST['o10'];
+$a=array(); 
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum3=$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o11'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum3=$sum3+$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o12'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum3=$sum3+$option1;
+$inc++;
+
+$variable[$inc] = $_POST['o13'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum4=$option1;
+$inc++;
+  
+$variable[$inc] = $_POST['o14'];
+$a=array(); 
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum4=$sum4 + $option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o15'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum4=$sum4+$option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o16'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum5=$option1;
+$inc++;
+
+$variable[$inc] = $_POST['o17'];
+$a=array(); 
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum5=$sum5 + $option1;
+$inc++;
+
+
+$variable[$inc] = $_POST['o18'];
+$get1=mysql_query("SELECT u_rating FROM user WHERE u_name ='". $variable[$inc]. "'");       
+$option1 = '';
+while($row = mysql_fetch_assoc($get1))
+{
+  $option1=$row['u_rating'];
+} 
+$sum5=$sum5+$option1;
+$inc++;
+
+array_push($a,$sum);
+array_push($a,$sum1);
+array_push($a,$sum2);
+array_push($a,$sum3);
+array_push($a,$sum4);
+array_push($a,$sum5);
 $_SESSION['myarray'] = $a;
 
-redirect_to("tabbing3.php");
+redirect_to("tabbing8.php");
 
 }
 ?>
@@ -134,10 +305,6 @@ redirect_to("tabbing3.php");
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
                 
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -188,7 +355,7 @@ redirect_to("tabbing3.php");
                     </ul>
                 </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="#">Tabbing</a>
+                    <a title="Tabbing" href="tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
@@ -198,6 +365,15 @@ redirect_to("tabbing3.php");
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -264,58 +440,555 @@ redirect_to("tabbing3.php");
 </header>
 
 
-<div class="container">
+            <?php
+                $get=mysql_query("SELECT u_name FROM user");
+                $option = '';
+                while($row = mysql_fetch_assoc($get))
+                {
+                $option .= '<option value = "'.$row['u_name'].'">'.$row['u_name'].'</option>';
+                }
+            ?>
+<div class="container" align="center">
 
 <form action="tabbing2.php" method="post">
+    <div class="row">            
+            <div class="col-md-6">
+                <h2>TEAM 1</h2>
+                    <div class="row">
+                    <select name="o1" id="option1" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f()">Confirm</button>
+                    </div>
+                    </br>
 
+                    <div class="row">
+                    <select name="o2" id="option2" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f1()">Confirm</button>
+                    </div>
+                    </br>
 
-<p>TEAM 1</p>
+                    <div class="row">
+                    <select name="o3" id="option3" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f2()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+            <div class="col-md-6">
+                    <h2>TEAM 2</h2>
+                    <div class="row">
+                    <select name="o4" id="option4" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f3()">Confirm</button>
+                    </div>
+                    </br>
 
-<?php
-$get=mysql_query("SELECT u_name FROM user");
-$option = '';
-while($row = mysql_fetch_assoc($get))
-{
-$option .= '<option value = "'.$row['u_name'].'">'.$row['u_name'].'</option>';
-}
+                    <div class="row">
+                    <select name="o5" id="option5" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f4()">Confirm</button>
+                    </div>
+                    </br>
 
-?>
-<select name="cars">
-<?php echo $option; ?>
-</select>
+                     <div class="row">
+                    <select name="o6" id="option6" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f5()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+            <div class="col-md-6">
+                    <h2>TEAM 3</h2>
+                    <div class="row">
+                    <select name="o7" id="option7" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f6()">Confirm</button>
+                    </div>
+                    </br>
 
-</br>
+                    <div class="row">
+                    <select name="o8" id="option8" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f7()">Confirm</button>
+                    </div>
+                    </br>
 
-<select name="cars1">
-<?php echo $option; ?>
-</select>
+                    <div class="row">
+                    <select name="o9" id="option9" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f8()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+            <div class="col-md-6">
+                    <h2>TEAM 4</h2>
+                    <div class="row">
+                    <select name="o10" id="option10" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f9()">Confirm</button>
+                    </div>
+                    </br>
 
-</br>
+                    <div class="row">
+                    <select name="o11" id="option11" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f10()">Confirm</button>
+                    </div>
+                    </br>
 
-<select name="cars2">
-<?php echo $option; ?>
-</select>
+                    <div class="row">
+                    <select name="o12" id="option12" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f11()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+            <div class="col-md-6">
+                    <h2>TEAM 5</h2>
+                    <div class="row">
+                    <select name="o13" id="option13" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f12()">Confirm</button>
+                    </div>
+                    </br>
 
-</br>
-</br>
-</br>
+                    <div class="row">
+                    <select name="o14" id="option14" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f13()">Confirm</button>
+                    </div>
+                    </br>
 
+                    <div class="row">
+                    <select name="o15" id="option15" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f14()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+            <div class="col-md-6">
+                    <h2>TEAM 6</h2>
+                    <div class="row">
+                    <select name="o16" id="option16" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f15()">Confirm</button>
+                    </div>
+                    </br>
 
+                    <div class="row">
+                    <select name="o17" id="option17" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f16()">Confirm</button>
+                    </div>
+                    </br>
 
-
+                    <div class="row">
+                    <select name="o18" id="option18" style="height:40px;width:100px">
+                    <?php echo $option; ?>
+                    </select>
+                    <button type="button" onClick="f17()">Confirm</button>
+                    </div>
+                    </br>
+                    </br>
+                    </br>
+            </div>
+        </div>
+<br>
+<br>
+<br>
 <div style="width:100%;height:100%;position:absolute;vertical-align:middle;text-align:center;">
-
-<button type="submit" align="center" name="submit">Submit</button><br/>
-
-</div>​
-
-<div class="form-group" id="add_new_option">
+            <button type="submit" name="submit">Submit</button><br/>
 
 </form>
-
-
 </div> <!-- container -->
-
+ <script type="text/javascript">
+            var x0 = document.getElementById("option1");
+            function f()
+            {
+                var x1 = document.getElementById("option2");
+                x1.remove(x0.selectedIndex);
+            }
+            function f1()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                x2.remove(x0.selectedIndex);
+                x2.remove(x1.selectedIndex);
+            }
+            function f2()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                x3.remove(x0.selectedIndex);
+                x3.remove(x1.selectedIndex);
+                x3.remove(x2.selectedIndex);
+            }
+            function f3()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                x4.remove(x0.selectedIndex);
+                x4.remove(x1.selectedIndex);
+                x4.remove(x2.selectedIndex);
+                x4.remove(x3.selectedIndex);
+            }
+            function f4()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                x5.remove(x0.selectedIndex);
+                x5.remove(x1.selectedIndex);
+                x5.remove(x2.selectedIndex);
+                x5.remove(x3.selectedIndex);
+                x5.remove(x4.selectedIndex);
+            }
+            function f5()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                x6.remove(x0.selectedIndex);
+                x6.remove(x1.selectedIndex);
+                x6.remove(x2.selectedIndex);
+                x6.remove(x3.selectedIndex);
+                x6.remove(x4.selectedIndex);
+                x6.remove(x5.selectedIndex);
+            }
+            function f6()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                x7.remove(x0.selectedIndex);
+                x7.remove(x1.selectedIndex);
+                x7.remove(x2.selectedIndex);
+                x7.remove(x3.selectedIndex);
+                x7.remove(x4.selectedIndex);
+                x7.remove(x5.selectedIndex);
+                x7.remove(x6.selectedIndex);
+            }
+            function f7()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                x8.remove(x0.selectedIndex);
+                x8.remove(x1.selectedIndex);
+                x8.remove(x2.selectedIndex);
+                x8.remove(x3.selectedIndex);
+                x8.remove(x4.selectedIndex);
+                x8.remove(x5.selectedIndex);
+                x8.remove(x6.selectedIndex);
+                x8.remove(x7.selectedIndex);
+            }
+            function f8()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                x9.remove(x0.selectedIndex);
+                x9.remove(x1.selectedIndex);
+                x9.remove(x2.selectedIndex);
+                x9.remove(x3.selectedIndex);
+                x9.remove(x4.selectedIndex);
+                x9.remove(x5.selectedIndex);
+                x9.remove(x6.selectedIndex);
+                x9.remove(x7.selectedIndex);
+                x9.remove(x8.selectedIndex);
+            }
+            function f9()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                x10.remove(x0.selectedIndex);
+                x10.remove(x1.selectedIndex);
+                x10.remove(x2.selectedIndex);
+                x10.remove(x3.selectedIndex);
+                x10.remove(x4.selectedIndex);
+                x10.remove(x5.selectedIndex);
+                x10.remove(x6.selectedIndex);
+                x10.remove(x7.selectedIndex);
+                x10.remove(x8.selectedIndex);
+                x10.remove(x9.selectedIndex);
+            }
+            function f10()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12");
+                x11.remove(x0.selectedIndex);
+                x11.remove(x1.selectedIndex);
+                x11.remove(x2.selectedIndex);
+                x11.remove(x3.selectedIndex);
+                x11.remove(x4.selectedIndex);
+                x11.remove(x5.selectedIndex);
+                x11.remove(x6.selectedIndex);
+                x11.remove(x7.selectedIndex);
+                x11.remove(x8.selectedIndex);
+                x11.remove(x9.selectedIndex);
+                x11.remove(x10.selectedIndex);
+            }
+            function f11()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                x12.remove(x0.selectedIndex);
+                x12.remove(x1.selectedIndex);
+                x12.remove(x2.selectedIndex);
+                x12.remove(x3.selectedIndex);
+                x12.remove(x4.selectedIndex);
+                x12.remove(x5.selectedIndex);
+                x12.remove(x6.selectedIndex);
+                x12.remove(x7.selectedIndex);
+                x12.remove(x8.selectedIndex);
+                x12.remove(x9.selectedIndex);
+                x12.remove(x10.selectedIndex);
+                x12.remove(x11.selectedIndex);
+            }
+            function f12()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                x13.remove(x0.selectedIndex);
+                x13.remove(x1.selectedIndex);
+                x13.remove(x2.selectedIndex);
+                x13.remove(x3.selectedIndex);
+                x13.remove(x4.selectedIndex);
+                x13.remove(x5.selectedIndex);
+                x13.remove(x6.selectedIndex);
+                x13.remove(x7.selectedIndex);
+                x13.remove(x8.selectedIndex);
+                x13.remove(x9.selectedIndex);
+                x13.remove(x10.selectedIndex);
+                x13.remove(x11.selectedIndex);
+                x13.remove(x12.selectedIndex);
+            }
+            function f13()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                var x14 = document.getElementById("option15");
+                x14.remove(x0.selectedIndex);
+                x14.remove(x1.selectedIndex);
+                x14.remove(x2.selectedIndex);
+                x14.remove(x3.selectedIndex);
+                x14.remove(x4.selectedIndex);
+                x14.remove(x5.selectedIndex);
+                x14.remove(x6.selectedIndex);
+                x14.remove(x7.selectedIndex);
+                x14.remove(x8.selectedIndex);
+                x14.remove(x9.selectedIndex);
+                x14.remove(x10.selectedIndex);
+                x14.remove(x11.selectedIndex);
+                x14.remove(x12.selectedIndex);
+                x14.remove(x13.selectedIndex);
+            }
+            function f14()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                var x14 = document.getElementById("option15");
+                var x15 = document.getElementById("option16");
+                x15.remove(x0.selectedIndex);
+                x15.remove(x1.selectedIndex);
+                x15.remove(x2.selectedIndex);
+                x15.remove(x3.selectedIndex);
+                x15.remove(x4.selectedIndex);
+                x15.remove(x5.selectedIndex);
+                x15.remove(x6.selectedIndex);
+                x15.remove(x7.selectedIndex);
+                x15.remove(x8.selectedIndex);
+                x15.remove(x9.selectedIndex);
+                x15.remove(x10.selectedIndex);
+                x15.remove(x11.selectedIndex);
+                x15.remove(x12.selectedIndex);
+                x15.remove(x13.selectedIndex);
+                x15.remove(x14.selectedIndex);
+            }
+            function f15()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                var x14 = document.getElementById("option15");
+                var x15 = document.getElementById("option16");
+                var x16 = document.getElementById("option17");
+                x16.remove(x0.selectedIndex);
+                x16.remove(x1.selectedIndex);
+                x16.remove(x2.selectedIndex);
+                x16.remove(x3.selectedIndex);
+                x16.remove(x4.selectedIndex);
+                x16.remove(x5.selectedIndex);
+                x16.remove(x6.selectedIndex);
+                x16.remove(x7.selectedIndex);
+                x16.remove(x8.selectedIndex);
+                x16.remove(x9.selectedIndex);
+                x16.remove(x10.selectedIndex);
+                x16.remove(x11.selectedIndex);
+                x16.remove(x12.selectedIndex);
+                x16.remove(x13.selectedIndex);
+                x16.remove(x14.selectedIndex);
+                x16.remove(x15.selectedIndex);
+            }
+            function f16()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                var x14 = document.getElementById("option15");
+                var x15 = document.getElementById("option16");
+                var x16 = document.getElementById("option17");
+                var x17 = document.getElementById("option18");
+                x17.remove(x0.selectedIndex);
+                x17.remove(x1.selectedIndex);
+                x17.remove(x2.selectedIndex);
+                x17.remove(x3.selectedIndex);
+                x17.remove(x4.selectedIndex);
+                x17.remove(x5.selectedIndex);
+                x17.remove(x6.selectedIndex);
+                x17.remove(x7.selectedIndex);
+                x17.remove(x8.selectedIndex);
+                x17.remove(x9.selectedIndex);
+                x17.remove(x10.selectedIndex);
+                x17.remove(x11.selectedIndex);
+                x17.remove(x12.selectedIndex);
+                x17.remove(x13.selectedIndex);
+                x17.remove(x14.selectedIndex);
+                x17.remove(x15.selectedIndex);
+                x17.remove(x16.selectedIndex);
+            }
+            </script>
 
 <div class="container">
 
@@ -330,17 +1003,7 @@ $option .= '<option value = "'.$row['u_name'].'">'.$row['u_name'].'</option>';
        <p><br></p>
        <p><br></p>
        <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-       <p><br></p>
-                        
+       <p><br></p>                        
     </div>
 
    

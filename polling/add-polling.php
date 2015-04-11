@@ -1,20 +1,16 @@
-
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
     require_once('../includes/initialize.php');
-    session_start();
-    if(isset($_POST['submit']))
-    {
-      $poll=new Pollings();
-      $poll->p_topic = $_POST['topic'];
-      $poll->p_authorID = $_SESSION['u_id'];
-      $poll->p_y = NULL;
-      $poll->p_n = NULL;
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
 
-      $poll->create();
-    }
+    $user=Users::find_by_id($_SESSION['u_id']);
+
 ?>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
@@ -58,6 +54,18 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Visit the post for more." />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
+<script language="javascript" type="text/javascript">
+    function final_check() 
+    {
+       if(document.getElementById("topic").value.length==9)
+        {
+                   return false;
+        }
+        else
+          return true;
+        
+    }
+    </script>
 </head>
 
 <body>
@@ -83,10 +91,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
                 
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -116,7 +120,7 @@
                 <li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22 dropdown"><a title="Polling" href="#" data-toggle="dropdown" class="dropdown-toggle">Polling <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
                         <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
-                            <a title="Addpoll" href="#">Add Polling</a>
+                            <a title="Addpoll" href="add-polling.php">Add Polling</a>
                         </li>
                         <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24">
                                 <a title="Poll" href="../polling/polling2.php">View Poll</a>
@@ -147,6 +151,15 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -225,20 +238,20 @@
   
   <div class="panel-body">
   
-    <form role="form" id="form1" method="post" class="validate">
+    <form role="form" id="form1" method="post" class="validate" action="add-poll.php" onSubmit="return final_check()">
       
       <div class="form-group" >
         <label for="field-1" class="control-label">Topic :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" value="" name="topic" data-validate="required" data-message-required="First Name is required for identification."/>  
+          <input type="text" class="form-control" value="" name="topic" id="topic" data-validate="required" data-message-required="First Name is required for identification."/>  
         </div>
       </div>
       <br /><br /><br />
       
       
       <div class="form-group">
-        <button type="submit" name="submit" class="btn btn-success">Add Question</button>
+        <button type="submit" name="addq" class="btn btn-success">Add Question</button>
         <button type="button" class="btn" onClick="window.location.assign('../homepage2.php')">Cancel </button>
       </div>
 
@@ -294,8 +307,6 @@
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
                             <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
-
-               
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

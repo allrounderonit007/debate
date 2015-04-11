@@ -2,7 +2,6 @@
 <html  lang="en-US">
 <?php
     require_once("../includes/initialize.php");
-    $polling= Pollings::find_by_id(1);
     $message = "You need to sign up first";
 
     if(isset($_POST['vote_up']))
@@ -85,18 +84,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums.php">Forums</a>
@@ -107,7 +94,7 @@
                 </li>
                 
                 <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="#">Polling</a>
+                    <a title="Polling" href="polling.php">Polling</a>
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
@@ -125,6 +112,10 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -139,6 +130,17 @@
                 </li>
             </ul>
     </ul>
+
+    
+    <ul class="nav navbar-nav navbar-right">
+             <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
+            </li>
+            
+            <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
+            </li>        
+        </ul>
             
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
@@ -154,69 +156,132 @@
 
 
 <div class="container">
-    <ul class="portfolio-control">
-        <li class="filter active" data-filter="all">Newest</li>
-    </ul>
 
-    <div class="row" id="Grid">
-        <div class="img-caption">
-            <img width="407" height="273" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                       
-            <div class="caption">
-                       <div class="caption-content">
-                           <a href="#" class="animated fadeInDown" data-toggle="modal" data-target="#myModal0"><i class="fa fa-search"></i>More info</a>
-                           <h4><?php echo $polling->p_topic; ?></h4>
-                       </div>
-                   </div>
-               </div>
+    <div class="container" id="Grid">
+
+<?php
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$rec_limit = 2;
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$dbfound = mysql_select_db('debate',$conn);
+
+if($dbfound){
+/* Get total number of records */
+$sql = "SELECT count(p_id) FROM polling ";
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+$row = mysql_fetch_array($retval, MYSQL_NUM );
+$rec_count = $row[0];
+
+$total_pages = $rec_count/2;
+
+if( isset($_GET{'page'} ) )
+{
+   $page = $_GET{'page'} + 1;
+   $offset = $rec_limit * $page ;
+}
+else
+{
+   $page = 0;
+   $offset = 0;
+}
+$left_rec = $rec_count - ($page * $rec_limit);
+
+$sql = "SELECT * ".
+       "FROM polling ".
+       "LIMIT $offset, $rec_limit";
+
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+{
+    ?> 
+
+              <article class="post">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                
+                                <h3 class="post-title"><?php echo $row['p_topic'] ?></h3>
+                                <?php 
+                                    $user = Users::find_by_id($row['p_authorID']); 
+                                ?>
+                                <p>Posted by : <?php echo $user->u_name; ?></p>
+                            </div>
+                          </div>
+                <form action="polling.php" method="post">
+                    <button class="btn btn-primary" type="submit" name="vote_up" >Yes</button>
+                    <button class="btn btn-primary" type="submit" name="vote_down">No</button>
+                </form>
+              </article> <!-- post -->
+                <div class="container">
+<div class="container">
+  <h4>YES</h4>
+ <progress value="<?php echo $row['p_y']; ?>" max="100">
+</progress>
+</div>
+<div class="container">
+  <h4>NO</h4>
+ <progress value="<?php echo $row['p_n']; ?>" max="100">
+</progress>
+</div>
+&nbsp;
+&nbsp;
+      
+<?php
+}
+
+$PHP_SELF = &$_SERVER['_PHP_SELF'];
+
+if( $page > 0)
+{
+   $last = $page - 2;
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+   if ($page<$total_pages-1) {
+
+     echo "     ||    <a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+   }
+   
+}
+else if( $page == 0)
+{
+   echo "<a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+}
+else if( $page==$total_pages)
+{
+   $last = $page - 2;
+   echo "No more entries to show";
+   ?>
+   <br></br>
+   <?php
+
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+}
+mysql_close($conn);
+  
+}
+else{
+  print"Database not found";
+  mysql_close($conn);
+}
+?>
+
            </div>
-           <!-- Modal -->
-           <div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                           <h4 class="modal-title" id="myModalLabel"><?php echo $polling->p_topic; ?></h4>
-                       </div>
-
-                       <div class="modal-body">
-                            <img width="800" height="533" src="../wp-content/uploads/2014/05/2.jpg" class="attachment-, img-responsive wp-post-image" alt="w2" />                                                      
-                              <div class="no-img">
-                                <p><a href="../wp-content/uploads/2014/05/2.jpg">
-                                  <img src="../wp-content/uploads/2014/05/2.jpg" alt="w2" width="800" height="533" class="aligncenter imageborder img-responsive size-full wp-image-121" />
-                                </a></p>
-
-                                <p> <h4> Vote your choice </h4></div>
-                              </div>
-                              
-                              <div class="modal-footer">
-                                  <div align = "center">
-                                      <form method="post" action="polling.php">
-                                          <button type="submit" name="vote_up" class="btn btn-success" value = "1">Yes</button>
-                                      </form>
-                                      <br />
-                                      
-                           
-                                       <form method="post" action="polling.php"> 
-                                            <button type="submit" name="vote_down" class="btn btn-danger" value= "1" >No</button>
-                                       </form>
-                                  </div>
-                              </div>
-                       
-                           
-                              <h3 align = "center">Progress Bar</h3>
-                                  <div class="progress">
-                                   <?php
-                                          $variable = $polling->yes_percent();
-                                    ?>
-                                   <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $variable ?>" aria-valuemin="0" aria-valuemax="100">
-                               
-                                  </div>
-                                 </div>
-                           
-                           
-                   </div>
-               </div>
-           </div>                                 
+   
     </div> <!-- container -->
 
 <aside id="footer-widgets">
@@ -233,6 +298,7 @@
                             <a href="../faq/faq.php">Frequently Asked Questions</a>
                         </li>
 
+                    
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

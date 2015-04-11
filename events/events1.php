@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
@@ -89,10 +88,6 @@
                     <a title="Home" href="../homepage1.php">Home</a>
                 </li>
 
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-                
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums1.php">Forums</a>
                 </li>
@@ -115,7 +110,7 @@
                 </li>
                 
                 <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="#">Events</a>
+                    <a title="Events" href="events1.php">Events</a>
                 </li>
                 
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
@@ -130,6 +125,10 @@
                     <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
                 </li>
                 
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board1.php">Leader-Board</a>
+                </li>
+
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
             

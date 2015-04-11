@@ -10,8 +10,6 @@
         redirect_to('../homepage.php');
 
     $user=Users::find_by_id($_SESSION['u_id']);
-
-    $event=Events::find_by_id(1);
   
     if(isset($_POST['evnt']))
     {
@@ -22,7 +20,6 @@
       $evnts->e_time = $_POST['time'];
       $evnts->e_date = $_POST['date'];
       $evnts->e_duration = $_POST['duration'];
-      $evnts->e_photo = "hi";
       $evnts->create();
     }
 ?>
@@ -99,9 +96,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
 
                <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -163,6 +157,15 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -300,12 +303,7 @@
       </div>
       <br /><br /><br />
 
-     <label for="field-1" class="control-label" name="photo">Upload Picture : </label>
-      <form action = "upload-pic1.php" enctype = "multipart/form-data" method = "POST">
-            <p><input type = "file" name="abcd" /></p>
-            <input type = "submit" name = "submit" value = "Upload" />
-      </form>
-      <div class="form-group">
+      <div class="form-group" action="add-event.php">
         <button type="submit" name="evnt" class="btn btn-success">Add Event</button>
         <button type="button" class="btn" onClick="window.location.assign('../homepage2.php')">Cancel </button>
       </div>

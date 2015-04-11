@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
@@ -18,7 +17,7 @@ $sum=0;
 
 
 $a = $_SESSION['myarray'];
-
+print_r($a);
 $a1=array();
 $a1[0]=1;
 $a1[1]=2;
@@ -113,10 +112,6 @@ $a1[$j]=$temp;
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
                 
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -167,7 +162,7 @@ $a1[$j]=$temp;
                     </ul>
                 </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="#">Tabbing</a>
+                    <a title="Tabbing" href="tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
@@ -177,6 +172,15 @@ $a1[$j]=$temp;
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -243,11 +247,11 @@ $a1[$j]=$temp;
 </header>
 
 
-<div class="container">
+<div class="container" align="center">
 <?php
 for($i=0;$i<=5;$i=$i+2){
 $j=$i+1;
-echo "Team $a1[$i] vs Team $a1[$j] <br/>";
+echo "<h2>Team $a1[$i] vs Team $a1[$j] </h2><br/>";
 }
 ?>
 

@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html  lang="en-US">
 
+<?php
+    
+    require_once('../includes/initialize.php');
+    //Load Session details...
+    if (! $session->is_logged_in() )
+        session_start();
+    
+    if( ! isset($_SESSION['u_id']) )
+        redirect_to('../homepage.php');
+
+    $usr=Users::find_by_id($_SESSION['u_id']);
+?>
+		
+
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <meta charset="UTF-8">
@@ -59,9 +73,9 @@
             <p class="animated fadeInLeft">Don't Raise Your Voice,Improve Your Argument</p>
         </div>
         <div id="search-header" class="hidden-xs animated fadeInRight">
-            <img src="../daiict.jpg" alt="icon" style="width:370px;height:90px">
-        </div>
-    </div> <!-- container -->
+            <img src="../daiict.jpg" alt="icon" style="width:370px;height:90px">        </div>
+    </div> 
+    <!-- container -->
 </header> <!-- header -->
 
 <nav class="navbar navbar-static-top navbar-mind" role="navigation">
@@ -71,249 +85,325 @@
         <div class="collapse navbar-collapse navbar-mind-collapse">
             <ul id="menu-mainmenu" class="nav navbar-nav">
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Home" href="../homepage.php">Home</a>
+                    <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
+                
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
+                        <li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
+                            <a title="addforum" href="../forums/add-forum.php">Add Forum</a>
                         </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
+                        <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21">
+                                <a title="forum" href="../forums/forums2.php">View Forum </a>
+                        </li>
+                    </ul>
+                </li>
+            
+                 <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
+                            <a title="addblog" href="../blog/add-blog1.php">Add a blog</a>
+                        </li>
+                        <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
+                                <a title="viewblog" href="../blog/blog2.php">View Blogs</a>
                         </li>
                     </ul>
                 </li>
                 
-                <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="../forums/forums.php">Forums</a>
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-22" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-22 dropdown"><a title="Polling" href="#" data-toggle="dropdown" class="dropdown-toggle">Polling <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23">
+                            <a title="Addpoll" href="../polling/add-polling.php">Add Polling</a>
+                        </li>
+                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24">
+                                <a title="Poll" href="../polling/polling2.php">View Poll</a>
+                        </li>
+                    </ul>
                 </li>
-
-                <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
-                    <a title="Blogs" href="../blog/blog.php">Blogs</a>
-                </li>
-                
-                <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
-                    <a title="Polling" href="../polling/polling.php">Polling</a>
-                </li>
-                
-                <li id="menu-item-8" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8">
-                    <a title="Events" href="../events/events.php">Events</a>
-                </li>
-                
+            
+            
+                <ul role="menu" class=" dropdown-menu"></ul>
+                <li id="menu-item-25" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-25 dropdown"><a title="events" href="#" data-toggle="dropdown" class="dropdown-toggle">Events <span class="caret"></span></a>
+                    <ul role="menu" class=" dropdown-menu">
+                        <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26">
+                            <a title="Addevent" href="../events/add-event.php">Add Event</a>
+                        </li>
+                        <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27">
+                                <a title="Event" href="../events/events2.php">View Event</a>
+                        </li>
+                    </ul>
+                </li>    
                 <li id="menu-item-9" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9">
-                    <a title="Tabbing" href="../tabbing/tabbing.php">Tabbing</a>
+                    <a title="Tabbing" href="../tabbing/tabbing2.php">Tabbing</a>
                 </li>
                 
                 <li id="menu-item-10" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10">
-                    <a title="Senate" href="../senate/senate.php">Senate</a>
+                    <a title="Senate" href="../senate/senate2.php">Senate</a>
                 </li>
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
-                    <a title="Topic" href="../topic/topic.php">Debate Topic</a>
+                    <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
             
             <ul role="menu" class=" dropdown-menu">
                 <li id="menu-item-13" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13">
-                    <a title="Debate Club Details" href="../club/club.php">Debate Club Details</a>
+                    <a title="Debate Club Details" href="../club/club2.php">Debate Club Details</a>
                 </li>
                 
                 <li id="menu-item-14" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                    <a title="Members" href="#">Members</a>
+                    <a title="Members" href="../members/front-page2.php">Members</a>
                 </li>
             </ul>
     </ul>
             
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
+              <li class="profile-info dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src = "../profile_pic/<?php echo $user->u_photo ;?>" alt="" class="img-circle" width="44" />
+                      <?php   
+                        echo $_SESSION['u_name'];
+                      ?>
+                  </a>
+
+        
+                <ul class="dropdown-menu">
+          
+                    <li>
+                      <a href="../change-profile/edit-profile2.php">
+                        <i class="entypo-user"></i>
+                        Edit Profile
+                      </a>
+                    </li>
                     
-                    <div class="dropdown-menu dropdown-login animated fadeInUp">
-                        <form role="form" name="loginform" id="loginform" action="http://razonartificial.com/themes/openmind/wordpress/wp-login.php" method="post">
-                            <h4 class="section-title">Login Form</h4>
-                    
-                            <div class="form-group">
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" class="form-control" placeholder="Username" name="log" id="user_login">
-                                </div>
-                                <br>
-                                
-                                <div class="input-group login-input">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password" name="pwd" id="user_pass">
-                                </div>
-                                
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  name="rememberme" id="rememberme" value="forever" tabindex="90"> Remember me
-                                    </label>
-                                </div>
-                                
-                                <input type="hidden" name="redirect_to" value="http://razonartificial.com/themes/openmind/wordpress" />
-                                
-                                <input type="hidden" name="testcookie" value="1" />
-                                
-                                <button type="submit" class="btn btn-primary pull-right" name="wp-submit" id="wp-submit">Login</button>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                        </form>      
-                    </div>
-                </li> <!-- dropdown -->
-            </ul> <!-- nav nabvar-nav -->
+                    <li>
+                      <a href="../change-profile/edit-password2.php">
+                        <i class="entypo-lock"></i>
+                        Edit Password
+                      </a>
+                    </li>
+              
+                    <li>
+                      <a href="../change-profile/upload-pic2.php">
+                        <i class="entypo-user"></i>
+                        Edit Picture
+                      </a>
+                    </li>
+
+                    <li>
+                        <a href="../login/check_login.php?action=logout">Log Out </a> <i class="entypo-logout right"></i>
+                    </li>
+              
+              </ul>
+            </li>
+          </ul> <!-- nav nabvar-nav -->
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
 
              <header class="wrap-title">
             <div class="container">
-                <h1 class="page-title">Our Team</h1>
+                <h1 class="page-title">Information</h1>
                 </ol>
             </div>
         </header>
 
-        <div class="container">
+        
+		
+		
+		
+		
+		
+<div class="container">
+		
+		
+<form action="manage-user.php" method="post">
+		
+		
+<h3>Manage Members</h3>
 
-                    <div class="row">
-	<div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-8">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-<img src="../wp-content/uploads/2014/05/t1.jpg" alt="t1" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
+<table class="table table-bordered table-striped datatable" id="table-2">
+	<thead>
+		<tr>
+			<th>CheckBox</th>
+			<th>User Name</th>
+			<th>User ID</th>
+			<th>Is Admin</th>
+			<th>Action</th>
+			<th>Change Admin Status</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+    <?php 
+ 	  $user_array = users::find_all();
+	  foreach($user_array as $user)
+	  {
+	  ?>
+		<tr>
+			<td>
+				<div class="checkbox checkbox-replace">
+					<input type="checkbox" id="chk-1">
 				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-11">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t2.jpg" alt="t2" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-14">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t3.jpg" alt="t3" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-17">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t6.jpg" alt="t6" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t4.jpg" alt="t4" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-	 <div class="col-md-6">
-		<section>
-			<div class="panel panel-default  animated fadeInDown animation-delay-18">
-				<div class="panel-body">
-					<h3 class="section-title">Sheldon Cooper <small class="pull-right">Programmer</small><div class="clearfix"></div></h3>
-					<div class="clearfix"></div>
-					<img src="../wp-content/uploads/2014/05/t5.jpg" alt="t5" width="180" height="220" class="alignleft imageborder" />
-					<p class="no-margin-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, explicabo, impedit, voluptatibus fugiat saepe mollitia modi ab itaque cumque perferendis aut ducimus voluptas enim. Aspernatur, nobis id molestias! Quas, beatae commodi voluptates qui sed sint eos magni perferendis! Ea, necessitatibus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, illum dolor alias provident officiis. Neque at accusamus quis provident delectus commodi voluptates.</p>
-					<div class="clearfix"></div>
-					<hr />
-					<a href="#" class="social-icon soc-twitter animated fadeInDown"><i class="fa fa-twitter"></i></a>
-					<a href="#" class="social-icon soc-google-plus animated fadeInDown"><i class="fa fa-google-plus"></i></a>
-					<a href="#" class="social-icon soc-facebook animated fadeInDown"><i class="fa fa-facebook"></i></a>
-					<a href="#" class="social-icon soc-instagram animated fadeInDown"><i class="fa fa-instagram"></i></a>
-					<a href="#" class="social-icon soc-pinterest animated fadeInDown"><i class="fa fa-pinterest"></i></a>
-					<a href="#" class="social-icon soc-linkedin animated fadeInDown"><i class="fa fa-linkedin"></i></a>
-					<a href="#" class="social-icon soc-github animated fadeInDown"><i class="fa fa-github"></i></a>
-				</div>
-			</div>
-		</section>
-	</div>
-</div>                    
-        </div> <!-- container -->
+			</td>
+			
+			<td> <?php echo $user->u_name ;?></td>
+			
+			<td><?php echo $user->u_id ;?></td>
+			
+			<td><?php echo $user->u_isAdmin;?></td>
+			
+			<td>
+								
+				<a href="#" class="btn btn-danger btn-sm btn-icon icon-left" onClick="window.location.assign('delete-user.php?id=<?php echo $user->u_id ?>')" >
+					<i class="entypo-cancel"></i>
+					Delete
+				</a>
+				
+				
+			</td>
+			
+			<td>
+								
+				<a href="#" class="btn btn-success" onClick="window.location.assign('change-admin-status.php?id=<?php echo $user->u_id ?>')" >
+					<i class="entypo-cancel"></i>
+					Change Status
+				</a>
+				
+				
+			</td>
+			
+			
+		
+		
+		
+		</tr>
+		<?php
+		}
+		?>
+		
+		
+		
+	
+	</tbody>
+</table>
+		
+		
+		
+<script type="text/javascript">
+jQuery(window).load(function()
+{
+	var $ = jQuery;
+	
+	$("#table-2").dataTable({
+		"sPaginationType": "bootstrap",
+		"sDom": "t<'row'<'col-xs-6 col-left'i><'col-xs-6 col-right'p>>",
+		"bStateSave": false,
+		"iDisplayLength": 8,
+		"aoColumns": [
+			{ "bSortable": false },
+			null,
+			null,
+			null,
+			null
+		]
+	});
+	
+	$(".dataTables_wrapper select").select2({
+		minimumResultsForSearch: -1
+	});
+	
+	// Highlighted rows
+	$("#table-2 tbody input[type=checkbox]").each(function(i, el)
+	{
+		var $this = $(el),
+			$p = $this.closest('tr');
+		
+		$(el).on('change', function()
+		{
+			var is_checked = $this.is(':checked');
+			
+			$p[is_checked ? 'addClass' : 'removeClass']('highlight');
+		});
+	});
+	
+	// Replace Checboxes
+	$(".pagination a").click(function(ev)
+	{
+		replaceCheckboxes();
+	});
+});
+	
+// Sample Function to add new row
+var giCount = 1;
+
+function fnClickAddRow() 
+{
+	$('#table-2').dataTable().fnAddData(['<div class="checkbox checkbox-replace"><input type="checkbox" /></div>', giCount+".2", giCount+".3", giCount+".4", giCount+".5" ]);
+	
+	replaceCheckboxes(); // because there is checkbox, replace it
+	
+	giCount++;
+}
+</script>
+
+
+
+<br />
+<br />
+
+
+
+
+		<?php 
+			echo FOOTER;
+		?>
+
+
+
+<br /><!-- Footer -->
+	</div>	
+		
+		
+		
+	<link rel="stylesheet" href="assets/js/datatables/responsive/css/datatables.responsive.css">
+	<link rel="stylesheet" href="assets/js/select2/select2-bootstrap.css">
+	<link rel="stylesheet" href="assets/js/select2/select2.css">
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/gsap/main-gsap.js"></script>
+	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.dataTables.min.js"></script>
+	<script src="assets/js/datatables/TableTools.min.js"></script>
+	<script src="assets/js/dataTables.bootstrap.js"></script>
+	<script src="assets/js/datatables/jquery.dataTables.columnFilter.js"></script>
+	<script src="assets/js/datatables/lodash.min.js"></script>
+	<script src="assets/js/datatables/responsive/js/datatables.responsive.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
+	<script src="assets/js/neon-chat.js"></script>
+	<script src="assets/js/neon-custom.js"></script>
+	<script src="assets/js/neon-demo.js"></script>
+		
+		
+		
     
 <aside id="footer-widgets">
     <div class="container">
@@ -322,22 +412,12 @@
                 <div class="col-md-4">
                     <h3 class="footer-widget-title">Sitemap</h3>
                         <li id="menu-item-16" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-16">
-                            <a href="../contact/contact.php">Contact Us</a>
+                            <a href="../contact/contact2.php">Contact Us</a>
                         </li>
                         
                         <li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                            <a href="../faq/faq.php">Frequently Asked Questions</a>
+                            <a href="../faq/faq2.php">Frequently Asked Questions</a>
                         </li>
-
-                    <h3 class="footer-widget-title">Subscribe</h3>
-                        <p>You can subscribe by entering the email address below</p>
-                    
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email Adress">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="button">Subscribe</button>
-                        </span>
-                    </div><!-- /input-group -->
                 </div>
             </div> <!-- row -->
     </div> <!-- container -->

@@ -14,6 +14,7 @@
 	defined('FOOTER') ? null :
 		define('FOOTER' , '&copy 2015. The Debate Club,DA-IICT');
 	
+  
     require_once( LIB_PATH.DS.'users.php' );
 	require_once( LIB_PATH.DS.'config.php' );
 	require_once( LIB_PATH.DS.'Session.php' );

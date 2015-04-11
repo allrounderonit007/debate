@@ -72,10 +72,6 @@
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage2.php">Home</a>
                 </li>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
-
                 
                 <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4 dropdown"><a title="Forums" href="#" data-toggle="dropdown" class="dropdown-toggle">Forums <span class="caret"></span></a>
@@ -96,7 +92,7 @@
                             <a title="addblog" href="../blog/add-blog1.php">Add a blog</a>
                         </li>
                         <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41">
-                                <a title="viewblog" href="#">View Blogs</a>
+                                <a title="viewblog" href="blog2.php">View Blogs</a>
                         </li>
                     </ul>
                 </li>
@@ -136,6 +132,15 @@
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic2.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board2.php">Leader-Board</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../manage-user/manage-user.php">Manage User</a>
+                </li>
+                
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -202,40 +207,125 @@
     </div>
 </header>
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-14">
             <?php
-            $blo=blogs::find_all();
-            foreach($blo as $blo_obj){
-            ?>  
-                                                <article class="post">
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$rec_limit = 2;
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$dbfound = mysql_select_db('debate',$conn);
+
+if($dbfound){
+/* Get total number of records */
+$sql = "SELECT count(b_id) FROM blog ";
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+$row = mysql_fetch_array($retval, MYSQL_NUM );
+$rec_count = $row[0];
+
+$total_pages = $rec_count/2;
+
+if( isset($_GET{'page'} ) )
+{
+   $page = $_GET{'page'} + 1;
+   $offset = $rec_limit * $page ;
+}
+else
+{
+   $page = 0;
+   $offset = 0;
+}
+$left_rec = $rec_count - ($page * $rec_limit);
+
+$sql = "SELECT * ".
+       "FROM blog ".
+       "LIMIT $offset, $rec_limit";
+
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
+{
+    ?> 
+                    <article class="post">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h3 class="post-title"><?php echo $blo_obj->b_topic; ?></h3>
+                                <h3 class="post-title"><?php echo $row['b_topic']; ?></h3>
                                 <div class="row">
                                     <div class="col-lg-4">
-                                                                                    <img width="260" height="405" src="../wp-content/uploads/2014/05/7.jpg" class="attachment-, imageborder img-responsive wp-post-image" alt="7" />                                                                            </div>
-                                    <div class="col-lg-4">
-                                        <?php echo $blo_obj->b_description; ?>                                </div>
+                                        <?php echo $row['b_description']; ?>                                </div>
                                 </div>
                             </div>
                             <div class="panel-footer">
                                 <div class="row">
                                     <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <i class="fa fa-clock-o"></i> <?php echo $blo_obj->b_time; ?>  
-                                        <i class="fa fa-user"></i> <a href="#"><?php echo $blo_obj->b_authorID; ?> </a> 
-                                        <i class="fa fa-folder-open"></i> <a rel="category tag"><?php echo $blo_obj->b_category; ?> </a>
+                                    <?php
+                                        $user = Users::find_by_id($row['b_authorID']);
+                                    ?>
+                                        <i class="fa fa-user"></i> <a href="#"><?php echo $user->u_name; ?> </a> 
+                                        <i class="fa fa-folder-open"></i> <a rel="category tag"><?php echo $row['b_category']; ?> </a>
                                     </div>
                                     
                                 </div>
                             </div>
                         </div>
                     </article> <!-- post -->
-                    <?php
-                    }
-                    ?>  
+                    
+<?php
+}
+
+$PHP_SELF = &$_SERVER['_PHP_SELF'];
+
+if( $page > 0)
+{
+   $last = $page - 2;
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+   if ($page<$total_pages-1) {
+
+     echo "     ||    <a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+   }
+   
+}
+else if( $page == 0)
+{
+   echo "<a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+}
+else if( $page==$total_pages)
+{
+   $last = $page - 2;
+   echo "No more entries to show";
+   ?>
+   <br></br>
+   <?php
+
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+}
+mysql_close($conn);
+  
+}
+else{
+  print"Database not found";
+  mysql_close($conn);
+}
+?>
+
+        <div class="col-md-4">
+            
 
                 </div>
     </div> <!-- row -->

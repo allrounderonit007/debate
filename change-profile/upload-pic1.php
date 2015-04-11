@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html  lang="en-US">
 <?php
@@ -82,10 +80,6 @@ require_once('../includes/initialize.php');
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage1.php">Home</a>
                 </li>
-
-                <li id="menu-item-4" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4">
-                    <a title="Profile" href="#">Profile</a>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
                     <a title="Forums" href="../forums/forums1.php">Forums</a>
@@ -122,6 +116,10 @@ require_once('../includes/initialize.php');
                 
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic1.php">Debate Topic</a>
+                </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board1.php">Leader-Board</a>
                 </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
@@ -164,7 +162,7 @@ require_once('../includes/initialize.php');
                     </li>
               
                     <li>
-                      <a href="#">
+                      <a href="upload-pic1.php">
                         <i class="entypo-user"></i>
                         Edit Picture
                       </a>

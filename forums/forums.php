@@ -5,8 +5,6 @@
 require_once('../includes/initialize.php');
 require_once('../includes/MySQLDatabase.php');
 
-$forum=Forums::find_by_id(1);
-$comment=comments::find_by_id(1);
 $message = "You need to sign up first";
 if(isset($_POST['for']))
 {
@@ -88,21 +86,9 @@ if(isset($_POST['against']))
                 <li id="menu-item-1" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children">
                     <a title="Home" href="../homepage.php">Home</a>
                 </li>
-
-            <ul role="menu" class=" dropdown-menu"></ul>
-                <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2 dropdown"><a title="Profile" href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
-                            <a title="Login" href="../login/login.php">Login</a>
-                        </li>
-                        <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
-                                <a title="Register" href="../register/register.php">Register</a>
-                        </li>
-                    </ul>
-                </li>
                 
                 <li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5">
-                    <a title="Forums" href="#">Forums</a>
+                    <a title="Forums" href="forums.php">Forums</a>
                 </li>
 
                 <li id="menu-item-6" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6">
@@ -128,6 +114,10 @@ if(isset($_POST['against']))
                 <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
                     <a title="Topic" href="../topic/topic.php">Debate Topic</a>
                 </li>
+
+                <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+                    <a title="Topic" href="../leader-board/leader-board.php">Leader-Board</a>
+                </li>
                 
                 <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12 dropdown">
                     <a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle">About Us <span class="caret"></span></a>
@@ -141,7 +131,20 @@ if(isset($_POST['against']))
                     <a title="Members" href="../members/front-page.php">Members</a>
                 </li>
             </ul>
+           
     </ul>
+
+
+    <ul class="nav navbar-nav navbar-right">
+             <li id="menu-item-3" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3">
+                            <a title="Login" href="../login/login.php">Login</a>
+            </li>
+            
+            <li id="menu-item-4" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4">
+                                <a title="Register" href="../register/register.php">Register</a>
+            </li>        
+        </ul>
+
         </div><!-- navbar-collapse -->
     </div> <!-- container -->
 </nav> <!-- navbar navbar-default -->
@@ -156,18 +159,65 @@ if(isset($_POST['against']))
 <div class="container">
 <?php
 $empty=0;
-$frm=forums::find_all();
-foreach($frm as $frm_obj)
+
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$rec_limit = 2;
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+if(! $conn )
+{
+  die('Could not connect: ' . mysql_error());
+}
+
+$dbfound = mysql_select_db('debate',$conn);
+
+if($dbfound){
+/* Get total number of records */
+$sql = "SELECT count(f_id) FROM forum ";
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+$row = mysql_fetch_array($retval, MYSQL_NUM );
+$rec_count = $row[0];
+
+$total_pages = $rec_count/2;
+
+if( isset($_GET{'page'} ) )
+{
+   $page = $_GET{'page'} + 1;
+   $offset = $rec_limit * $page ;
+}
+else
+{
+   $page = 0;
+   $offset = 0;
+}
+$left_rec = $rec_count - ($page * $rec_limit);
+
+$sql = "SELECT * ".
+       "FROM forum ".
+       "LIMIT $offset, $rec_limit";
+
+$retval = mysql_query( $sql, $conn );
+if(! $retval )
+{
+  die('Could not get data: ' . mysql_error());
+}
+while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
 {
 $empty++;
 ?>
   <div class="col-sm-3">  
     <div class="tile-progress tile-primary">
       <div class="tile-header">
-        <h3><?php echo $frm_obj->f_topic; ?></h3>
+        <h3><?php echo $row['f_topic']; ?></h3>
       </div>
       <div class="tile-header">
-        <h3><?php echo $frm_obj->f_description; ?></h3>
+        <h3><?php echo $row['f_description']; ?></h3>
       </div>
       
       
@@ -177,7 +227,7 @@ $empty++;
           <button 
             type="button" 
             class="btn btn-info" 
-            onClick="window.location.assign('f.php?id=<?php echo $frm_obj->f_id; ?>')" 
+            onClick="window.location.assign('f.php?id=<?php echo $row['f_id']; ?>')" 
           >
             View Forums
         </button>
@@ -189,17 +239,49 @@ $empty++;
   <!-- End of div class="col-sm-3" -->
   <!-- LOOP ENDS HERE... -->
 <?php 
-  } 
-
+}
 if($empty==0)
 {
  ?>
 <h3> Sorry! You do not have a forum to view </h3>
 <?php
  }
-?>
+
+$PHP_SELF = &$_SERVER['_PHP_SELF'];
+
+if( $page > 0)
+{
+   $last = $page - 2;
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+   if ($page<$total_pages-1) {
+
+     echo "     ||    <a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+   }
+   
+}
+else if( $page == 0)
+{
+   echo "<a href=\"$PHP_SELF?page=$page\"><h4>Next 2 Records</h4></a>";
+}
+else if( $page==$total_pages)
+{
+   $last = $page - 2;
+   echo "No more entries to show";
+   ?>
+   <br></br>
+   <?php
+
+   echo "<a href=\"$PHP_SELF?page=$last\"><h4>Last 2 Records</h4></a>";
+}
+mysql_close($conn);
   
-    
+}
+else{
+  print"Database not found";
+  mysql_close($conn);
+}
+?>
+
 </div> <!-- Endof row... -->
 
 <div class="container">

@@ -458,7 +458,7 @@ redirect_to("tabbing8.php");
                     <select name="o1" id="option1" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f()">Confirm</button>
+                    <button type="button" id="opt1" onClick="f()">Confirm</button>
                     </div>
                     </br>
 
@@ -466,7 +466,7 @@ redirect_to("tabbing8.php");
                     <select name="o2" id="option2" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f1()">Confirm</button>
+                    <button type="button" id="opt2" onClick="f1()">Confirm</button>
                     </div>
                     </br>
 
@@ -474,7 +474,7 @@ redirect_to("tabbing8.php");
                     <select name="o3" id="option3" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f2()">Confirm</button>
+                    <button type="button" id="opt3" onClick="f2()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -486,7 +486,7 @@ redirect_to("tabbing8.php");
                     <select name="o4" id="option4" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f3()">Confirm</button>
+                    <button type="button" id="opt4" onClick="f3()">Confirm</button>
                     </div>
                     </br>
 
@@ -494,7 +494,7 @@ redirect_to("tabbing8.php");
                     <select name="o5" id="option5" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f4()">Confirm</button>
+                    <button type="button" id="opt5" onClick="f4()">Confirm</button>
                     </div>
                     </br>
 
@@ -502,7 +502,7 @@ redirect_to("tabbing8.php");
                     <select name="o6" id="option6" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f5()">Confirm</button>
+                    <button type="button" id="opt6" onClick="f5()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -514,7 +514,7 @@ redirect_to("tabbing8.php");
                     <select name="o7" id="option7" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f6()">Confirm</button>
+                    <button type="button" id="opt7"  onClick="f6()">Confirm</button>
                     </div>
                     </br>
 
@@ -522,7 +522,7 @@ redirect_to("tabbing8.php");
                     <select name="o8" id="option8" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f7()">Confirm</button>
+                    <button type="button" id="opt8" onClick="f7()">Confirm</button>
                     </div>
                     </br>
 
@@ -530,7 +530,7 @@ redirect_to("tabbing8.php");
                     <select name="o9" id="option9" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f8()">Confirm</button>
+                    <button type="button" id="opt9" onClick="f8()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -542,7 +542,7 @@ redirect_to("tabbing8.php");
                     <select name="o10" id="option10" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f9()">Confirm</button>
+                    <button type="button" id="opt10" onClick="f9()">Confirm</button>
                     </div>
                     </br>
 
@@ -550,7 +550,7 @@ redirect_to("tabbing8.php");
                     <select name="o11" id="option11" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f10()">Confirm</button>
+                    <button type="button" id="opt11"  onClick="f10()">Confirm</button>
                     </div>
                     </br>
 
@@ -558,7 +558,7 @@ redirect_to("tabbing8.php");
                     <select name="o12" id="option12" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f11()">Confirm</button>
+                    <button type="button" id="opt12" onClick="f11()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -570,7 +570,7 @@ redirect_to("tabbing8.php");
                     <select name="o13" id="option13" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f12()">Confirm</button>
+                    <button type="button" id="opt13" onClick="f12()">Confirm</button>
                     </div>
                     </br>
 
@@ -578,7 +578,7 @@ redirect_to("tabbing8.php");
                     <select name="o14" id="option14" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f13()">Confirm</button>
+                    <button type="button" id="opt14" onClick="f13()">Confirm</button>
                     </div>
                     </br>
 
@@ -586,7 +586,7 @@ redirect_to("tabbing8.php");
                     <select name="o15" id="option15" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f14()">Confirm</button>
+                    <button type="button" id="opt15" onClick="f14()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -598,7 +598,7 @@ redirect_to("tabbing8.php");
                     <select name="o16" id="option16" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f15()">Confirm</button>
+                    <button type="button" id="opt16" onClick="f15()">Confirm</button>
                     </div>
                     </br>
 
@@ -606,7 +606,7 @@ redirect_to("tabbing8.php");
                     <select name="o17" id="option17" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f16()">Confirm</button>
+                    <button type="button" id="opt17"  onClick="f16()">Confirm</button>
                     </div>
                     </br>
 
@@ -614,7 +614,7 @@ redirect_to("tabbing8.php");
                     <select name="o18" id="option18" style="height:40px;width:100px">
                     <?php echo $option; ?>
                     </select>
-                    <button type="button" onClick="f17()">Confirm</button>
+                    <button type="button" id="opt18" onClick="f17()">Confirm</button>
                     </div>
                     </br>
                     </br>
@@ -635,6 +635,8 @@ redirect_to("tabbing8.php");
             {
                 var x1 = document.getElementById("option2");
                 x1.remove(x0.selectedIndex);
+                document.getElementById("opt1").style.display="none";
+                
             }
             function f1()
             {
@@ -642,6 +644,7 @@ redirect_to("tabbing8.php");
                 var x2 = document.getElementById("option3");
                 x2.remove(x0.selectedIndex);
                 x2.remove(x1.selectedIndex);
+                document.getElementById("opt2").style.display="none";
             }
             function f2()
             {
@@ -651,6 +654,7 @@ redirect_to("tabbing8.php");
                 x3.remove(x0.selectedIndex);
                 x3.remove(x1.selectedIndex);
                 x3.remove(x2.selectedIndex);
+                document.getElementById("opt3").style.display="none";
             }
             function f3()
             {
@@ -662,6 +666,7 @@ redirect_to("tabbing8.php");
                 x4.remove(x1.selectedIndex);
                 x4.remove(x2.selectedIndex);
                 x4.remove(x3.selectedIndex);
+                document.getElementById("opt4").style.display="none";
             }
             function f4()
             {
@@ -675,6 +680,7 @@ redirect_to("tabbing8.php");
                 x5.remove(x2.selectedIndex);
                 x5.remove(x3.selectedIndex);
                 x5.remove(x4.selectedIndex);
+                document.getElementById("opt5").style.display="none";
             }
             function f5()
             {
@@ -690,6 +696,7 @@ redirect_to("tabbing8.php");
                 x6.remove(x3.selectedIndex);
                 x6.remove(x4.selectedIndex);
                 x6.remove(x5.selectedIndex);
+                document.getElementById("opt6").style.display="none";
             }
             function f6()
             {
@@ -707,6 +714,7 @@ redirect_to("tabbing8.php");
                 x7.remove(x4.selectedIndex);
                 x7.remove(x5.selectedIndex);
                 x7.remove(x6.selectedIndex);
+                document.getElementById("opt7").style.display="none";
             }
             function f7()
             {
@@ -726,6 +734,7 @@ redirect_to("tabbing8.php");
                 x8.remove(x5.selectedIndex);
                 x8.remove(x6.selectedIndex);
                 x8.remove(x7.selectedIndex);
+                document.getElementById("opt8").style.display="none";
             }
             function f8()
             {
@@ -747,6 +756,7 @@ redirect_to("tabbing8.php");
                 x9.remove(x6.selectedIndex);
                 x9.remove(x7.selectedIndex);
                 x9.remove(x8.selectedIndex);
+                document.getElementById("opt9").style.display="none";
             }
             function f9()
             {
@@ -770,6 +780,7 @@ redirect_to("tabbing8.php");
                 x10.remove(x7.selectedIndex);
                 x10.remove(x8.selectedIndex);
                 x10.remove(x9.selectedIndex);
+                document.getElementById("opt10").style.display="none";
             }
             function f10()
             {
@@ -795,6 +806,7 @@ redirect_to("tabbing8.php");
                 x11.remove(x8.selectedIndex);
                 x11.remove(x9.selectedIndex);
                 x11.remove(x10.selectedIndex);
+                document.getElementById("opt11").style.display="none";
             }
             function f11()
             {
@@ -822,6 +834,7 @@ redirect_to("tabbing8.php");
                 x12.remove(x9.selectedIndex);
                 x12.remove(x10.selectedIndex);
                 x12.remove(x11.selectedIndex);
+                document.getElementById("opt12").style.display="none";
             }
             function f12()
             {
@@ -851,6 +864,7 @@ redirect_to("tabbing8.php");
                 x13.remove(x10.selectedIndex);
                 x13.remove(x11.selectedIndex);
                 x13.remove(x12.selectedIndex);
+                document.getElementById("opt13").style.display="none";
             }
             function f13()
             {
@@ -882,6 +896,7 @@ redirect_to("tabbing8.php");
                 x14.remove(x11.selectedIndex);
                 x14.remove(x12.selectedIndex);
                 x14.remove(x13.selectedIndex);
+                document.getElementById("opt14").style.display="none";
             }
             function f14()
             {
@@ -915,6 +930,7 @@ redirect_to("tabbing8.php");
                 x15.remove(x12.selectedIndex);
                 x15.remove(x13.selectedIndex);
                 x15.remove(x14.selectedIndex);
+                document.getElementById("opt15").style.display="none";
             }
             function f15()
             {
@@ -950,6 +966,7 @@ redirect_to("tabbing8.php");
                 x16.remove(x13.selectedIndex);
                 x16.remove(x14.selectedIndex);
                 x16.remove(x15.selectedIndex);
+                document.getElementById("opt16").style.display="none";
             }
             function f16()
             {
@@ -987,6 +1004,47 @@ redirect_to("tabbing8.php");
                 x17.remove(x14.selectedIndex);
                 x17.remove(x15.selectedIndex);
                 x17.remove(x16.selectedIndex);
+                document.getElementById("opt17").style.display="none";
+            }
+            function f17()
+            {
+                var x1 = document.getElementById("option2");
+                var x2 = document.getElementById("option3");
+                var x3 = document.getElementById("option4");
+                var x4 = document.getElementById("option5");
+                var x5 = document.getElementById("option6");
+                var x6 = document.getElementById("option7");
+                var x7 = document.getElementById("option8");
+                var x8 = document.getElementById("option9");
+                var x9 = document.getElementById("option10");
+                var x10 = document.getElementById("option11");
+                var x11 = document.getElementById("option12"); 
+                var x12 = document.getElementById("option13");
+                var x13 = document.getElementById("option14");
+                var x14 = document.getElementById("option15");
+                var x15 = document.getElementById("option16");
+                var x16 = document.getElementById("option17");
+                var x17 = document.getElementById("option18");
+                var x18 = document.getElementById("option19");
+                x18.remove(x0.selectedIndex);
+                x18.remove(x1.selectedIndex);
+                x18.remove(x2.selectedIndex);
+                x18.remove(x3.selectedIndex);
+                x18.remove(x4.selectedIndex);
+                x18.remove(x5.selectedIndex);
+                x18.remove(x6.selectedIndex);
+                x18.remove(x7.selectedIndex);
+                x18.remove(x8.selectedIndex);
+                x18.remove(x9.selectedIndex);
+                x18.remove(x10.selectedIndex);
+                x18.remove(x11.selectedIndex);
+                x18.remove(x12.selectedIndex);
+                x18.remove(x13.selectedIndex);
+                x18.remove(x14.selectedIndex);
+                x18.remove(x15.selectedIndex);
+                x18.remove(x16.selectedIndex);
+                x18.remove(x17.selectedIndex);
+                document.getElementById("opt18").style.display="none";
             }
             </script>
 

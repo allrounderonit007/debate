@@ -308,7 +308,7 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
                                             Goal #3
                                         </a>
                                     </h4>
@@ -325,7 +325,7 @@ google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed">
                                             Goal #4
                                         </a>
                                     </h4>

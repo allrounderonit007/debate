@@ -71,6 +71,7 @@
 <meta name="twitter:image" content="http://razonartificial.com/themes/openmind/wordpress/wp-content/uploads/2014/05/w1.jpg?w=240" />
 <meta name="twitter:card" content="summary" />
 <style type="text/css" id="syntaxhighlighteranchor"></style>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -109,7 +110,7 @@
                     </ul>
                 </li>
             
-                 <ul role="menu" class=" dropdown-menu"></ul>
+                <ul role="menu" class=" dropdown-menu"></ul>
                 <li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 dropdown"><a title="Blog" href="#" data-toggle="dropdown" class="dropdown-toggle">Blogs <span class="caret"></span></a>
                     <ul role="menu" class=" dropdown-menu">
                         <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31">
@@ -233,6 +234,93 @@
                     </div>
                 </header>
 
+<script type="text/javascript">
+function name_validate() 
+    {
+        if(document.getElementById("name").value.length==0)
+        {
+                    document.getElementById("err_name").innerHTML="This Field Cannot be empty !!";
+        }
+        else if (!isNaN(document.getElementById("name").value)) 
+        {
+             document.getElementById("err_name").innerHTML="Not a Valid Name";
+            //put error message on error division
+        }
+        else
+        {
+         document.getElementById("err_name").innerHTML="";   
+        }
+    }
+
+function description_validate() 
+    {
+        if(document.getElementById("description").value.length==0)
+        {
+                    document.getElementById("err_d").innerHTML="This Field Cannot be empty !!";
+        }
+        else if (!isNaN(document.getElementById("description").value)) 
+        {
+             document.getElementById("err_d").innerHTML="Not a Valid Description";
+            //put error message on error division
+        }
+        else
+        {
+         document.getElementById("err_name").innerHTML="";   
+        }
+    }
+
+ function venue_validate()
+    {
+        if(document.getElementById('venue').value==0)
+        {
+            document.getElementById('err_v').innerHTML="Enter Venue";
+        }
+        else
+        {
+            document.getElementById('err_v').innerHTML="";
+        }
+    }
+function duration_validate()
+    {
+        if(document.getElementById('duration').value==0)
+        {
+            document.getElementById('err_dr').innerHTML="Enter Duration";
+        }
+        else
+        {
+            document.getElementById('err_dr').innerHTML="";
+        }
+    }
+function time_validate()
+    {
+        if(document.getElementById('time').value==0)
+        {
+            document.getElementById('err_t').innerHTML="Enter Time";
+        }
+        else
+        {
+            document.getElementById('err_t').innerHTML="";
+        }
+    }
+    function date_validate()
+    {
+        if(document.getElementById('date').value==0)
+        {
+            document.getElementById('err_dt').innerHTML="Enter Date";
+        }
+        else
+        {
+            document.getElementById('err_dt').innerHTML="";
+        }
+    }
+$(function()
+{
+  $('#date').datepicker();
+});
+
+</script>
+
+
                 <div class="panel panel-primary">
 
   <div class="panel-heading">
@@ -250,9 +338,10 @@
         <label for="field-1" class="control-label">Name :</label>
         <br />
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="name" />  
+          <input type="text" class="form-control" name="name" onBlur="name_validate()" required/>  
         </div>
       </div>
+      <div id="err_name" style="color:0000ff"></div>
       <br /><br /><br />
       
       
@@ -260,9 +349,10 @@
         <label for="field-1" class="control-label">Description :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="description"  />
+        <input type="text" class="form-control" name="description" onBlur="description_validate()" required />
         </div>
       </div>
+      <div id="err_d" style="color:0000ff"></div>
       <br /><br /><br />
       
   
@@ -270,27 +360,30 @@
         <label for="field-1" class="control-label">Venue :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="venue"  />
+        <input type="text" class="form-control" name="venue"  onBlur="venue_validate()" required/>
         </div>
       </div>
+      <div id="err_v" style="color:0000ff"></div>
       <br /><br /><br />
       
       <div class="form-group" >
         <label for="field-1" class="control-label">Time :</label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="time"  />
+        <input type="time" class="form-control" name="time"  onBlur="time_validate()" required/>
         </div>
       </div>
+       <div id="err_t" style="color:0000ff"></div>
       <br /><br /><br />
       
       <div class="form-group" >
         <label for="field-1" class="control-label">Duration : </label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="duration" />
+        <input type="text" class="form-control" name="duration" onBlur="duration_validate()" required/>
         </div>
       </div>
+      <div id="err_dr" style="color:0000ff"></div>
       <br /><br /><br />
       
 
@@ -298,9 +391,10 @@
         <label for="field-1" class="control-label">Date : </label>
         <br />
         <div class="col-sm-5">
-        <input type="text" class="form-control" name="date" />
+        <input type="text" class="form-control" name="date" onBlur="date_validate()" required/>
         </div>
       </div>
+       <div id="err_dt" style="color:0000ff"></div>
       <br /><br /><br />
 
       <div class="form-group" action="add-event.php">

@@ -1008,42 +1008,6 @@ redirect_to("tabbing8.php");
             }
             function f17()
             {
-                var x1 = document.getElementById("option2");
-                var x2 = document.getElementById("option3");
-                var x3 = document.getElementById("option4");
-                var x4 = document.getElementById("option5");
-                var x5 = document.getElementById("option6");
-                var x6 = document.getElementById("option7");
-                var x7 = document.getElementById("option8");
-                var x8 = document.getElementById("option9");
-                var x9 = document.getElementById("option10");
-                var x10 = document.getElementById("option11");
-                var x11 = document.getElementById("option12"); 
-                var x12 = document.getElementById("option13");
-                var x13 = document.getElementById("option14");
-                var x14 = document.getElementById("option15");
-                var x15 = document.getElementById("option16");
-                var x16 = document.getElementById("option17");
-                var x17 = document.getElementById("option18");
-                var x18 = document.getElementById("option19");
-                x18.remove(x0.selectedIndex);
-                x18.remove(x1.selectedIndex);
-                x18.remove(x2.selectedIndex);
-                x18.remove(x3.selectedIndex);
-                x18.remove(x4.selectedIndex);
-                x18.remove(x5.selectedIndex);
-                x18.remove(x6.selectedIndex);
-                x18.remove(x7.selectedIndex);
-                x18.remove(x8.selectedIndex);
-                x18.remove(x9.selectedIndex);
-                x18.remove(x10.selectedIndex);
-                x18.remove(x11.selectedIndex);
-                x18.remove(x12.selectedIndex);
-                x18.remove(x13.selectedIndex);
-                x18.remove(x14.selectedIndex);
-                x18.remove(x15.selectedIndex);
-                x18.remove(x16.selectedIndex);
-                x18.remove(x17.selectedIndex);
                 document.getElementById("opt18").style.display="none";
             }
             </script>

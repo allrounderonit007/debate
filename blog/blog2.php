@@ -277,8 +277,8 @@ while($row = mysql_fetch_array($retval, MYSQL_ASSOC))
                                     <?php
                                         $user = Users::find_by_id($row['b_authorID']);
                                     ?>
-                                        <i class="fa fa-user"></i> <a href="#"><?php echo $user->u_name; ?> </a> 
-                                        <i class="fa fa-folder-open"></i> <a rel="category tag"><?php echo $row['b_category']; ?> </a>
+                                        <i class="fa fa-user"></i><?php echo $user->u_name; ?>
+                                        <i class="fa fa-folder-open"></i> <?php echo $row['b_category']; ?> 
                                     </div>
                                     
                                 </div>

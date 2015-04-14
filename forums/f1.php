@@ -18,31 +18,28 @@
     $frm = forums::find_by_id($_GET['id']);    
   }
 
-if(isset( $_POST['against'] ) && isset($_POST['submit']) && isset($_POST['for']))
-  {
-    echo "You can't be in both the motions simultaneously";
-  }
-  
-  elseif( isset( $_POST['for'] ) && isset($_POST['submit']) && !isset($_POST['against']))
+ if( isset( $_POST['submit'] ) )
   {
     $c = new comments();
     $c->c_o_ID = $_GET['id'];
     $c->c_authorID=$_SESSION['u_id'];
-    $c->c_text= $_POST['text'];
-    $c->c_type= 0;
+    $c->c_text= $_POST["text"];
+    $c->c_type=0;
     $c->c_time=date('Y-m-d H:i:s');
-    $c->create(); 
+    $c->create();    
+    redirect_to("forums2.php"); 
   }
 
-  elseif( isset( $_POST['against'] ) && isset($_POST['submit']) && !isset($_POST['for']))
+  if( isset( $_POST['submit1'] ) )
   {
     $c = new comments();
     $c->c_o_ID = $_GET['id'];
     $c->c_authorID=$_SESSION['u_id'];
-    $c->c_text= $_POST['text'];
-    $c->c_type= 1;
+    $c->c_text= $_POST["text"];
+    $c->c_type=1;
     $c->c_time=date('Y-m-d H:i:s');
-    $c->create();  
+    $c->create(); 
+    redirect_to("forums2.php");    
   }
 
      $sql = "SELECT * FROM comment ORDER BY c_id desc limit 1";
@@ -76,15 +73,35 @@ if(isset( $_POST['against'] ) && isset($_POST['submit']) && isset($_POST['for'])
 
 <!-- Script to add options dynamically... -->
 
+
 <script type="text/javascript">
-    function myText()
-    {
+var submition = 1;
 
-      $("#add_new_option").before
-      ('<div class="form-group" ><br /><div class="row-sm-10"><div class="col-sm-10"><input type="checkbox" name="for" value="for">For<br><input type="checkbox" name="against" value="for">Against<br><textarea id = "for" name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#FFFFFF;" data-validate="required" data-message-required="You must provide at least 2 options."></textarea><button type="submit" name="submit">Submit</button><br></div></div></div><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />')
-      document.getElementById("comment").style.display="none";
+function submitted () {
+  submition = 1;
+}
+    function myFor()
+    { 
+      if(submition==1){
+        submition=0;
+        $("#add_new_option").before
+        ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#00FF00;" data-validate="required" data-message-required="You must provide at least 2 options."></textarea><br><button type="submit" name="submit" onClick="submitted()">Submit</button>   <button type="submit" name="cancel" onClick="window.location.refresh()">Cancel</button></div></div>')
+
+        }
+      
     } 
+</script>
 
+<script type="text/javascript">
+    function myAgainst()
+    { 
+      if(submition==1){
+        submition=0;
+        $("#add_new_option").before
+        ('<div class="form-group" ><br /><div class="row-sm-3"><div class="col-sm-10"><textarea name="text" rows="3" class="form-control" name="option_content[]" style="background-color:#FF0000;" data-validate="required" data-message-required="You must provide at least 2 options." /></textarea><br><button type="submit" name="submit" onClick="submitted()">Submit</button>   <button type="submit" name="cancel" onClick="window.location.refresh()">Cancel</button></div></div><br /><br /><br /><br /><br />')
+      }
+      
+    } 
 </script>
 
 
@@ -240,7 +257,10 @@ if(isset( $_POST['against'] ) && isset($_POST['submit']) && isset($_POST['for'])
 
 
 <div class="container">
-
+<?php
+if( ! isset( $_POST['submit'] ) )
+  {
+    ?>    
     <form method="post" action="f1.php?id=<?php echo $_GET['id']; ?>">
       <div class="row" >
         <div class="col-sm-14">
@@ -253,9 +273,9 @@ if(isset( $_POST['against'] ) && isset($_POST['submit']) && isset($_POST['for'])
 <h4>Are you in favour of this topic?</h4>
 <br>
 
-<form action="f1.php" method="post">
-<div style="width:100%;height:100%;position:absolute;vertical-align:middle;text-align:center;">
-<button type="button" id="comment" align="center" onClick="myText()">Comment</button>
+
+<button type="button" class="btn btn-success" onClick="myFor()" >For</button>
+<button type="button" class="btn btn-danger"  onClick="myAgainst()">Against</button><br/>
 </div>​
 </br>
 </br>
@@ -290,8 +310,9 @@ $c = comments::find_all();
 ?>
 <div class="form-group" id="add_new_option" >
 
-</form>
+
 <?php
+}
 }
 ?>
 
